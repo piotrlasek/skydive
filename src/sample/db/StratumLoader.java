@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author piotr
+ * @author Piotr Lasek
  */
 public class StratumLoader {
  
