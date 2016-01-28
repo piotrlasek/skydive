@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="FXyzLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/FXyzLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdbcclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

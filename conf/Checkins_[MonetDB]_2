@@ -1,0 +1,7 @@
+#Mon Mar 02 13:49:40 EST 2015
+attributes=count_sqrt
+connectionString=jdbc\:monetdb\://localhost/checkins;monetdb;monetdb
+driver=nl.cwi.monetdb.jdbc.MonetDriver
+measures=tile_y;tile_x
+databaseName=Checkins [MonetDB] 2
+databaseType=Empress
