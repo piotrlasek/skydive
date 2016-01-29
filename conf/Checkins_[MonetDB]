@@ -1,6 +1,6 @@
 #Mon Mar 02 13:51:30 EST 2015
 attributes=count_sqrt;mon;tue;wed;thu;fri;sat;sun
-connectionString=jdbc\:monetdb\://192.168.56.101/checkins;monetdb;monetdb
+connectionString=jdbc\:monetdb\://192.168.56.102/checkins;monetdb;monetdb
 driver=nl.cwi.monetdb.jdbc.MonetDriver
 measures=tile_y;tile_x
 databaseName=Checkins [MonetDB]
