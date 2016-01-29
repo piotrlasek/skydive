@@ -1,3 +1,5 @@
+-- Piotr Lasek (2016)
+
 DROP TABLE CUBED_PYRAMID CASCADE;
 
 /*
