@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/ids.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/monet-checkins-cubed-pyramid.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/monet-cmd-calls.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/monet-cmd-checkins.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/monet-cmd.sql" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DataTV.iml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot-calls-density.png" afterPath="$PROJECT_DIR$/tmp/snapshot-calls-density.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot-calls-types.png" afterPath="$PROJECT_DIR$/tmp/snapshot-calls-types.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot-calls.png" afterPath="$PROJECT_DIR$/tmp/snapshot-calls.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot-checkins-days.png" afterPath="$PROJECT_DIR$/tmp/snapshot-checkins-days.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582103437.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582103437.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582131034.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582131034.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582148968.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582148968.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582210948.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582210948.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582235808.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582235808.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582269397.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582269397.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582350900.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582350900.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582367672.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582367672.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582391238.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582391238.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582430406.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582430406.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582454514.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582454514.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582493337.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582493337.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425582511933.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425582511933.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425598208921.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425598208921.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshot1425660157726.png" afterPath="$PROJECT_DIR$/tmp/snapshot1425660157726.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshota-blur.png" afterPath="$PROJECT_DIR$/tmp/snapshota-blur.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshota.png" afterPath="$PROJECT_DIR$/tmp/snapshota.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshotb.png" afterPath="$PROJECT_DIR$/tmp/snapshotb.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshotc.png" afterPath="$PROJECT_DIR$/tmp/snapshotc.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/snapshotd.png" afterPath="$PROJECT_DIR$/tmp/snapshotd.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/skydive/Controller.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/skydive/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/PlotController.java" afterPath="$PROJECT_DIR$/src/skydive/PlotController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/asdf.form" afterPath="$PROJECT_DIR$/src/skydive/asdf.form" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/asdf.java" afterPath="$PROJECT_DIR$/src/skydive/asdf.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/Aggregate.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Aggregate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/DataObject.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataObject.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/DataObjectReader.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataObjectReader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/DataToGraphics.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataToGraphics.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/Stratum.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Stratum.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/StratumVis.form" afterPath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.form" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/StratumVis.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/TextureGenerator.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/TextureGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/d2i/Tile.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Tile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/BaseTuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/DatasetConfig.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/DatasetManager.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatasetManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/QueryHelper.java" afterPath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/Stratum.java" afterPath="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/StratumLoader.java" afterPath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/Tuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/Tuple.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/db/ValueObject.java" afterPath="$PROJECT_DIR$/src/skydive/db/ValueObject.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/DataSetEditFrame.form" afterPath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.form" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/DataSetEditFrame.java" afterPath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/EnhancedTriangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/GraphicalVariable.java" afterPath="$PROJECT_DIR$/src/skydive/gui/GraphicalVariable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/MyMesh.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/MyMeshView.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/Triangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/gui/ViewConfig.java" afterPath="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sample/main.fxml" afterPath="$PROJECT_DIR$/src/skydive/main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,12 +126,118 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Triangulator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="6" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StratumLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stratum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/Stratum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tuple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValueObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/ValueObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Aggregate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Aggregate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseTuple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#1726#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatasetManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/DatasetManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cubed_Checkins_[MonetDB].txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2278481">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -76,6 +248,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/db/StratumLoader.java" />
+        <option value="$PROJECT_DIR$/sql/monet-checkins-cubed-pyramid.sql" />
+        <option value="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/ValueObject.java" />
+        <option value="$PROJECT_DIR$/src/skydive/d2i/Aggregate.java" />
+        <option value="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt" />
       </list>
     </option>
   </component>
@@ -90,7 +269,7 @@
     <option name="width" value="1688" />
     <option name="height" value="1024" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -148,7 +327,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d2i" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -171,6 +434,15 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/conf" />
+      <recent name="$PROJECT_DIR$/sql" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -609,11 +881,11 @@
     <configuration default="false" name="Main" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="skydive.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="skydive.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -647,12 +919,19 @@
       <option name="number" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1454004912796" duration="2402000" />
+      <workItem from="1454004912796" duration="5641000" />
     </task>
+    <task id="LOCAL-00001" summary="Some very minor changes.">
+      <created>1454013650868</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1454013650868</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3704000" />
+    <option name="totallyTimeSpent" value="6943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1688" height="1024" extended-state="6" />
@@ -665,10 +944,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50610435" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26859045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24908425" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1904762" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -691,6 +970,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Some very minor changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some very minor changes." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -700,7 +985,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -710,7 +995,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -720,23 +1005,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63844395">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582103437.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582131034.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582148968.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582210948.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582269397.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshota.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshotc.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshotd.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot-calls-types.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425598208921.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582235808.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582350900.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582367672.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582391238.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/snapshot1425582430406.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/ids.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16475973">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.4272152">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/monet-checkins-cubed-pyramid.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59810126">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/ViewConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="264" column="4" selection-start-line="264" selection-start-column="4" selection-end-line="264" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="6" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Stratum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/ValueObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Aggregate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#1726#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatasetManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2278481">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
