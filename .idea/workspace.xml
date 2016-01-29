@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/create_cp.sql" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sql/monet-checkins-cubed-pyramid.sql" afterPath="$PROJECT_DIR$/sql/define_cp_functions.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" afterPath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -793,7 +790,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1454004912796" duration="5641000" />
-      <workItem from="1454080251965" duration="3411000" />
+      <workItem from="1454080251965" duration="3420000" />
     </task>
     <task id="LOCAL-00001" summary="Some very minor changes.">
       <created>1454013650868</created>
@@ -801,11 +798,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454013650868</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Some very minor changes.">
+      <created>1454085911400</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1454085911400</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10354000" />
+    <option name="totallyTimeSpent" value="10363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="641" y="0" width="1286" height="1047" extended-state="0" />
