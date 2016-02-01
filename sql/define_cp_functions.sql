@@ -9,7 +9,6 @@
 -- SET
 --  s = (time - cast('2008-03-21 20:36:21.000000' as timestamp))/1000/60;
 
-
 /*
  * Returns a size of a "spatial" base tile.
  */
@@ -43,7 +42,7 @@ BEGIN
    DECLARE BASE_TILE_SIZE2 FLOAT;
    SET BASE_TILE_SIZE2 = GET_BASE_TILE_SIZE();  -- initial tiling
    DECLARE BASE_TIME_INTERVAL INTEGER;
-   SET BASE_TIME_INTERVAL = 3600;               --
+   SET BASE_TIME_INTERVAL = 3600;               -- one hour
 
    INSERT INTO CUBED_PYRAMID
       SELECT
