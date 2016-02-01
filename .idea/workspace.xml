@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/log4j_api_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/log4j_core_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB]" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/skydive/asdf.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/skydive/asdf.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Skydive.iml" afterPath="$PROJECT_DIR$/Skydive.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" afterPath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/PlotController.java" afterPath="$PROJECT_DIR$/src/skydive/PlotController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/DatasetManager.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatasetManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" afterPath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" afterPath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" afterPath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" afterPath="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -906,7 +886,7 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1454004912796" duration="5641000" />
       <workItem from="1454080251965" duration="6128000" />
-      <workItem from="1454344272982" duration="9945000" />
+      <workItem from="1454344272982" duration="9962000" />
     </task>
     <task id="LOCAL-00001" summary="Some very minor changes.">
       <created>1454013650868</created>
@@ -926,11 +906,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454085920380</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Some very minor changes.">
+      <created>1454359527759</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1454359527759</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23016000" />
+    <option name="totallyTimeSpent" value="23033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
