@@ -23,18 +23,23 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 import javafx.stage.FileChooser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import skydive.db.*;
 import skydive.gui.*;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
  * Created by piotr on 15-03-01.
  */
 public class PlotController {
+
+    private static final Logger log = LogManager.getLogger(PlotController.class);
 
     @FXML StackPane stackPane;
     @FXML Slider sliderStratum;
@@ -83,41 +88,41 @@ public class PlotController {
     }
 
     @FXML public void buttonResetAnglesClicked() {
-        System.out.println("buttonResetAnglesClicked");
+        log.info("buttonResetAnglesClicked");
 
         viewConfig.resetAngles();
     }
 
     @FXML public void buttonResetScaleClicked() {
-        System.out.println("buttonResetScaleClicked");
+        log.info("buttonResetScaleClicked");
         viewConfig.resetScale();
     }
 
     @FXML public void buttonSaveChangesClicked() {
-        System.out.println("buttonSaveChangesClicked");
+        log.info("buttonSaveChangesClicked");
     }
 
     @FXML public void sliderBaseTileSizeMouseReleased() {
-        System.out.println("sliderBaseTileSizeMouseReleased");
+        log.info("sliderBaseTileSizeMouseReleased");
         viewConfig.setBaseTileSize((float) sliderBaseTile.getValue() / 100);
         updateStratum();
     }
 
     @FXML public void sliderHueShiftMouseReleased() {
-        System.out.println("sliderHueShiftMouseReleased");
+        log.info("sliderHueShiftMouseReleased");
         viewConfig.setHueShift(sliderHueShift.getValue());
         updateStratum();
     }
 
     @FXML public void sliderScaleZMouseReleased() {
-        System.out.println("sliderScaleZMouseReleased");
+        log.info("sliderScaleZMouseReleased");
         float sz = (float) sliderScaleZ.getValue() / 100;
         viewConfig.setScaleZ(sz);
         updateStratum();
     }
 
     @FXML public void checkBoxAxesClicked() {
-        System.out.println("checkBoxAxesClicked");
+        log.info("checkBoxAxesClicked");
 
         if (!checkBoxAxes.isSelected()) {
             axes.setVisible(false);
@@ -127,7 +132,7 @@ public class PlotController {
     }
 
     @FXML public void buttonDetailsMouseClicked() {
-        System.out.println("buttonDetailsMouseClicked");
+        log.info("buttonDetailsMouseClicked");
 
         DataSetEditFrame dsef = new DataSetEditFrame(datasetConfig);
         dsef.setVisible(true);
@@ -157,7 +162,7 @@ public class PlotController {
     }
 
     @FXML public void sliderStratumMouseReleased() {
-        System.out.println("sliderStratumMouseReleased " + sliderStratum.getValue());
+        log.info("sliderStratumMouseReleased " + sliderStratum.getValue());
         stratumNumber = (int) sliderStratum.getValue();
         updateStratum();
     }
@@ -209,7 +214,7 @@ public class PlotController {
       */
     @FXML
     public void initFX() {
-        System.out.println("initFX - START");
+        log.info("initFX - START");
 
         StackPane root = new StackPane();
         root.setBackground(Background.EMPTY);
@@ -266,7 +271,7 @@ public class PlotController {
 
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("setOnMouseReleased()");
+                log.info("setOnMouseReleased()");
 
                 viewConfig.setOtx(0d);
                 viewConfig.setOty(0d);
@@ -284,11 +289,9 @@ public class PlotController {
 
         });
 
-
         /*final Rotate xRotate = new Rotate(0,0,0,0,Rotate.X_AXIS);
         final Rotate yRotate = new Rotate(0,0,0,0,Rotate.Y_AXIS);
         camera.getTransforms().addAll(xRotate,yRotate);
-
 
         scene.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
             @Override
@@ -344,10 +347,8 @@ public class PlotController {
                         tz += dx;
                         rz.setAngle(tz);
                     } else {
-                        //System.out.println(otx + " " + event.getSceneX());
-
                         if (otx == 0d) {
-                            System.out.println("XXX");
+                            log.info("XXX");
                             otx = event.getSceneX();
                         }
 
@@ -382,7 +383,7 @@ public class PlotController {
 
         stackPane.getChildren().add(scene);
 
-        System.out.println("initFX - END");
+        log.info("initFX - END");
     }
 
     /**
@@ -447,13 +448,13 @@ public class PlotController {
                             c = Color.hsb(z + viewConfig.getHueShift(), 1.0, 1.0, 0.8);
                         }
                         rect.setFill(c);
-                        System.out.println("a");
+                        log.info("a");
 
                         rect.setOnMouseClicked(new EventHandler<MouseEvent>() {
                             @Override
                             public void handle(MouseEvent event) {
                                 Rectangle x = (Rectangle) event.getSource();
-                                System.out.println("z: " + x.getId());
+                                log.info("z: " + x.getId());
                             }
                         });
                         node = rect;
@@ -480,7 +481,7 @@ public class PlotController {
                             @Override
                             public void handle(MouseEvent event) {
                                 Box x = (Box) event.getSource();
-                                System.out.println("z: " + x.getId());
+                                log.info("z: " + x.getId());
                             }
                         });
 
@@ -493,9 +494,8 @@ public class PlotController {
                 node.translateXProperty().set(j);
                 node.translateZProperty().set(zTranslate);
 
+                // TODO: Node (tiles) may have an ID.
                 //b.setMaterial(material);
-
-
                 //rectangleGroup.getChildren().add(node);
                 //xxx++;
                 //node.setId("" + xxx);
@@ -521,7 +521,7 @@ public class PlotController {
      * @param rectangleGroup
      */
     public void createAxes(Group rectangleGroup) {
-        System.out.println("createAxes");
+        log.info("createAxes");
 
         double axisLength = 600d;
 
@@ -585,14 +585,17 @@ public class PlotController {
      *
      */
     public void updateStratum() {
-        stratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
-        rectangleGroup.getChildren().clear();
-        scene.setCamera(viewConfig.getCamera());
-        drawTuples(rectangleGroup);
-        createAxes(rectangleGroup);
+        try {
+            StratumLoader stratumLoader = new StratumLoader(datasetConfig);
+            stratum = stratumLoader.loadStratum(stratumNumber);
+            rectangleGroup.getChildren().clear();
+            scene.setCamera(viewConfig.getCamera());
+            drawTuples(rectangleGroup);
+            createAxes(rectangleGroup);
+        } catch (SQLException e) {
+            log.error(e);
+        } catch (ClassNotFoundException e) {
+            log.error(e);
+        }
     }
-
-
-
-
 }

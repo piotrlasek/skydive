@@ -48,6 +48,7 @@ public class BaseTuple implements Tuple {
      * @return
      */
     public Color getColor() {
+        // TODO: Hardcoded for days of weeks.
         String maxKey = valueObject.getMaxKey();
         Integer hue = 0;
         if (maxKey.equals("mon")) {hue = 0;} else

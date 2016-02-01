@@ -12,9 +12,16 @@ import javafx.scene.transform.Translate;
 
 /**
  * Created by Piotr Lasek on 15-03-02.
+ *
+ * ViewConfig object stores parameters of a view.
  */
 public class ViewConfig {
 
+    public enum PlotType {TILES, BOXES, MESH};
+
+    /**
+     * A constructor
+     */
     public ViewConfig() {
         base.setFill(Color.TRANSPARENT);
         perspectiveCamera = new PerspectiveCamera();
@@ -251,7 +258,6 @@ public class ViewConfig {
         this.wireMesh = wireMesh;
     }
 
-
     public void setCameraType(String cameraType) {
         this.cameraType = cameraType;
     }
@@ -263,7 +269,4 @@ public class ViewConfig {
             return parallelCamera;
         }
     }
-
-    public enum PlotType {TILES, BOXES, MESH};
-
 }

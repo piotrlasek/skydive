@@ -5,7 +5,10 @@
  */
 package skydive.gui;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import skydive.db.DatasetConfig;
+import skydive.db.StratumLoader;
 
 /**
  *
@@ -16,7 +19,9 @@ public class DataSetEditFrame extends javax.swing.JFrame {
     DatasetConfig datasetConfig;
     String datasetName;
     boolean isNew;
-    
+
+    private static final Logger log = LogManager.getLogger(DataSetEditFrame.class);
+
     /**
      * Creates new form DataSetEditFrame
      */

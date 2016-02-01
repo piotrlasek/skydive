@@ -10,6 +10,7 @@ import java.util.Collection;
 
 /**
  * Created by Piotr Lasek on 15-02-27.
+ * Triangulator transforms tuples to be displayed into a set of triangles.
  */
 public class Triangulator {
 
@@ -142,7 +143,6 @@ public class Triangulator {
             }
         }
         return points;
-
     }
 
     /**

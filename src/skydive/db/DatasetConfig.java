@@ -10,7 +10,7 @@ import java.util.Properties;
 
 /**
  *
- * @author piotr
+ * @author Piotr Lasek
  */
 public class DatasetConfig {
     
@@ -22,14 +22,21 @@ public class DatasetConfig {
     private boolean isNew;
     private String driver;
     private String fileName;
+    private String pyramidType;
 
-    public DatasetConfig() {
-        
-    }
-    
+    /**
+     *
+     * @param name
+     * @param connectionString
+     * @param measures
+     * @param attributes
+     * @param databaseType
+     * @param driver
+     * @param isNew
+     */
     public DatasetConfig(String name, String connectionString,
             String measures, String attributes, String databaseType,
-            String driver, boolean isNew) {
+            String driver, String pyramidType, boolean isNew) {
         this.name = name;
         this.measures = measures;
         this.attributes = attributes;
@@ -37,41 +44,50 @@ public class DatasetConfig {
         this.databaseType = databaseType;
         this.driver = driver;
         this.isNew = isNew;
+        this.pyramidType = pyramidType;
+    }
+
+    public DatasetConfig() {
+
     }
 
     /**
      * 
      */
     public void save() {
-        
         Properties prop = new Properties();
         OutputStream output = null;
-        
+
         String fileName = getName();
         fileName = fileName.replace(" ", "_");
-        
+
         try {
             output = new FileOutputStream(fileName);
             prop.setProperty("databaseName", getName());
             prop.setProperty("connectionString", getConnectionString());
             prop.setProperty("measures", getMeasures());
             prop.setProperty("attributes", getAttributes());
-            prop.setProperty("databaseType", getDatabaseType());
             prop.setProperty("driver", getDriver());
+            prop.setProperty("databaseType", getDatabaseType());
+            prop.setProperty("pyramidType", getPyramidType());
             prop.store(output, null);
-	} catch (IOException io) {
+        } catch (IOException io) {
             io.printStackTrace();
-	} finally {
+        } finally {
             if (output != null) {
                 try {
-                        output.close();
+                    output.close();
                 } catch (IOException e) {
-                        e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
-	}
+        }
     }
 
+    /**
+     *
+     * @param f
+     */
     public void load(File f) {
         setFileName(f.getPath());
 
@@ -80,9 +96,7 @@ public class DatasetConfig {
         Properties prop = new Properties();
 
         try {
-
             input = new FileInputStream(getFileName());
-
             prop.load(input);
 
             setName(prop.getProperty("databaseName"));
@@ -91,7 +105,7 @@ public class DatasetConfig {
             setAttributes(prop.getProperty("attributes"));
             setDriver(prop.getProperty("driver"));
             setDatabaseType(prop.getProperty("databaseType"));
-
+            setPyramidType(prop.getProperty("pyramidType"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -105,109 +119,68 @@ public class DatasetConfig {
         }
     }
 
+    /**
+     *
+     * @param datasetName
+     */
     public void load(String datasetName) {
         String fileName = datasetName.replace(" ", "_");
-
         File f = new File(fileName);
-
         load(f);
-
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the measures
-     */
     public String getMeasures() {
         return measures;
     }
 
-    /**
-     * @param measures the measures to set
-     */
     public void setMeasures(String measures) {
         this.measures = measures;
     }
 
-    /**
-     * @return the attributes
-     */
     public String getAttributes() {
         return attributes;
     }
 
-    /**
-     * @param attributes the attributes to set
-     */
     public void setAttributes(String attributes) {
         this.attributes = attributes;
     }
 
-    /**
-     * @return the connectionString
-     */
     public String getConnectionString() {
         return connectionString;
     }
 
-    /**
-     * @param connectionString the connectionString to set
-     */
     public void setConnectionString(String connectionString) {
         this.connectionString = connectionString;
     }
 
-    /**
-     * @return the databaseType
-     */
     public String getDatabaseType() {
         return databaseType;
     }
 
-    /**
-     * @param databaseType the databaseType to set
-     */
     public void setDatabaseType(String databaseType) {
         this.databaseType = databaseType;
     }
 
-    /**
-     * @return the isNew
-     */
     public boolean isIsNew() {
         return isNew;
     }
 
-    /**
-     * @param isNew the isNew to set
-     */
     public void setIsNew(boolean isNew) {
         this.isNew = isNew;
     }
 
-    /**
-     * @return the driver
-     */
     public String getDriver() {
         return driver;
     }
 
-    /**
-     * @param driver the driver to set
-     */
     public void setDriver(String driver) {
         this.driver = driver;
     }
@@ -218,5 +191,13 @@ public class DatasetConfig {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getPyramidType() {
+        return pyramidType;
+    }
+
+    public void setPyramidType(String pyramidType) {
+        this.pyramidType = pyramidType;
     }
 }

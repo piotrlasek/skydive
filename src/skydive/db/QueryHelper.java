@@ -73,10 +73,10 @@ public class QueryHelper {
     }
     
     /**
-     * 
+     *
      */
     public static void createPyramid() {
-        
+        // TODO: Pyramid creation should be managed by Skydive. For now, it is created manually.
     }
     
 }

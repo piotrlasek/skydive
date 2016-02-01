@@ -31,11 +31,10 @@ public class DatasetManager {
     
     public DatasetConfig createNew(String name, String connectionString,
             String measures, String attributes, String databaseType,
-            String driver,
-            boolean isNew) {
+            String driver, String pyramidType, boolean isNew) {
         
         DatasetConfig dc = new DatasetConfig(name, connectionString,
-        measures, attributes, databaseType, driver, isNew);
+        measures, attributes, databaseType, driver, pyramidType, isNew);
         
         return dc;
     }

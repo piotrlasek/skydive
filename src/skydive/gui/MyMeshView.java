@@ -34,6 +34,7 @@ public class MyMeshView extends MeshView {
 
         phongMaterial = viewConfig.getMaterial();
 
+        // TODO: A texture file is created and loaded manually.
         String texturePath =
                 //"file:/Users/piotr/IdeaProjects/DataTV/snapshota-blur.png";
                 //"file:/Users/piotr/IdeaProjects/DataTV/snapshotd.png";
@@ -43,6 +44,8 @@ public class MyMeshView extends MeshView {
 
         phongMaterial = new PhongMaterial(Color.WHITE, image, null, null, null);
         viewConfig.setMaterial(phongMaterial);
+
+        // additional material configurations
 
         //phongMaterial.setBumpMap(image);
         //phongMaterial.setSpecularMap(image);
