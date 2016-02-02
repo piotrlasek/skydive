@@ -46,24 +46,23 @@ public class StratumLoader {
         log.info("StratumLoader created.");
     }
 
-    /**
+    /*
      * 
-     * @param stratumNumber 
+     * @param stratumNumber
      */
-    public Stratum loadStratum(int stratumNumber) throws SQLException {
-        
-        Stratum stratum = new Stratum(stratumNumber);
+    public Stratum loadStratum(int... stratumCoordinates) throws SQLException {
+        Stratum stratum = new Stratum(stratumCoordinates);
         Statement statement = connection.createStatement();
-
         ArrayList<String> allAttributes = new ArrayList<String>();
+
         allAttributes.add("layer");
 
         for(String m:measures) allAttributes.add(m);
         for(String a:attributes) allAttributes.add(a);
 
-        ResultSet rs = statement.executeQuery(QueryHelper.getStratum(
-                stratum.getStratumNumber(), allAttributes.toArray()));
-                //new String[]{"layer", measures[0], measures[1], attributes[0]}));
+        ResultSet rs = statement.executeQuery(
+                QueryHelper.getStratum(measures, attributes, stratumCoordinates)
+            );
 
         while(rs.next()) {
             Tuple tuple = QueryHelper.toTuple(rs, measures, attributes);

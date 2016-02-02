@@ -23,6 +23,8 @@ public class DatasetConfig {
     private String driver;
     private String fileName;
     private String pyramidType;
+    private String pyramidTableName;
+    private String pyramidCoordinates;
 
     /**
      *
@@ -36,7 +38,8 @@ public class DatasetConfig {
      */
     public DatasetConfig(String name, String connectionString,
             String measures, String attributes, String databaseType,
-            String driver, String pyramidType, boolean isNew) {
+            String driver, String pyramidType, String pyramidTableName,
+            String pyramidCoordinates, boolean isNew) {
         this.name = name;
         this.measures = measures;
         this.attributes = attributes;
@@ -45,8 +48,13 @@ public class DatasetConfig {
         this.driver = driver;
         this.isNew = isNew;
         this.pyramidType = pyramidType;
+        this.setPyramidTableName(pyramidTableName);
+        this.setPyramidTableCoordinates(pyramidCoordinates);
     }
 
+    /**
+     *
+     */
     public DatasetConfig() {
 
     }
@@ -70,6 +78,8 @@ public class DatasetConfig {
             prop.setProperty("driver", getDriver());
             prop.setProperty("databaseType", getDatabaseType());
             prop.setProperty("pyramidType", getPyramidType());
+            prop.setProperty("pyramidTableName", getPyramidTableName());
+            prop.setProperty("pyramidCoordinates", getPyramidCoordinates());
             prop.store(output, null);
         } catch (IOException io) {
             io.printStackTrace();
@@ -86,10 +96,10 @@ public class DatasetConfig {
 
     /**
      *
-     * @param f
+     * @param fileName
      */
-    public void load(File f) {
-        setFileName(f.getPath());
+    public void load(File fileName) {
+        setFileName(fileName.getPath());
 
         InputStream input = null;
 
@@ -199,5 +209,21 @@ public class DatasetConfig {
 
     public void setPyramidType(String pyramidType) {
         this.pyramidType = pyramidType;
+    }
+
+    public String getPyramidTableName() {
+        return pyramidTableName;
+    }
+
+    public void setPyramidTableName(String pyramidTableName) {
+        this.pyramidTableName = pyramidTableName;
+    }
+
+    public String getPyramidCoordinates() {
+        return pyramidCoordinates;
+    }
+
+    public void setPyramidTableCoordinates(String pyramidCoordinates) {
+        this.pyramidCoordinates = pyramidCoordinates;
     }
 }

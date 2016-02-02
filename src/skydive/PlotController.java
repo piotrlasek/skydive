@@ -38,7 +38,6 @@ import java.util.Date;
  * Created by piotr on 15-03-01.
  */
 public class PlotController {
-
     private static final Logger log = LogManager.getLogger(PlotController.class);
 
     @FXML StackPane stackPane;
@@ -51,18 +50,19 @@ public class PlotController {
     @FXML CheckBox checkBoxWire;
     @FXML CheckBox checkBoxPerspective;
 
+    SubScene scene;
     MeshView meshView;
     ViewConfig viewConfig = new ViewConfig();
     DatasetConfig datasetConfig;
     Stratum stratum;
-    int stratumNumber = 9;
     Group rectangleGroup;
     Group axes = new Group();
+    int stratumNumber = 9;
+
     private double mouseYold;
     private double cameraYlimit;
     private double mouseXold;
     private double rotateModifier;
-    SubScene scene;
 
     @FXML public void checkBoxPerspectiveClicked() {
         if (checkBoxPerspective.isSelected()) {
@@ -393,7 +393,7 @@ public class PlotController {
     private void drawTuples(Group rectangleGroup) {
 
         // assumes that the stratum is loaded
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getStratumNumber());
+        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getSpaceStratumNumber());
 
         //stratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
         Point3D midTmp = stratum.getMid();

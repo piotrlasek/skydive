@@ -16,17 +16,16 @@ import javafx.geometry.Point3D;
 public class Stratum {
     
     Collection<Tuple> tuples;
-    int stratumNumber;
+    int[] stratumCoordinates;
     Point3D min;
     Point3D max;
-    private float baseTileSize = 1;
-    
+
     /**
      * 
-     * @param stratumNumber 
+     * @param stratumCoordinates
      */
-    public Stratum(int stratumNumber) {
-        this.stratumNumber = stratumNumber;
+    public Stratum(int... stratumCoordinates) {
+        this.stratumCoordinates = stratumCoordinates;
         tuples = new ArrayList<Tuple>();
     }
     
@@ -78,26 +77,27 @@ public class Stratum {
     }
 
     /**
-     * 
-     * @return 
+     * Sets stratum's coordinates
+     * @param stratumCoordinates    stratum's coordinates
      */
-    public int getStratumNumber() {
-        return stratumNumber;
+    public void setStratumCoordinates(int... stratumCoordinates) {
+        this.stratumCoordinates = stratumCoordinates;
     }
 
     /**
-     * 
-     * @param stratumNumber 
+     *
+     * @return
      */
-    public void setStratumNumber(int stratumNumber) {
-        this.stratumNumber = stratumNumber;
+    public int[] getStratumCoordinates() {
+        return stratumCoordinates;
     }
 
-    public float getBaseTileSize() {
-        return baseTileSize;
+    /**
+     *
+     * @return
+     */
+    public int getSpaceStratumNumber() {
+        return stratumCoordinates[0];
     }
 
-    public void setBaseTileSize(float baseTileSize) {
-        this.baseTileSize = baseTileSize;
-    }
 }
