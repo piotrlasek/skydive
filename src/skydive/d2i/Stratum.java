@@ -24,6 +24,7 @@ public class Stratum {
                 Aggregate a;
                 a = new Aggregate(x, y);
 
+                // TODO: What is this?
                 a.addValue((int)(Math.random()*10), (int) (Math.random() * 3));
                 a.addValue((int)(Math.random()*10), (int) (Math.random() * 3));
                 a.addValue((int)(Math.random()*10), (int) (Math.random() * 3));

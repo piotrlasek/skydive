@@ -7,6 +7,7 @@ package skydive.db;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import skydive.gui.Filter;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,12 +27,13 @@ public class QueryHelper {
      * @param attributes
      * @return 
      */
-    public static String getStratum(String tableName, String[] pyramidCoordinates,
-                                    String[] measures, String[] attributes,
-                                    int... stratumCoordinates)
+    public static String getTuplesQuery(String tableName, String[] pyramidCoordinates,
+                                        String[] measures, String[] attributes,
+                                        int[] stratumCoordinates,
+                                        Filter filter)
         throws Exception {
 
-        if (stratumCoordinates.length != measures.length) {
+        if (stratumCoordinates.length != measures.length - 1) {
             throw new Exception("Number of stratum's coordinates should be equal to measures size.");
         }
 
@@ -57,7 +59,7 @@ public class QueryHelper {
 
         // FROM
         // ----
-        sb.append("FROM " + tableName + " WHERE ");
+        sb.append(" FROM " + tableName + " WHERE ");
 
         // WHERE
         int coordinateIndex = 0;
@@ -65,18 +67,28 @@ public class QueryHelper {
             if (coordinateIndex > 0) {
                 sb.append(" AND ");
             }
-            sb.append(coordinate + " = " + stratumCoordinates[coordinateIndex]);
+            sb.append(coordinate + " = " + stratumCoordinates[coordinateIndex] + " ");
+            coordinateIndex++;
+        }
+
+        // FILTER
+        // ------
+        if (filter != null) {
+            sb.append(" AND ");
+            sb.append(filter.toSQL());
         }
 
         // ORDER BY
         // --------
-        sb.append("ORDER BY ");
+        sb.append(" ORDER BY ");
 
+        int measuresCounter = 0;
         for (Object m : measures) {
-            sb.append(m);
-            if (attributesCounter + 1 < measures.length) {
-
+            if (measuresCounter > 0) {
+                sb.append(", ");
             }
+            sb.append(m);
+            measuresCounter++;
         }
 
         // SORT

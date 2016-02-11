@@ -49,7 +49,7 @@ public class DatasetConfig {
         this.isNew = isNew;
         this.pyramidType = pyramidType;
         this.setPyramidTableName(pyramidTableName);
-        this.setPyramidTableCoordinates(pyramidCoordinates);
+        this.setPyramidCoordinates(pyramidCoordinates);
     }
 
     /**
@@ -62,7 +62,7 @@ public class DatasetConfig {
     /**
      * 
      */
-    public void save() {
+    /*public void save() {
         Properties prop = new Properties();
         OutputStream output = null;
 
@@ -92,7 +92,7 @@ public class DatasetConfig {
                 }
             }
         }
-    }
+    }*/
 
     /**
      *
@@ -116,6 +116,8 @@ public class DatasetConfig {
             setDriver(prop.getProperty("driver"));
             setDatabaseType(prop.getProperty("databaseType"));
             setPyramidType(prop.getProperty("pyramidType"));
+            setPyramidCoordinates(prop.getProperty("pyramidCoordinates"));
+            setPyramidTableName(prop.getProperty("pyramidTableName"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -219,11 +221,11 @@ public class DatasetConfig {
         this.pyramidTableName = pyramidTableName;
     }
 
-    public String getPyramidCoordinates() {
-        return pyramidCoordinates;
+    public String[] getPyramidCoordinates() {
+        return pyramidCoordinates.split(";");
     }
 
-    public void setPyramidTableCoordinates(String pyramidCoordinates) {
+    public void setPyramidCoordinates(String pyramidCoordinates) {
         this.pyramidCoordinates = pyramidCoordinates;
     }
 }

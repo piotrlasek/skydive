@@ -7,70 +7,76 @@ package skydive.db;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import skydive.gui.Filter;
+
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
+ * A class responsible for loading a stratum into memory.
  *
  * @author Piotr Lasek
  */
 public class StratumLoader {
 
     private static final Logger log = LogManager.getLogger(StratumLoader.class);
-    private DatasetConfig datasetConfig;
-    private Connection connection;
+
+    //private DatasetConfig datasetConfig;
+    private DatabaseManager databaseManager;
+    //private Connection connection;
     private String[] attributes;
     private String[] measures;
+    String pyramidTableName;
+    String[] pyramidCoordinates;
 
     /**
+     * A constructor.
      *
-     * @param datasetConfig
+     * @param datasetConfig a dataset configuration object
+     * @throws SQLException
+     * @throws ClassNotFoundException
      */
-    public StratumLoader(DatasetConfig datasetConfig) throws SQLException, ClassNotFoundException {
-        this.datasetConfig = datasetConfig;
+    public StratumLoader(DatabaseManager databaseManager, DatasetConfig datasetConfig) throws SQLException, ClassNotFoundException {
+        this.databaseManager = databaseManager;
 
-        String driver = this.datasetConfig.getDriver();
-        String wholeConnectionString = this.datasetConfig.getConnectionString();
-        String[] connectionStringTab = wholeConnectionString.split(";");
-        String connectionString = connectionStringTab[0];
-        String userName = connectionStringTab[1];
-        String password = connectionStringTab[2];
-        String attributesList = this.datasetConfig.getAttributes();
-        String measuresList = this.datasetConfig.getMeasures();
-
-        Class.forName(driver);
-        connection = DriverManager.getConnection(connectionString, userName, password);
-        attributes = attributesList.split(";");
-        measures = measuresList.split(";");
+        attributes = datasetConfig.getAttributes().split(";");
+        measures = datasetConfig.getMeasures().split(";");
+        pyramidTableName = datasetConfig.getPyramidTableName();
+        pyramidCoordinates = datasetConfig.getPyramidCoordinates();
 
         log.info("StratumLoader created.");
     }
 
-    /*
-     * 
-     * @param stratumNumber
+    /**
+     * Loads stratum identified by stratumCoordinates.
+     *
+     * @param stratumCoordinates coordinates of a stratum to be loaded
      */
-    public Stratum loadStratum(int... stratumCoordinates) throws SQLException {
+    public Stratum loadStratum(int[] stratumCoordinates, Filter filter) throws SQLException {
         Stratum stratum = new Stratum(stratumCoordinates);
+        Connection connection = databaseManager.getConnection();
         Statement statement = connection.createStatement();
-        ArrayList<String> allAttributes = new ArrayList<String>();
 
-        allAttributes.add("layer");
 
-        for(String m:measures) allAttributes.add(m);
-        for(String a:attributes) allAttributes.add(a);
 
-        ResultSet rs = statement.executeQuery(
-                QueryHelper.getStratum(measures, attributes, stratumCoordinates)
-            );
+        try {
+            String query = QueryHelper.getTuplesQuery(pyramidTableName, pyramidCoordinates,
+                measures, attributes, stratumCoordinates, filter);
 
-        while(rs.next()) {
-            Tuple tuple = QueryHelper.toTuple(rs, measures, attributes);
-            stratum.addTuple(tuple);
+            log.info("EXECUTING QUERY: ");
+
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) {
+                Tuple tuple = QueryHelper.toTuple(rs, measures, attributes);
+                stratum.addTuple(tuple);
+            }
+
+            log.info("DONE");
+            log.info("Number or records read: " + stratum.getTuples().size());
+        } catch (Exception e) {
+            log.error(e);
         }
 
-        log.info("Tuples added: " + stratum.getTuples().size());
-            
         return stratum;
     }
 }

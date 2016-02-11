@@ -155,14 +155,14 @@
                   </BorderPane>
                   <BorderPane prefHeight="5.0" prefWidth="249.0">
                      <center>
-                        <Slider fx:id="sliderStratum" blockIncrement="1.0" majorTickUnit="1.0" max="15.0" minorTickCount="5" onMouseReleased="#sliderStratumMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="9.0" BorderPane.alignment="CENTER">
+                        <Slider fx:id="sliderStratum" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" onMouseReleased="#sliderStratumMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="7.0" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets />
                            </BorderPane.margin>
                         </Slider>
                      </center>
                      <left>
-                        <Label minWidth="-Infinity" prefWidth="100.0" text="Stratum" BorderPane.alignment="CENTER">
+                        <Label minWidth="-Infinity" prefWidth="100.0" text="Space stratum" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </BorderPane.margin>
@@ -174,6 +174,25 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                  </BorderPane>
+                  <BorderPane prefHeight="8.0" prefWidth="257.0">
+                     <center>
+                        <Slider fx:id="sliderTimeStratum" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" onMouseDragged="#sliderTimeStratumMouseDragged" onMouseReleased="#sliderTimeStratumMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="7.0" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                        </Slider>
+                     </center>
+                     <left>
+                        <Label minWidth="-Infinity" prefWidth="100.0" text="Time stratum" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
                      <VBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </VBox.margin>
@@ -193,7 +212,7 @@
                         </Label>
                      </left>
                      <center>
-                        <Slider fx:id="sliderBaseTile" max="200.0" minorTickCount="10" onMouseReleased="#sliderBaseTileSizeMouseReleased" showTickLabels="true" showTickMarks="true" value="100.0" BorderPane.alignment="CENTER">
+                        <Slider fx:id="sliderBaseTile" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderBaseTileSizeMouseReleased" showTickLabels="true" showTickMarks="true" value="100.0" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets />
                            </BorderPane.margin>
@@ -212,7 +231,7 @@
                         </Label>
                      </left>
                      <center>
-                        <Slider fx:id="sliderHueShift" max="360.0" minorTickCount="10" onMouseReleased="#sliderHueShiftMouseReleased" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
+                        <Slider fx:id="sliderHueShift" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderHueShiftMouseReleased" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets />
                            </BorderPane.margin>
@@ -221,7 +240,7 @@
                   </BorderPane>
                   <BorderPane prefHeight="8.0" prefWidth="257.0">
                      <center>
-                        <Slider fx:id="sliderScaleZ" max="300.0" minorTickCount="10" onMouseReleased="#sliderScaleZMouseReleased" showTickLabels="true" showTickMarks="true" value="100.0" BorderPane.alignment="CENTER">
+                        <Slider fx:id="sliderScaleZ" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderScaleZMouseReleased" showTickLabels="true" showTickMarks="true" value="100.0" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets />
                            </BorderPane.margin>
@@ -282,6 +301,35 @@
                         <Button fx:id="tmp" mnemonicParsing="false" onMouseClicked="#loadTest" text="Cancel" BorderPane.alignment="CENTER" />
                      </left>
                   </BorderPane>
+                  <BorderPane prefHeight="36.0" prefWidth="739.0">
+                     <center>
+                        <Slider BorderPane.alignment="CENTER">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </Slider>
+                     </center>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                     <top>
+                        <Label text="Time filter" BorderPane.alignment="CENTER_LEFT">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </Label>
+                     </top>
+                     <left>
+                        <CheckBox mnemonicParsing="false" text="Apply" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </CheckBox>
+                     </left>
+                  </BorderPane>
                      </children>
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -295,16 +343,6 @@
                      </padding>
                   </StackPane>
                </center>
-               <bottom>
-                  <Slider majorTickUnit="1.0" max="2015.0" min="2010.0" prefHeight="48.0" prefWidth="739.0" showTickLabels="true" showTickMarks="true" value="2013.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
-                  </Slider>
-               </bottom>
             </BorderPane>
                </items>
             </SplitPane>
