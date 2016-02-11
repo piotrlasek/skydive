@@ -5,6 +5,10 @@
  */
 package skydive.db;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import skydive.gui.Filter;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -13,32 +17,85 @@ import java.sql.SQLException;
  * @author Piotr Lasek
  */
 public class QueryHelper {
-    
+
+    private static final Logger log = LogManager.getLogger(QueryHelper.class);
+
     /**
      * 
-     * @param layerNumber
+     * @param stratumCoordinates
+     * @param measures
      * @param attributes
      * @return 
      */
-    public static String getStratum(int layerNumber, Object[] attributes) {
-        
+    public static String getTuplesQuery(String tableName, String[] pyramidCoordinates,
+                                        String[] measures, String[] attributes,
+                                        int[] stratumCoordinates,
+                                        Filter filter)
+        throws Exception {
+
+        if (stratumCoordinates.length != measures.length - 1) {
+            throw new Exception("Number of stratum's coordinates should be equal to measures size.");
+        }
+
         StringBuilder sb = new StringBuilder();
-        
-        sb.append("SELECT ");
-        
         int attributesCounter = 0;
-        for(Object a : attributes) {
-            sb.append( a + " ");
-            if (attributesCounter+1 < attributes.length) {
+
+        // SELECT
+        // ------
+        sb.append("SELECT ");
+
+        for (Object m : measures) {
+            sb.append( m + " ");
+            if (attributesCounter + 1 < measures.length) {
                 sb.append(", ");
             }
             attributesCounter++;
         }
-        
-        sb.append("FROM PYRAMID WHERE LAYER = " + layerNumber + " ");
-        sb.append("ORDER BY " + attributes[0] + ", " + attributes[1] + " ASC ");
-        
-        System.out.println(sb.toString());
+
+        for (Object a : attributes) {
+            sb.append(", " + a);
+            attributesCounter++;
+        }
+
+        // FROM
+        // ----
+        sb.append(" FROM " + tableName + " WHERE ");
+
+        // WHERE
+        int coordinateIndex = 0;
+        for (String coordinate : pyramidCoordinates) {
+            if (coordinateIndex > 0) {
+                sb.append(" AND ");
+            }
+            sb.append(coordinate + " = " + stratumCoordinates[coordinateIndex] + " ");
+            coordinateIndex++;
+        }
+
+        // FILTER
+        // ------
+        if (filter != null) {
+            sb.append(" AND ");
+            sb.append(filter.toSQL());
+        }
+
+        // ORDER BY
+        // --------
+        sb.append(" ORDER BY ");
+
+        int measuresCounter = 0;
+        for (Object m : measures) {
+            if (measuresCounter > 0) {
+                sb.append(", ");
+            }
+            sb.append(m);
+            measuresCounter++;
+        }
+
+        // SORT
+        // ----
+        sb.append(" ASC ");
+
+        log.info(sb.toString());
         
         return sb.toString();
     }
@@ -76,7 +133,7 @@ public class QueryHelper {
      *
      */
     public static void createPyramid() {
-        // TODO: Pyramid creation should be managed by Skydive. For now, it is created manually.
+        // TODO: Pyramid creation should be managed by SKYDIVE. For now, it is created manually.
     }
     
 }

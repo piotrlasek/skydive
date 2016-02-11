@@ -123,7 +123,8 @@ public class Triangulator {
      */
     public float[] getPoints() {
 
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getStratumNumber());
+        double tileSize = getTileSize();
+
         Point3D midTmp = stratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
@@ -143,6 +144,18 @@ public class Triangulator {
             }
         }
         return points;
+    }
+
+
+    /**
+     * Return size of a tile based on a stratum's "space" layer number.
+     *
+     * @return  tile size
+     */
+    public double getTileSize() {
+        int spaceStratumNumber = stratum.getStratumCoordinates()[0];
+        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, spaceStratumNumber);
+        return tileSize;
     }
 
     /**

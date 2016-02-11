@@ -5,10 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -38,11 +35,11 @@ import java.util.Date;
  * Created by piotr on 15-03-01.
  */
 public class PlotController {
-
     private static final Logger log = LogManager.getLogger(PlotController.class);
 
     @FXML StackPane stackPane;
     @FXML Slider sliderStratum;
+    @FXML Slider sliderTimeStratum;
     @FXML TextField textFieldDatasetName;
     @FXML Slider sliderHueShift;
     @FXML Slider sliderScaleZ;
@@ -51,18 +48,28 @@ public class PlotController {
     @FXML CheckBox checkBoxWire;
     @FXML CheckBox checkBoxPerspective;
 
+    SubScene scene;
     MeshView meshView;
     ViewConfig viewConfig = new ViewConfig();
     DatasetConfig datasetConfig;
+    DatabaseManager databaseManager;
     Stratum stratum;
-    int stratumNumber = 9;
     Group rectangleGroup;
     Group axes = new Group();
-    private double mouseYold;
+    int spaceStratumNumber = 9;
+    int timeStratumNumber = 9;
+
+    /*private double mouseYold;
     private double cameraYlimit;
     private double mouseXold;
-    private double rotateModifier;
-    SubScene scene;
+    private double rotateModifier;*/
+
+    private Filter filter;
+
+    @FXML public void initialize() {
+        log.info("INITIALIZE");
+        filter = new Filter();
+    }
 
     @FXML public void checkBoxPerspectiveClicked() {
         if (checkBoxPerspective.isSelected()) {
@@ -78,18 +85,10 @@ public class PlotController {
 
         datasetConfig = new DatasetConfig();
         datasetConfig.load(f);
-
-        textFieldDatasetName.setText(datasetConfig.getName());
-
-        viewConfig.setPlotType(ViewConfig.PlotType.BOXES);
-
-        initFX();
-        updateStratum();
     }
 
     @FXML public void buttonResetAnglesClicked() {
         log.info("buttonResetAnglesClicked");
-
         viewConfig.resetAngles();
     }
 
@@ -104,6 +103,12 @@ public class PlotController {
 
     @FXML public void sliderBaseTileSizeMouseReleased() {
         log.info("sliderBaseTileSizeMouseReleased");
+        viewConfig.setBaseTileSize((float) sliderBaseTile.getValue() / 100);
+        updateStratum();
+    }
+
+    @FXML public void sliderTimeStratumMouseDragged() {
+        log.info("sliderBaseTileSizeMouseDragged");
         viewConfig.setBaseTileSize((float) sliderBaseTile.getValue() / 100);
         updateStratum();
     }
@@ -163,17 +168,40 @@ public class PlotController {
 
     @FXML public void sliderStratumMouseReleased() {
         log.info("sliderStratumMouseReleased " + sliderStratum.getValue());
-        stratumNumber = (int) sliderStratum.getValue();
+        spaceStratumNumber = (int) sliderStratum.getValue();
+        updateStratum();
+    }
+
+    @FXML public void sliderTimeStratumMouseReleased() {
+        log.info("sliderStratumMouseReleased " + sliderStratum.getValue());
+        timeStratumNumber = (int) sliderTimeStratum.getValue();
         updateStratum();
     }
 
     @FXML public void fileOpen() {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("."));
         fileChooser.setTitle("Open Resource File");
         File f = fileChooser.showOpenDialog(null);
 
         datasetConfig = new DatasetConfig();
         datasetConfig.load(f);
+
+        try {
+            databaseManager = new DatabaseManager(datasetConfig);
+            textFieldDatasetName.setText(datasetConfig.getName());
+            viewConfig.setPlotType(ViewConfig.PlotType.BOXES);
+            initFX();
+            updateStratum();
+        } catch (ClassNotFoundException e) {
+            log.error(e);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error loading configuration file: " +
+                    datasetConfig.getFileName());
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
 
         textFieldDatasetName.setText(datasetConfig.getName());
 
@@ -215,7 +243,6 @@ public class PlotController {
     @FXML
     public void initFX() {
         log.info("initFX - START");
-
         StackPane root = new StackPane();
         root.setBackground(Background.EMPTY);
         scene = new SubScene(root, 800, 600, true, SceneAntialiasing.BALANCED);
@@ -230,8 +257,8 @@ public class PlotController {
 
         createAxes(rectangleGroup);
 
-        Camera camera = viewConfig.getCamera();
-        scene.setCamera(camera);
+        //Camera camera = viewConfig.getCamera();
+        //scene.setCamera(camera);
 
         rectangleGroup.getTransforms().add(viewConfig.getRx());
         rectangleGroup.getTransforms().add(viewConfig.getRy());
@@ -240,7 +267,6 @@ public class PlotController {
         scene.getRoot().getTransforms().add(viewConfig.getScale());
 
         scene.setOnScroll(new EventHandler<ScrollEvent>() {
-
             @Override
             public void handle(ScrollEvent event) {
                 double dy = event.getDeltaY();
@@ -260,33 +286,26 @@ public class PlotController {
         });
 
         scene.setOnRotate(new EventHandler<RotateEvent>() {
-
             @Override
             public void handle(RotateEvent event) {
-
             }
         });
 
         scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent event) {
                 log.info("setOnMouseReleased()");
-
                 viewConfig.setOtx(0d);
                 viewConfig.setOty(0d);
-
             }
         });
 
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent event) {
                 double x = event.getSceneX();
                 double y = event.getSceneY();
             }
-
         });
 
         /*final Rotate xRotate = new Rotate(0,0,0,0,Rotate.X_AXIS);
@@ -393,7 +412,7 @@ public class PlotController {
     private void drawTuples(Group rectangleGroup) {
 
         // assumes that the stratum is loaded
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getStratumNumber());
+        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getSpaceStratumNumber());
 
         //stratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
         Point3D midTmp = stratum.getMid();
@@ -585,11 +604,32 @@ public class PlotController {
      *
      */
     public void updateStratum() {
+        log.info("updateStratum START");
+
+        spaceStratumNumber = (int) sliderStratum.getValue();
+        timeStratumNumber = (int) sliderTimeStratum.getValue();
+
+        // Filter values for time
+        FilterAttribute filterAttribute = new FilterAttribute();
+        filterAttribute.setName("time");
+        FilterInterval filterInterval = new FilterInterval();
+        filterInterval.setMin("1");
+        filterInterval.setMax("2");
+        filter.add(filterAttribute, filterInterval);
+
         try {
-            StratumLoader stratumLoader = new StratumLoader(datasetConfig);
-            stratum = stratumLoader.loadStratum(stratumNumber);
+            StratumLoader stratumLoader = new StratumLoader(databaseManager, datasetConfig);
+
+            // TODO: The below section is hardcoded for pyramids and cubed pyramids with time.
+            int[] stratumCoordinates = new int[datasetConfig.getPyramidCoordinates().length];
+            for (int i = 0; i < stratumCoordinates.length; i++) {
+                if (i == 0) stratumCoordinates[i] = spaceStratumNumber;
+                if (i == 1) stratumCoordinates[i] = timeStratumNumber;
+            }
+
+            stratum = stratumLoader.loadStratum(stratumCoordinates, filter);
             rectangleGroup.getChildren().clear();
-            scene.setCamera(viewConfig.getCamera());
+            //scene.setCamera(viewConfig.getCamera());
             drawTuples(rectangleGroup);
             createAxes(rectangleGroup);
         } catch (SQLException e) {
@@ -597,5 +637,6 @@ public class PlotController {
         } catch (ClassNotFoundException e) {
             log.error(e);
         }
+        log.info("updateStratum END");
     }
 }

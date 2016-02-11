@@ -1,7 +1,8 @@
 #Mon Feb 01 11:38:00 EST 2016
-pyramidTable=cubed_pyramid
 pyramidType=cubed
-attributes=cnt
+pyramidTableName=cubed_pyramid
+pyramidCoordinates=space_layer;time_layer
+attributes=cnt_log
 connectionString=jdbc\:monetdb\://192.168.56.102/checkins;monetdb;monetdb
 driver=nl.cwi.monetdb.jdbc.MonetDriver
 measures=tile_y;tile_x;time

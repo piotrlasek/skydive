@@ -253,7 +253,7 @@ public class DataSetEditFrame extends javax.swing.JFrame {
 
         datasetConfig.setDatabaseType(databaseType);
 
-        datasetConfig.save();
+        //datasetConfig.save();
 
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

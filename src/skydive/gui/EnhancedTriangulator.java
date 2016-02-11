@@ -1,34 +1,38 @@
 package skydive.gui;
 
 import javafx.geometry.Point3D;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import skydive.db.Stratum;
 
 /**
  * Created by Piotr Lasek on 15-03-10.
  *
- * EnhancedTrangulator generates the mesh so that it add additional point in the middle
+ * EnhancedTriangulator generates the mesh so that it add additional point in the middle
  * of each tile computed as an average value of 4 corners of the tile.
  */
 public class EnhancedTriangulator extends Triangulator {
 
+    private static final Logger log = LogManager.getLogger(EnhancedTriangulator.class);
     public EnhancedTriangulator(Stratum stratum, ViewConfig vc) {
         super(stratum, vc);
     }
 
     /**
+     * Generates "faces" for a mesh.
      *
-     * @return
+     * @return  an array representing faces of the mesh
      */
     public int[] getFaces() {
-        System.out.println("width: " + width);
-        System.out.println("height: " + height);
+        log.info("width: " + width);
+        log.info("height: " + height);
 
         int i = 0;
 
         if (faces ==  null) {
             faces = new int[width * height * 24];
 
-            for (int y = 0; y < 2*height - 2; y+=2) {
+            for (int y = 0; y < 2 * height - 2; y += 2) {
                 for (int x = 0; x < width - 1; x++) {
                     faces[i++] = y * width + x;
                     faces[i++] = y * width + x;
@@ -60,18 +64,21 @@ public class EnhancedTriangulator extends Triangulator {
                 }
             }
         }
-        System.out.println("Number of faces: " + i + " (expected: " + faces.length + ")");
+        log.info("Number of faces: " + i + " (expected: " + faces.length + ")");
 
         return faces;
     }
 
     /**
+     * Returns an array of coordinates of points representing a mesh to be displayed.
+     * Three consecutive elements of the array denote x, y and z coordinates. E.g.
+     * point with coorinates (1, 2, 5) will be represetned in an array as: points[0] = 1,
+     * points[1] = 2 and points[2] = 5.
      *
-     * @return
+     * @return  coordinates of points representing a mesh to be displayed
      */
     public float[] getPoints() {
-
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getStratumNumber());
+        double tileSize = getTileSize();
         Point3D midTmp = stratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
@@ -80,7 +87,8 @@ public class EnhancedTriangulator extends Triangulator {
             int i = 0;
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
-                    float z = (float) viewConfig.getScaleZ() * matrix[x][y].getZ() + (float) midData.getZ();
+                    float z = (float) viewConfig.getScaleZ() * matrix[x][y].getZ() +
+                        (float) midData.getZ();
                     double ii = x * tileSize - midData.getX();
                     double jj = y * tileSize - midData.getY();
 
@@ -90,9 +98,12 @@ public class EnhancedTriangulator extends Triangulator {
                 }
 
                 for (int x = 0; x < width; x++) {
-                    float ii = ((float) x * (float) tileSize) + (float) tileSize/2 - (float) midData.getX();
-                    float jj = ((float) y * (float) tileSize + (float) tileSize/2 - (float) midData.getY());
-                    float z = (float) viewConfig.getScaleZ() * getAvarage(x, y) + (float) midData.getZ();
+                    float ii = ((float) x * (float) tileSize) + (float) tileSize/2 -
+                        (float) midData.getX();
+                    float jj = ((float) y * (float) tileSize + (float) tileSize/2 -
+                        (float) midData.getY());
+                    float z = (float) viewConfig.getScaleZ() * getAvarage(x, y) +
+                        (float) midData.getZ();
 
                     points[i++] = -ii;
                     points[i++] = jj;
@@ -100,14 +111,15 @@ public class EnhancedTriangulator extends Triangulator {
                 }
             }
 
-            System.out.println("Number of points: " + i + " (expected: " + points.length + ")");
+            log.info("Number of points: " + i + " (expected: " + points.length + ")");
         }
         return points;
     }
 
     /**
+     * Returns and generates (if necessary) an array required for adding a texture.
      *
-     * @return
+     * @return an array of texture coordinates
      */
     public float[] getTexture() {
 
@@ -130,12 +142,10 @@ public class EnhancedTriangulator extends Triangulator {
             }
         }
 
-        System.out.println("Number of faces: " + i + " (expected: " + texture.length + ")");
+        log.info("Number of faces: " + i + " (expected: " + texture.length + ")");
 
         return texture;
     }
-
-
 
     /**
      *
@@ -144,7 +154,6 @@ public class EnhancedTriangulator extends Triangulator {
      * @return
      */
     public float getAvarage(int x, int y) {
-
         int x1 = x;
         int y1 = y;
 
