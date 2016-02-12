@@ -20,7 +20,9 @@ public class Filter {
     }
 
     public void add(FilterAttribute fa, FilterInterval fi) {
-        filter.put(fa, fi);
+        if (!filter.containsKey(fa)) {
+            filter.put(fa, fi);
+        }
     }
 
     public String getMin(FilterAttribute fa) {
@@ -47,6 +49,7 @@ public class Filter {
         Set<FilterAttribute> attributes = filter.keySet();
 
         int attributeCounter = 0;
+
         for (FilterAttribute attribute : attributes) {
             FilterInterval interval = filter.get(attribute);
 
@@ -56,7 +59,7 @@ public class Filter {
 
             query.append(
                 attribute.getName() + " > " + interval.getMin() + " AND " +
-                attribute.getName() + " < " + interval.getMax()
+                attribute.getName() + " <= " + interval.getMax()
             );
         }
 

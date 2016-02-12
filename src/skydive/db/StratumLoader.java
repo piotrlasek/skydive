@@ -56,13 +56,12 @@ public class StratumLoader {
         Connection connection = databaseManager.getConnection();
         Statement statement = connection.createStatement();
 
-
-
         try {
             String query = QueryHelper.getTuplesQuery(pyramidTableName, pyramidCoordinates,
                 measures, attributes, stratumCoordinates, filter);
 
             log.info("EXECUTING QUERY: ");
+            log.info(query);
 
             ResultSet rs = statement.executeQuery(query);
 
@@ -75,6 +74,7 @@ public class StratumLoader {
             log.info("Number or records read: " + stratum.getTuples().size());
         } catch (Exception e) {
             log.error(e);
+            e.printStackTrace();
         }
 
         return stratum;
