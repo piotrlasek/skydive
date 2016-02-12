@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.embed.swing.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.PlotController">
+<BorderPane fx:id="borderPane" prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.PlotController">
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
@@ -262,6 +267,51 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </VBox.margin>
                   </Separator>
+                  <BorderPane prefHeight="36.0" prefWidth="739.0">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Time filter">
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </Label>
+                              <CheckBox mnemonicParsing="false" text="Show all">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <left>
+                                    <CheckBox mnemonicParsing="false" prefWidth="56.0" text="Filter" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets />
+                                       </BorderPane.margin>
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                    </CheckBox>
+                                 </left>
+                                 <center>
+                                    <Slider prefHeight="24.0" prefWidth="211.0" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                    </Slider>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                  </Separator>
                   <Label text="Commands">
                      <VBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -281,55 +331,6 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Separator prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </VBox.margin>
-                  </Separator>
-                  <BorderPane prefHeight="10.0" prefWidth="455.0">
-                     <right>
-                        <Button mnemonicParsing="false" onMouseClicked="#buttonSaveChangesClicked" text="Save changes" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                           </BorderPane.margin>
-                        </Button>
-                     </right>
-                     <VBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </VBox.margin>
-                     <left>
-                        <Button fx:id="tmp" mnemonicParsing="false" onMouseClicked="#loadTest" text="Cancel" BorderPane.alignment="CENTER" />
-                     </left>
-                  </BorderPane>
-                  <BorderPane prefHeight="36.0" prefWidth="739.0">
-                     <center>
-                        <Slider BorderPane.alignment="CENTER">
-                           <padding>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                           </padding>
-                        </Slider>
-                     </center>
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
-                     <top>
-                        <Label text="Time filter" BorderPane.alignment="CENTER_LEFT">
-                           <padding>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                           </padding>
-                        </Label>
-                     </top>
-                     <left>
-                        <CheckBox mnemonicParsing="false" text="Apply" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets />
-                           </BorderPane.margin>
-                           <padding>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                           </padding>
-                        </CheckBox>
-                     </left>
-                  </BorderPane>
                      </children>
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
