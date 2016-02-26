@@ -257,12 +257,12 @@ public class PlotController {
             updateStratum();
         } catch (ClassNotFoundException e) {
             log.error(e);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText("Error loading configuration file: " +
                     datasetConfig.getFileName());
             alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            alert.showAndWait();*/
         }
 
         textFieldDatasetName.setText(datasetConfig.getName());
