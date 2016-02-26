@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/db/Pyramid.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/PlotController.java" afterPath="$PROJECT_DIR$/src/skydive/PlotController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" afterPath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/Stratum.java" afterPath="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" afterPath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/Tuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/Tuple.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/Filter.java" afterPath="$PROJECT_DIR$/src/skydive/gui/Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" afterPath="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/main.fxml" afterPath="$PROJECT_DIR$/src/skydive/main.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/skydive/PlotController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="617" column="16" selection-start-line="617" selection-start-column="16" selection-end-line="617" selection-end-column="16" />
+              <caret line="682" column="44" selection-start-line="682" selection-start-column="44" selection-end-line="682" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/src/skydive/gui/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,24 +109,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stratum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Stratum.java">
+      <file leaf-file-name="BaseTuple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stratum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/db/Stratum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding>
-                <element signature="e#955#956#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -129,51 +123,18 @@
         <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2593#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilterInterval.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterInterval.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-              <folding>
-                <element signature="e#172#173#0" expanded="true" />
-                <element signature="e#236#237#0" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilterAttribute.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32905984">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
+      <file leaf-file-name="define_cp_functions.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sql/define_cp_functions.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.27035332">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -215,9 +176,7 @@
         <option value="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Statement.java" />
         <option value="$PROJECT_DIR$/conf/Checkins_[MonetDB]" />
@@ -227,18 +186,22 @@
         <option value="$PROJECT_DIR$/src/skydive/db/DatasetManager.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Connection.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/scene/control/Alert.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/scene/SubScene.java" />
         <option value="$PROJECT_DIR$/src/todo.txt" />
         <option value="$PROJECT_DIR$/src/skydive/gui/Attribute.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/FilterInterval.java" />
         <option value="$PROJECT_DIR$/src/skydive/d2i/Stratum.java" />
-        <option value="$PROJECT_DIR$/src/skydive/PlotController.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
-        <option value="$PROJECT_DIR$/src/skydive/gui/Filter.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/Pyramid.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/Tuple.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
+        <option value="$PROJECT_DIR$/src/skydive/gui/Filter.java" />
+        <option value="$PROJECT_DIR$/src/skydive/PlotController.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
       </list>
     </option>
   </component>
@@ -258,8 +221,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1576" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -359,28 +322,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -395,15 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="d2i" />
+              <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -424,8 +357,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,9 +380,10 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.3908046" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="update&#9;PSI&#9;JAVA://skydive.PlotController#updateStratum&#10;released&#9;PSI&#9;JAVA://skydive.PlotController#sliderBaseTileSizeMouseReleased&#10;dratup&#9;PSI&#9;JAVA://skydive.PlotController#drawTuples&#10;main&#9;RUN_CONFIGURATION&#9;Main&#10;Main&#9;PSI&#9;JAVA://skydive.Main&#10;lo&#9;FILE&#9;file://C:/Users/Piotr/IdeaProjects/Skydive/src/skydive/db/StratumLoader.java&#10;bastile&#9;PSI&#9;JAVA://skydive.db.Stratum#baseTileSize&#10;gts&#9;PSI&#9;JAVA://skydive.gui.Triangulator#getTileSize&#10;gsnum&#9;PSI&#9;JAVA://skydive.db.Stratum#getStratumNumber&#10;getstratum&#9;PSI&#9;JAVA://skydive.gui.ViewConfig#getStratumNumber" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -937,7 +871,18 @@
       <workItem from="1454948640753" duration="6259000" />
       <workItem from="1455041459029" duration="7887000" />
       <workItem from="1455222914372" duration="4100000" />
-      <workItem from="1455281612327" duration="12000" />
+      <workItem from="1455281612327" duration="59000" />
+      <workItem from="1455637819551" duration="732000" />
+      <workItem from="1455646899660" duration="264000" />
+      <workItem from="1455648063314" duration="3980000" />
+      <workItem from="1455819299147" duration="5772000" />
+      <workItem from="1455897788397" duration="632000" />
+      <workItem from="1455922054812" duration="716000" />
+      <workItem from="1456169855111" duration="3173000" />
+      <workItem from="1456245110849" duration="3363000" />
+      <workItem from="1456266758272" duration="53000" />
+      <workItem from="1456266826180" duration="208000" />
+      <workItem from="1456337826620" duration="10277000" />
     </task>
     <task id="LOCAL-00001" summary="Some very minor changes.">
       <created>1454013650868</created>
@@ -987,11 +932,17 @@
       <option name="project" value="LOCAL" />
       <updated>1455223062395</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Some fixes.">
+      <created>1455281634226</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1455281634227</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81804000" />
+    <option name="totallyTimeSpent" value="111021000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,34 +954,34 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1576" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16554055" sideWeight="0.5035828" order="14" side_tool="true" content_ui="tabs" x="2098" y="474" width="1043" height="295" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17207792" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17198178" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2651515" sideWeight="0.4964172" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893226" sideWeight="0.4978678" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16825776" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1652452" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296433" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31605923" sideWeight="0.49569497" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31621003" sideWeight="0.49569497" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3163031" sideWeight="0.50430506" order="14" side_tool="true" content_ui="tabs" x="2098" y="474" width="1043" height="295" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3675799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296433" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1056,25 +1007,12 @@
     <MESSAGE value="Refactoring code:&#10;- adding extra fields in configuration files&#10;- adding support for cubed pyramids by generating sql queries in more general way&#10;- etc." />
     <MESSAGE value="Rewriting QueryHelper.getStratum() function." />
     <MESSAGE value="Lot's of changes - mostly related to filtering." />
-    <option name="LAST_COMMIT_MESSAGE" value="Lot's of changes - mostly related to filtering." />
+    <MESSAGE value="Some fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some fixes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/skydive/gui/Filter.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1083,16 +1021,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tmp/snapshota.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/snapshotc.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/snapshotd.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1140,13 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/ValueObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql/create_cp.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20307167">
@@ -1158,13 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/define_cp_functions.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029010238">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1220,43 +1134,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.259542">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.648855">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/gui/ViewConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4371#4372#0" expanded="false" />
-            <element signature="e#4406#4407#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="40" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB]">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12426036">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1264,9 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.041420117">
           <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1281,9 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44907406">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1291,7 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1369,7 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="255" column="9" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,27 +1249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#4798#0" expanded="false" />
-            <element signature="e#1990#1991#0" expanded="false" />
-            <element signature="e#2036#2037#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1415,22 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterInterval.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding>
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#236#237#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Statement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1445,40 +1280,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Stratum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03242321">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jdbcclient.jar!/nl/cwi/monetdb/jdbc/MonetConnection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34801763">
+          <caret line="1054" column="0" selection-start-line="1054" selection-start-column="0" selection-end-line="1054" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Pyramid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterInterval.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#172#173#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/ValueObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB]">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/db/Stratum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
           <folding>
-            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#2672#2673#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Stratum.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
           <folding>
-            <element signature="e#0#2593#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -1487,27 +1409,25 @@
     <entry file="file://$PROJECT_DIR$/src/skydive/PlotController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="617" column="16" selection-start-line="617" selection-start-column="16" selection-end-line="617" selection-end-column="16" />
+          <caret line="682" column="44" selection-start-line="682" selection-start-column="44" selection-end-line="682" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Filter.java">
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java">
+    <entry file="file://$PROJECT_DIR$/sql/define_cp_functions.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32905984">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.27035332">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -20,6 +20,9 @@ public class Stratum {
     Point3D min;
     Point3D max;
 
+    Integer minTime;
+    Integer maxTime;
+
     /**
      * 
      * @param stratumCoordinates
@@ -64,10 +67,41 @@ public class Stratum {
             if (tuple.getZ() > max.getZ()) max = new Point3D(max.getX(), max.getY(), tuple.getZ());
             if (tuple.getZ() < min.getZ()) min = new Point3D(min.getX(), min.getY(), tuple.getZ());
         }
-        
+
+        updateMinTime(tuple);
+        updateMaxTime(tuple);
+
         tuples.add(tuple);
     }
-    
+
+    /**
+     *
+     * @param tuple
+     */
+    private void updateMaxTime(Tuple tuple) {
+        if (maxTime == null) {
+            maxTime = tuple.getTime();
+        } else {
+            if (tuple.getTime() > minTime) {
+                maxTime = tuple.getTime();
+            }
+        }
+    }
+
+    /**
+     *
+     * @param tuple
+     */
+    private void updateMinTime(Tuple tuple) {
+        if (minTime == null) {
+            minTime = tuple.getTime();
+        } else {
+            if (tuple.getTime() < minTime) {
+                minTime = tuple.getTime();
+            }
+        }
+    }
+
     /**
      * 
      * @return 

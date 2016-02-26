@@ -12,11 +12,12 @@ package skydive.db;
 public interface Tuple {
 
     /**
-     * TODO
+     * TODO !!!
      */
-    
-    
+
     public long getX();
     public long getY();
     public long getZ();
+
+    Integer getTime();
 }

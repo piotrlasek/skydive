@@ -47,6 +47,7 @@ public class PlotController {
     @FXML CheckBox checkBoxAxes;
     @FXML CheckBox checkBoxWire;
     @FXML CheckBox checkBoxPerspective;
+    @FXML Slider timeFilterSlider;
 
     SubScene scene;
     MeshView meshView;
@@ -65,10 +66,19 @@ public class PlotController {
     private double rotateModifier;*/
 
     private Filter filter;
+    private int previousTimeStratumNumber = -1;
+    private int previousSpaceStratum = -1;
+    private Integer minTime;
+    private Integer maxTime;
 
     @FXML public void initialize() {
         log.info("INITIALIZE");
         filter = new Filter();
+        FilterAttribute filterAttribute = new FilterAttribute();
+        filterAttribute.setName("time");
+        FilterInterval filterInterval = new FilterInterval();
+        filterInterval.setMin("1");
+        filterInterval.setMax("2");
     }
 
     @FXML public void checkBoxPerspectiveClicked() {
@@ -109,8 +119,60 @@ public class PlotController {
 
     @FXML public void sliderTimeStratumMouseDragged() {
         log.info("sliderBaseTileSizeMouseDragged");
-        viewConfig.setBaseTileSize((float) sliderBaseTile.getValue() / 100);
+
+        spaceStratumNumber = (int) sliderStratum.getValue();
+        timeStratumNumber = (int) sliderTimeStratum.getValue();
+
+        boolean exit = true;
+
+        if (previousTimeStratumNumber != timeStratumNumber ||
+                previousSpaceStratum != spaceStratumNumber) {
+            exit = false;
+        }
+
+        previousSpaceStratum = spaceStratumNumber;
+        previousTimeStratumNumber = timeStratumNumber;
+
+        if (exit == false) {
+            // time stratum changed.
+            // determining minimum time interval...
+
+
+
+            updateTimeSlider();
+
+            // updating stratum
+            updateStratum();
+        }
+    }
+
+    @FXML public void onTimeFilterSliderDragged() {
+        log.info("onTimeFilterSliderDragged");
+        int value = (int) timeFilterSlider.getValue();
+
+        minTime = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
+                "where space_layer = " + spaceStratumNumber + " and  " +
+                "time_layer = " + timeStratumNumber);
+
+        maxTime = databaseManager.getInt("SELECT max(time) from cubed_pyramid " +
+                "where space_layer = " + spaceStratumNumber + " and  " +
+                "time_layer = " + timeStratumNumber);
+
+        int filterMax = (int) (((float) value / (float) 100) * (maxTime - minTime) + minTime);
+
+
+
+        FilterAttribute filterAttribute = new FilterAttribute();
+        filterAttribute.setName("time");
+        FilterInterval filterInterval = new FilterInterval();
+        filterInterval.setMin("" + (filterMax - 1));
+        filterInterval.setMax("" + filterMax);
+
+        // Filter values for time
+        filter.add(filterAttribute, filterInterval);
         updateStratum();
+
+        log.info(minTime + ", " + maxTime + " " + value + ", filterMax: " + filterMax);
     }
 
     @FXML public void sliderHueShiftMouseReleased() {
@@ -586,7 +648,6 @@ public class PlotController {
 
         if (ax.equals(Rotate.X_AXIS)) {
             Translate t = new Translate();
-
             //t.deltaTransform(width/2, 0, 0);
             axis = new Box(width, size, size);
             //axis.getTransforms().add(t);
@@ -608,14 +669,6 @@ public class PlotController {
 
         spaceStratumNumber = (int) sliderStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
-
-        // Filter values for time
-        FilterAttribute filterAttribute = new FilterAttribute();
-        filterAttribute.setName("time");
-        FilterInterval filterInterval = new FilterInterval();
-        filterInterval.setMin("1");
-        filterInterval.setMax("2");
-        filter.add(filterAttribute, filterInterval);
 
         try {
             StratumLoader stratumLoader = new StratumLoader(databaseManager, datasetConfig);

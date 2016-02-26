@@ -13,9 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -29,6 +27,7 @@ public class DatabaseManager {
 
     Connection connection;
     DatasetConfig datasetConfig;
+    HashMap<String, DatasetConfig> datasets;
 
     public DatabaseManager(DatasetConfig datasetConfig) throws ClassNotFoundException {
         this.datasetConfig = datasetConfig;
@@ -58,8 +57,28 @@ public class DatabaseManager {
         return connection;
     }
 
-    
-    HashMap<String, DatasetConfig> datasets;
+
+    /**
+     *
+     * @param query
+     * @return
+     */
+    public Integer getInt(String query) {
+        Integer result = null;
+
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.execute(query);
+            ResultSet resultSet = statement.getResultSet();
+            resultSet.next();
+            result = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            log.error(e);
+        }
+
+        return result;
+    }
 
     /**
      *

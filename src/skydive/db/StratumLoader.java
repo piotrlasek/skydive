@@ -27,6 +27,7 @@ public class StratumLoader {
     private String[] measures;
     String pyramidTableName;
     String[] pyramidCoordinates;
+    int maxNumberOfTimeIntervals;
 
     /**
      * A constructor.

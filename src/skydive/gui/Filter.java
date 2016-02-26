@@ -9,22 +9,42 @@ import java.util.Set;
  */
 public class Filter {
 
+    int layer;
+
+    // ...
+
     HashMap<FilterAttribute, FilterInterval> filter;
 
     public Filter() {
         filter = new HashMap();
     }
 
+    /**
+     *
+     */
     public void clear() {
         filter.clear();
     }
 
+    /**
+     *
+     * @param fa
+     * @param fi
+     */
     public void add(FilterAttribute fa, FilterInterval fi) {
         if (!filter.containsKey(fa)) {
+            filter.put(fa, fi);
+        } else {
+            filter.remove(fa);
             filter.put(fa, fi);
         }
     }
 
+    /**
+     *
+     * @param fa
+     * @return
+     */
     public String getMin(FilterAttribute fa) {
         String result = null;
         FilterInterval fi = filter.get(fa);
@@ -34,6 +54,11 @@ public class Filter {
         return result;
     }
 
+    /**
+     *
+     * @param fa
+     * @return
+     */
     public String getMax(FilterAttribute fa) {
         String result = null;
         FilterInterval fi = filter.get(fa);
@@ -43,6 +68,10 @@ public class Filter {
         return result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toSQL() {
         StringBuilder query = new StringBuilder();
 
@@ -64,5 +93,17 @@ public class Filter {
         }
 
         return query.toString();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isEmpty() {
+       if (filter.size() > 0) {
+           return false;
+       } else {
+           return true;
+       }
     }
 }

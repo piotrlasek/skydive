@@ -21,6 +21,8 @@ public class BaseTuple implements Tuple {
 
     public ValueObject valueObject;
 
+    public int time;
+
     /**
      *
      * @param x
@@ -41,6 +43,14 @@ public class BaseTuple implements Tuple {
      */
     public BaseTuple(long x, long y, ValueObject vo) {
         this.valueObject = vo;
+    }
+
+    /**
+     *
+     * @parame time
+     */
+    public void setTime(int time) {
+        this.time = time;
     }
 
     /**
@@ -92,5 +102,13 @@ public class BaseTuple implements Tuple {
      * @param z
      */
     public void setZ(long z) {this.value = z; }
+
+    /**
+     *
+     * @return
+     */
+    public Integer getTime() {
+        return time;
+    }
     
 }

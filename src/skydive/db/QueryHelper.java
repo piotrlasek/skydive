@@ -73,7 +73,7 @@ public class QueryHelper {
 
         // FILTER
         // ------
-        if (filter != null) {
+        if (filter != null && !filter.isEmpty()) {
             sb.append(" AND ");
             sb.append(filter.toSQL());
         }
@@ -108,11 +108,13 @@ public class QueryHelper {
         
         int x = rs.getInt(measures[0]);
         int y = rs.getInt(measures[1]);
+        int t = rs.getInt(measures[2]);
         long v = (long) rs.getDouble(attributes[0]);
 
         BaseTuple bt;
 
         bt = new BaseTuple(x, y, v);
+        bt.setTime(t);
 
         if (attributes.length > 1) {
             ValueObject vo = new ValueObject();
