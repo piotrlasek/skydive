@@ -95,8 +95,6 @@ public class QueryHelper {
         // ----
         sb.append(" ASC ");
 
-        log.info(sb.toString());
-        
         return sb.toString();
     }
     
