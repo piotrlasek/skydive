@@ -65,6 +65,7 @@ BEGIN
    SET BASE_TILE_SIZE2 = GET_BASE_TILE_SIZE();  -- initial tiling
    DECLARE BASE_TIME_INTERVAL INTEGER;
    SET BASE_TIME_INTERVAL = 1440;               -- 1 day = 60 minutes * 24 h
+   --SET BASE_TIME_INTERVAL = 10080;               -- 7 day = 8 * 60 minutes * 24 h
 
    INSERT INTO CUBED_PYRAMID
       SELECT
