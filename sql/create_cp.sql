@@ -12,7 +12,8 @@ BEGIN
    -- Create a base layer
    CALL CREATE_BASE_LAYER();
    
-   SET I = 1;
+   -- I = 2 => base layer's number
+   SET I = 2;
    
    -- Do the rest...
    WHILE I <= SPACE_LAYERS DO
@@ -32,3 +33,12 @@ END;
 -- show pyramid's strata
 
 -- SELECT MAX(space_layer), MAX(time_layer), COUNT(*) FROM cubed_pyramid GROUP BY space_layer, time_layer ORDER BY space_layer, time_layer;
+
+-- CREATE INDEXES
+
+CREATE INDEX i1 ON cubed_pyramid(space_layer);
+CREATE INDEX i2 ON cubed_pyramid(time_layer);
+CREATE INDEX i3 ON cubed_pyramid(time);
+CREATE INDEX i4 ON cubed_pyramid(space_layer, time_layer);
+CREATE INDEX i5 ON cubed_pyramid(space_layer, time_layer, time);
+
