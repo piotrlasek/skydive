@@ -32,6 +32,7 @@ public class DatabaseManager {
     public DatabaseManager(DatasetConfig datasetConfig) throws ClassNotFoundException {
         this.datasetConfig = datasetConfig;
         String driver = datasetConfig.getDriver();
+        log.info("Loading driver: " + driver);
         Class.forName(driver);
     }
 
@@ -47,6 +48,7 @@ public class DatabaseManager {
             String userName = connectionStringTab[1];
             String password = connectionStringTab[2];
             try {
+                log.info("Establishing connection: " + connectionString);
                 connection = DriverManager.getConnection(connectionString, userName, password);
             } catch (SQLException e) {
                 log.error(e);
@@ -65,6 +67,8 @@ public class DatabaseManager {
      */
     public Integer getInt(String query) {
         Integer result = null;
+
+        log.info(query);
 
         try {
             Statement statement = getConnection().createStatement();

@@ -1,5 +1,7 @@
 package skydive;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -68,8 +70,8 @@ public class PlotController {
     private Filter filter;
     private int previousTimeStratumNumber = -1;
     private int previousSpaceStratum = -1;
-    private Integer minTime;
-    private Integer maxTime;
+    private Integer minTimeInStratum;
+    private Integer maxTimeInStratum;
 
     @FXML public void initialize() {
         log.info("INITIALIZE");
@@ -79,6 +81,33 @@ public class PlotController {
         FilterInterval filterInterval = new FilterInterval();
         filterInterval.setMin("1");
         filterInterval.setMax("2");
+
+        timeFilterSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+                log.info("timeFilterSlider.changed START");
+                int value = (int) timeFilterSlider.getValue();
+
+                //int filterMax = (int) (((float) value / (float) 100) * (maxTimeInStratum - minTimeInStratum) + minTimeInStratum);
+                //int filterMax = 1;
+                int filterMax = value;
+
+                FilterAttribute filterAttribute = new FilterAttribute();
+                filterAttribute.setName("time");
+                FilterInterval filterInterval = new FilterInterval();
+                filterInterval.setMin("" + (filterMax - 1));
+                filterInterval.setMax("" + filterMax);
+
+                // Filter values for time
+                filter.add(filterAttribute, filterInterval);
+
+                updateStratum();
+
+                log.info(minTimeInStratum + ", " + maxTimeInStratum + " " + value + ", filterMax: " + filterMax);
+                log.info("timeFilterSlider.changed END");
+            }
+        });
     }
 
     @FXML public void checkBoxPerspectiveClicked() {
@@ -120,6 +149,17 @@ public class PlotController {
     @FXML public void sliderTimeStratumMouseDragged() {
         log.info("sliderBaseTileSizeMouseDragged");
 
+
+        minTimeInStratum = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
+                "where space_layer = " + spaceStratumNumber + " and  " +
+                "time_layer = " + timeStratumNumber);
+
+        maxTimeInStratum = databaseManager.getInt("SELECT max(time) from cubed_pyramid " +
+                "where space_layer = " + spaceStratumNumber + " and  " +
+                "time_layer = " + timeStratumNumber);
+
+        timeFilterSlider.setMax(maxTimeInStratum);
+
         spaceStratumNumber = (int) sliderStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
 
@@ -139,7 +179,7 @@ public class PlotController {
 
 
 
-            updateTimeSlider();
+            //updateTimeSlider();
 
             // updating stratum
             updateStratum();
@@ -147,32 +187,6 @@ public class PlotController {
     }
 
     @FXML public void onTimeFilterSliderDragged() {
-        log.info("onTimeFilterSliderDragged");
-        int value = (int) timeFilterSlider.getValue();
-
-        minTime = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
-                "where space_layer = " + spaceStratumNumber + " and  " +
-                "time_layer = " + timeStratumNumber);
-
-        maxTime = databaseManager.getInt("SELECT max(time) from cubed_pyramid " +
-                "where space_layer = " + spaceStratumNumber + " and  " +
-                "time_layer = " + timeStratumNumber);
-
-        int filterMax = (int) (((float) value / (float) 100) * (maxTime - minTime) + minTime);
-
-
-
-        FilterAttribute filterAttribute = new FilterAttribute();
-        filterAttribute.setName("time");
-        FilterInterval filterInterval = new FilterInterval();
-        filterInterval.setMin("" + (filterMax - 1));
-        filterInterval.setMax("" + filterMax);
-
-        // Filter values for time
-        filter.add(filterAttribute, filterInterval);
-        updateStratum();
-
-        log.info(minTime + ", " + maxTime + " " + value + ", filterMax: " + filterMax);
     }
 
     @FXML public void sliderHueShiftMouseReleased() {
@@ -482,6 +496,19 @@ public class PlotController {
 
         Group plot = new Group();
 
+        Box b1 = new Box(tileSize, tileSize, 0);
+        Box b2 = new Box(tileSize, tileSize, 0);
+
+        plot.getChildren().add(b1);
+        plot.getChildren().add(b2);
+
+        b1.translateXProperty().set(-1000);
+        b1.translateYProperty().set(-1000);
+
+        b2.translateXProperty().set(1000);
+        b2.translateYProperty().set(1000);
+
+
         if (viewConfig.getPlotType().equals(ViewConfig.PlotType.MESH)) {
             // Show MESH
             Triangulator triangulator = new EnhancedTriangulator(stratum, viewConfig);
@@ -511,13 +538,17 @@ public class PlotController {
 
                 //double z = (bt.value / stratum.getMax().getZ()) * 200;
                 double z = viewConfig.getScaleZ() * bt.getZ();
-                double i = (bt.x * tileSize - midData.getX());
-                double j = (bt.y * tileSize - midData.getY());
+                //double i = (bt.x * tileSize - midData.getX());
+                //double j = (bt.y * tileSize - midData.getY());
+
+                double i = (bt.x * tileSize - 500);
+                double j = (bt.y * tileSize -500);
 
                 Node node = null;
 
                 //double zTranslate = z - midTmp.getZ();
                 double zTranslate = z;
+
 
                 switch (viewConfig.getPlotType()) {
                     case TILES: {
@@ -632,7 +663,8 @@ public class PlotController {
         lz.getTransforms().add(tlz);
         axes.getChildren().add(lz);
 
-        rectangleGroup.getChildren().add(axes);
+        // TODO: FIX IT!
+        //rectangleGroup.getChildren().add(axes);
     }
 
     /**
@@ -679,12 +711,16 @@ public class PlotController {
                 if (i == 0) stratumCoordinates[i] = spaceStratumNumber;
                 if (i == 1) stratumCoordinates[i] = timeStratumNumber;
             }
-
+            log.info("t1");
             stratum = stratumLoader.loadStratum(stratumCoordinates, filter);
+            log.info("t2");
             rectangleGroup.getChildren().clear();
+            log.info("t3");
             //scene.setCamera(viewConfig.getCamera());
             drawTuples(rectangleGroup);
+            log.info("t4");
             createAxes(rectangleGroup);
+            log.info("t5");
         } catch (SQLException e) {
             log.error(e);
         } catch (ClassNotFoundException e) {

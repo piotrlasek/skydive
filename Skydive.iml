@@ -10,5 +10,6 @@
     <orderEntry type="library" name="FXyzLib" level="project" />
     <orderEntry type="library" name="log4j-core-2.5" level="project" />
     <orderEntry type="library" name="log4j-api-2.5" level="project" />
+    <orderEntry type="library" name="org.postgresql:postgresql:9.4.1208.jre7" level="project" />
   </component>
 </module>

@@ -303,7 +303,7 @@
                   </BorderPane>
                   <BorderPane prefHeight="36.0" prefWidth="739.0">
                      <center>
-                        <Slider fx:id="timeFilterSlider" onMouseDragged="#onTimeFilterSliderDragged" BorderPane.alignment="CENTER">
+                        <Slider fx:id="timeFilterSlider" onMouseDragged="#onTimeFilterSliderDragged" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
                            <padding>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </padding>
