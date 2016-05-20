@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/checkins-postgresql-dump.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" afterPath="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/utils/DataGenerator.java" afterPath="$PROJECT_DIR$/src/skydive/utils/DataGenerator.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,8 +111,8 @@
       <file leaf-file-name="Cubed_Checkins_[Postgresql].conf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33867276">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.38100687">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -315,6 +314,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -368,6 +381,7 @@
       <recent name="$PROJECT_DIR$/tmp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Piotr\Dropbox\SRC\IdeaProjects\Skydive\data" />
       <recent name="C:\Users\Piotr\IdeaProjects\Skydive\conf" />
       <recent name="$PROJECT_DIR$/conf" />
       <recent name="$PROJECT_DIR$/sql" />
@@ -909,7 +923,7 @@
       <workItem from="1461449352048" duration="7006000" />
       <workItem from="1462396436071" duration="14000" />
       <workItem from="1462817551023" duration="218000" />
-      <workItem from="1463682621602" duration="2155000" />
+      <workItem from="1463682621602" duration="2319000" />
     </task>
     <task id="LOCAL-00001" summary="Some very minor changes.">
       <created>1454013650868</created>
@@ -977,11 +991,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460662272980</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Some changes.">
+      <created>1463768596205</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1463768596205</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193027000" />
+    <option name="totallyTimeSpent" value="193191000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1048,7 +1068,8 @@
     <MESSAGE value="Rewriting QueryHelper.getStratum() function." />
     <MESSAGE value="Lot's of changes - mostly related to filtering." />
     <MESSAGE value="Some fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some fixes." />
+    <MESSAGE value="Some changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1440,8 +1461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33867276">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.38100687">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="9" />
           <folding />
         </state>
       </provider>
