@@ -22,7 +22,6 @@ SELECT
       LATITUDE
    WITH DATA;
 
-
 /**
  * Creates a table for storing the pyramid index and fills it with initial data.
  */

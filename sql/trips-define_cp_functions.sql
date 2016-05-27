@@ -11,44 +11,45 @@
 
 DROP TABLE CUBED_PYRAMID CASCADE;
 
---
--- Initialize pyramid by removing "duplicates".
---
+/*
+ * Initialize pyramid by removing "duplicates".
+ */
 
 CREATE TABLE CUBED_PYRAMID AS
 SELECT
       0 AS SPACE_LAYER, -- This is not a base space layer
       0 AS TIME_LAYER, -- This is not a base time layer
-      CAST((LONGITUDE - (SELECT MIN(LONGITUDE) FROM CHECKINS))* 1000000000 AS BIGINT) AS TILE_X,
-      CAST((LATITUDE - (SELECT MIN(LATITUDE) FROM CHECKINS)) * 1000000000 AS BIGINT) AS TILE_Y,
-      S AS TIME,
-      COUNT(USER_ID) AS CNT,
-	  LOG10(COUNT(USER_ID)) AS CNT_LOG
+      CAST((pickup_longitude - (SELECT MIN(pickup_longitude) FROM data2)) * 1000000000 AS BIGINT) AS TILE_X,
+      CAST((pickup_latitude - (SELECT MIN(pickup_latitude) FROM data2)) * 1000000000 AS BIGINT) AS TILE_Y,
+      pickup_datetime AS TILE_T, -- tile time
+      COUNT(*) AS CNT,
+	    -- LOG10(COUNT(*)) AS CNT_LOG
    FROM
-      CH2 -- checkins table with auxiliary column S -- seconds
+      data2 -- checkins table with auxiliary column S -- seconds
    GROUP BY
-      LONGITUDE,
-      LATITUDE,
-      S -- TIME
+      pickup_latitude,
+      pickup_longitude,
+      pickup_datetime -- TIME
    WITH DATA;
 
 /*
  * Returns a size of a "spatial" base tile.
  */
 DROP FUNCTION GET_BASE_TILE_SIZE CASCADE;
-CREATE FUNCTION GET_BASE_TILE_SIZE()
-RETURNS FLOAT
-BEGIN
-   DECLARE MAX_X BIGINT;
-   DECLARE MIN_X BIGINT;
-   DECLARE BASE_TILE_SIZE FLOAT;
 
-   SELECT MAX(TILE_X) INTO MAX_X FROM CUBED_PYRAMID WHERE SPACE_LAYER=0;
-   SELECT MIN(TILE_X) INTO MIN_X FROM CUBED_PYRAMID WHERE SPACE_LAYER=0;
-   SET BASE_TILE_SIZE = (MAX_X - MIN_X) / 512;
+CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
+    DECLARE MAX_X BIGINT;
+    DECLARE MIN_X BIGINT;
+    DECLARE BASE_TILE_SIZE FLOAT;
 
-   RETURN BASE_TILE_SIZE;
-END;
+  BEGIN
+    SELECT MAX(TILE_X) INTO MAX_X FROM CUBED_PYRAMID WHERE SPACE_LAYER=0;
+    SELECT MIN(TILE_X) INTO MIN_X FROM CUBED_PYRAMID WHERE SPACE_LAYER=0;
+    SET BASE_TILE_SIZE = (MAX_X - MIN_X) / 512;
+
+    RETURN BASE_TILE_SIZE;
+  END;
+$$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------------------------------
 
@@ -126,22 +127,22 @@ CREATE PROCEDURE CREATE_TIME_LAYER(SPACE_LAYER_NUM INT, TIME_LAYER_NUM INT)
 BEGIN
 INSERT INTO CUBED_PYRAMID
         SELECT
-				SPACE_LAYER_NUM,
-				TIME_LAYER_NUM,
-				TILE_X AS TILE_X_GROUP,
-				TILE_Y AS TILE_Y_GROUP,
-				CAST(TIME / 2 AS INTEGER) AS TIME_GROUP,
-				SUM(CNT) AS CNT,
+                SPACE_LAYER_NUM,
+                TIME_LAYER_NUM,
+                TILE_X AS TILE_X_GROUP,
+                TILE_Y AS TILE_Y_GROUP,
+                CAST(TIME / 2 AS INTEGER) AS TIME_GROUP,
+                SUM(CNT) AS CNT,
 				SUM(CNT_LOG) AS CNT_LOG
         FROM
-             CUBED_PYRAMID
+                CUBED_PYRAMID
         WHERE
-             SPACE_LAYER = SPACE_LAYER_NUM AND
-             TIME_LAYER = TIME_LAYER_NUM - 1
+                SPACE_LAYER = SPACE_LAYER_NUM AND
+                TIME_LAYER = TIME_LAYER_NUM - 1
         GROUP BY
-             TILE_X_GROUP,
-             TILE_Y_GROUP,
-             TIME_GROUP;
+                TILE_X_GROUP,
+                TILE_Y_GROUP,
+                TIME_GROUP;
 END;
 
 -- ------------------------------------------------------------------------------------------
