@@ -1,7 +1,6 @@
-﻿-- PostgreSQL functions
-
+﻿-- ------------------------------------------------------------------
 DROP FUNCTION IF EXISTS GET_BASE_TILE_SIZE() CASCADE;
-
+-- ------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
     DECLARE MIN_X BIGINT;
     DECLARE MAX_X BIGINT;
@@ -16,4 +15,4 @@ CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
     END;
 
 $$ LANGUAGE plpgsql;
-
+-- ------------------------------------------------------------------

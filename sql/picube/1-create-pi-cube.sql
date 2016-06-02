@@ -7,5 +7,3 @@
     cnt bigint,
     cnt_log double precision
 );
-
-
