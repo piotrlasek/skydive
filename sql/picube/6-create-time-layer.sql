@@ -1,4 +1,6 @@
 ﻿-- ------------------------------------------------------------------
+-- Piotr Lasek (2016)
+-- ------------------------------------------------------------------
 DROP FUNCTION IF EXISTS CREATE_TIME_LAYER(SPACE_LAYER_NUM INT, TIME_LAYER_NUM INT) CASCADE;
 -- ------------------------------------------------------------------
 CREATE FUNCTION CREATE_TIME_LAYER(SPACE_LAYER_NUM INT, TIME_LAYER_NUM INT) RETURNS INTEGER AS $$
@@ -18,7 +20,7 @@ CREATE FUNCTION CREATE_TIME_LAYER(SPACE_LAYER_NUM INT, TIME_LAYER_NUM INT) RETUR
         FROM
             CUBED_PYRAMID
         WHERE
-            SPACE_LAYER = SPACE_LAYER_NUM  AND
+                SPACE_LAYER = SPACE_LAYER_NUM  AND
             TIME_LAYER = TIME_LAYER_NUM - 1
         GROUP BY
             TILE_X_GROUP,

@@ -43,4 +43,3 @@ CREATE INDEX i4 ON cubed_pyramid(space_layer, time_layer);
 CREATE INDEX i5 ON cubed_pyramid(time, space_layer, time_layer);
 CREATE INDEX i6 ON cubed_pyramid(time, time_layer, space_layer);
 CREATE INDEX i7 ON cubed_pyramid(space_layer, time_layer, time);
-
