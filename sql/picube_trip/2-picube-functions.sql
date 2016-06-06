@@ -1,21 +1,81 @@
 -- ==================================================================
 -- Author:          Piotr Lasek
 -- Create date:     June 3, 2016
--- Description:     ...
+-- Description:     Definitions of functions used for creating
+--                  a pi-cube.
 -- ==================================================================
 
 \timing on
 
--- We probably have to introduce several types of pyramid dimensions.
--- In an example below we have one "two dimensional" space dimensional and
---  one time dimension.
+-- 
+-- Create
+-- ------------------------------------------------------------------
+-- Drop pi-cube table.
+DROP TABLE IF EXISTS PI_CUBE CASCADE;
 
--- data preparation
---
--- UPDATE
---  ch2
--- SET
---  s = (time - cast('2008-03-21 20:36:21.000000' as timestamp))/1000/60;  -- MINUTES !!!
+-- Create pi_cube table.
+CREATE TABLE IF NOT EXISTS PI_CUBE (
+    XY_LAYER INTEGER,
+    UV_LAYER INTEGER,
+    T_LAYER INTEGER,
+    X BIGINT,
+    Y BIGINT,
+    U BIGINT,
+    V BIGINT,
+    T INTEGER,
+    CNT BIGINT
+);
+
+-- ------------------------------------------------------------------
+-- Initialize pyramid by removing "duplicates".
+-- ------------------------------------------------------------------
+DROP FUNCTION IF EXISTS INITIALIZE_PI_CUBE;
+
+CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
+    DECLARE MIN_LONGITUDE INTEGER;
+    DECLARE MIN_LATITUDE INTEGER;
+    BEGIN
+        SELECT MIN(LONGITUDE) FROM DATA INTO MIN_LONGITUDE;
+        SELECT MIN(LATITUDE) FROM DATA INTO MIN_LATITUDE;
+
+        CREATE TABLE PI_CUBE AS
+        SELECT
+              0 AS xy_layer, -- This is not a base space layer
+              0 AS uv_layer, -- This is not a base time layer
+              0 AS t_layer,
+              CAST((PICKUP_LONGITUDE - MIN_LONGITUDE)* 1000000000 AS BIGINT) AS X,
+              CAST((PICKUP_LATITUDE - MIN_LATITUDE) * 1000000000 AS BIGINT) AS Y,
+              CAST((DROPOFF_LONGITUDE - MIN_LONGITUDE)* 1000000000 AS BIGINT) AS U,
+              CAST((DROPOFF_LATITUDE - MIN_LATITUDE) * 1000000000 AS BIGINT) AS V,
+              TRIP_TIME_IN_SECS AS T,
+              COUNT(*) AS CNT
+           FROM
+              CH2 -- checkins table with auxiliary column S -- seconds
+           GROUP BY
+              LONGITUDE,
+              LATITUDE,
+              S -- TIME
+           WITH DATA;
+    END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------------------------------------
+DROP FUNCTION IF EXISTS GET_BASE_TILE_SIZE() CASCADE;
+-- 
+CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
+    DECLARE MIN_X BIGINT;
+    DECLARE MAX_X BIGINT;
+    DECLARE BASE_TILE_SIZE FLOAT;
+
+    BEGIN
+       SELECT MAX(TILE_X) INTO MAX_X FROM PI_CUBE WHERE SPACE_LAYER=0;
+       SELECT MIN(TILE_X) INTO MIN_X FROM PI_CUBE WHERE SPACE_LAYER=0;
+       BASE_TILE_SIZE = (MAX_X - MIN_X) / 512;
+
+       RETURN BASE_TILE_SIZE;
+    END;
+
+$$ LANGUAGE plpgsql;
+-- ------------------------------------------------------------------
 
 DROP TABLE CUBED_PYRAMID CASCADE;
 
