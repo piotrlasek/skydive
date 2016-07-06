@@ -5,24 +5,25 @@ import java.util.ArrayList;
 
 /**
  * Created by Piotr Lasek on 12.04.2016.
+ *
+ * Data generator for generating and aggregating n-dimensional cubes for testing how aggregation behaves.
  */
 public class DataGenerator {
 
+    /**
+     *  An internal auxiliary class for representing integers as objects.
+     */
     public static class IntegerObj {
         int value;
-
         public IntegerObj(int val) {
             this.value = val;
         }
-
         public void increment() {
            value++;
         }
-
         public int getValue() {
             return value;
         }
-
         public void setValue(int v) {
             value = v;
         }
@@ -95,6 +96,7 @@ public class DataGenerator {
         int objectsCount = 0;
         int mc = (int) Math.pow(width, dimensions);
         int maxCount = count < mc ? count : mc;
+
         //
         // for (int i = 0; i < count; i++) {
         while(objectsCount < maxCount) {
