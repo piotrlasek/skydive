@@ -9,58 +9,84 @@
 
 \i 0-clear-db.sql
 
-CREATE TABLE data_in (
-  medallion text,
-  hack_license text,
-  vendor_id text,
-  rate_code text,
-  store_and_fwd_flag text,
-  pickup_datetime text,
-  dropoff_datetime text,
-  passenger_count text,
-  trip_time_in_secs text,
-  trip_distance text,
-  pickup_longitude text,
-  pickup_latitude text,
-  dropoff_longitude text,
-  dropoff_latitude text
+CREATE TABLE DATA_IN (
+  MEDALLION TEXT,
+  HACK_LICENSE TEXT,
+  VENDOR_ID TEXT,
+  RATE_CODE TEXT,
+  STORE_AND_FWD_FLAG TEXT,
+  PICKUP_DATETIME TEXT,
+  DROPOFF_DATETIME TEXT,
+  PASSENGER_COUNT TEXT,
+  TRIP_TIME_IN_SECS TEXT,
+  TRIP_DISTANCE TEXT,
+  PICKUP_LONGITUDE TEXT,
+  PICKUP_LATITUDE TEXT,
+  DROPOFF_LONGITUDE TEXT,
+  DROPOFF_LATITUDE TEXT
 );
 
 -- Copying data
+-- ------------------------------------------------------------------
 
-\copy data_in from '~/NYCTC/trip_data_1.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_2.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_3.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_4.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_5.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_6.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_7.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_8.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_9.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_10.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_11.csv' with delimiter ',';
-\copy data_in from '~/NYCTC/trip_data_12.csv' with delimiter ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_1.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_2.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_3.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_4.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_5.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_6.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_7.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_8.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_9.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_10.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_11.csv' WITH DELIMITER ',';
+\copy DATA_IN FROM '~/NYCTC/trip_data_12.csv' WITH DELIMITER ',';
+
+-- takes about *40 minutes*
 
 -- Casting types of attributes
+-- ------------------------------------------------------------------
 
 CREATE TABLE
-  data
+  DATA
 AS SELECT
-  store_and_fwd_flag,
-  vendor_id,
-  CASE WHEN rate_code~E'^\\d+$' THEN rate_code::integer ELSE  -1 END as rate_code,
-  CASE WHEN pickup_datetime~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN to_timestamp(pickup_datetime, 'yyyy-mm-dd HH24:MI:SS') ELSE NULL END as pickup_datetime,
-  CASE WHEN dropoff_datetime~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN to_timestamp(dropoff_datetime, 'yyyy-mm-dd HH24:MI:SS')  ELSE NULL END as dropoff_datetime,
-  CASE WHEN passenger_count~E'^\\d+$'  THEN passenger_count::integer ELSE 0 END as passenger_count,
-  CASE WHEN trip_time_in_secs~E'^\\d+$' THEN trip_time_in_secs::integer ELSE 0 END as trip_time_in_secs,
-  CASE WHEN trip_distance~E'^\\d*\\.\\d*' THEN trip_distance::float ELSE 0 END as trip_distance,
-  CASE WHEN pickup_longitude~E'^-?\\d*\\.\\d*' THEN pickup_longitude::float ELSE 0 END as pickup_longitude,
-  CASE WHEN pickup_latitude~E'^-?\\d*\\.\\d*' THEN pickup_latitude::float ELSE 0 END as pickup_latitude,
-  CASE WHEN dropoff_longitude~E'^-?\\d*\\.\\d*' THEN dropoff_longitude::float ELSE 0 END as dropoff_longitude,
-  CASE WHEN dropoff_latitude~E'^-?\\d*\\.\\d*' THEN dropoff_latitude::float ELSE 0 END as dropoff_latitude
+  STORE_AND_FWD_FLAG,
+  VENDOR_ID,
+  CASE WHEN RATE_CODE~E'^\\d+$' THEN RATE_CODE::INTEGER ELSE  -1 END AS RATE_CODE,
+  CASE WHEN PICKUP_DATETIME~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN TO_TIMESTAMP(PICKUP_DATETIME, 'yyyy-mm-dd HH24:MI:SS') ELSE NULL END AS PICKUP_DATETIME,
+  CASE WHEN DROPOFF_DATETIME~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN TO_TIMESTAMP(DROPOFF_DATETIME, 'yyyy-mm-dd HH24:MI:SS')  ELSE NULL END AS DROPOFF_DATETIME,
+  CASE WHEN PASSENGER_COUNT~E'^\\d+$'  THEN PASSENGER_COUNT::INTEGER ELSE 0 END AS PASSENGER_COUNT,
+  CASE WHEN TRIP_TIME_IN_SECS~E'^\\d+$' THEN TRIP_TIME_IN_SECS::INTEGER ELSE 0 END AS TRIP_TIME_IN_SECS,
+  CASE WHEN TRIP_DISTANCE~E'^\\d*\\.\\d*' THEN TRIP_DISTANCE::FLOAT ELSE 0 END AS TRIP_DISTANCE,
+  CASE WHEN PICKUP_LONGITUDE~E'^-?\\d*\\.\\d*' THEN PICKUP_LONGITUDE::FLOAT ELSE 0 END AS PICKUP_LONGITUDE,
+  CASE WHEN PICKUP_LATITUDE~E'^-?\\d*\\.\\d*' THEN PICKUP_LATITUDE::FLOAT ELSE 0 END AS PICKUP_LATITUDE,
+  CASE WHEN DROPOFF_LONGITUDE~E'^-?\\d*\\.\\d*' THEN DROPOFF_LONGITUDE::FLOAT ELSE 0 END AS DROPOFF_LONGITUDE,
+  CASE WHEN DROPOFF_LATITUDE~E'^-?\\d*\\.\\d*' THEN DROPOFF_LATITUDE::FLOAT ELSE 0 END AS DROPOFF_LATITUDE
 FROM
-  data_in
- limit 10;
+  DATA_IN;
 
 -- 858066.863 ms
+-- about *14 minutes*
 -- Result: 173 179 771
+
+-- Creating indexes
+-- ------------------------------------------------------------------
+
+CREATE INDEX ON DATA(PICKUP_LONGITUDE);
+CREATE INDEX ON DATA(PICKUP_LATITUDE);
+CREATE INDEX ON DATA(DROPOFF_LONGITUDE);
+CREATE INDEX ON DATA(DROPOFF_LATITUDE);
+CREATE INDEX ON DATA(TRIP_TIME_IN_SECS);
+CREATE INDEX ON DATA(PICKUP_DATETIME);
+
+-- TIME: 13 minutes each
+
+CREATE INDEX ON DATA (
+    PICKUP_LONGITUDE,
+    PICKUP_LATITUDE,
+    DROPOFF_LONGITUDE,
+    DROPOFF_LATITUDE,
+    PICKUP_DATETIME
+);
+
+-- TIME: 32 minutes
