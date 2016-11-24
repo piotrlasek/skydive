@@ -25,6 +25,7 @@ public class DatasetConfig {
     private String pyramidType;
     private String pyramidTableName;
     private String pyramidCoordinates;
+    private String viewLayoutFileName;
 
     /**
      *
@@ -95,7 +96,6 @@ public class DatasetConfig {
     }*/
 
     /**
-     *
      * @param fileName
      */
     public void load(File fileName) {
@@ -118,6 +118,7 @@ public class DatasetConfig {
             setPyramidType(prop.getProperty("pyramidType"));
             setPyramidCoordinates(prop.getProperty("pyramidCoordinates"));
             setPyramidTableName(prop.getProperty("pyramidTableName"));
+            setViewLayoutFileName(prop.getProperty("viewLayoutFileName"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -227,5 +228,13 @@ public class DatasetConfig {
 
     public void setPyramidCoordinates(String pyramidCoordinates) {
         this.pyramidCoordinates = pyramidCoordinates;
+    }
+
+    public String getViewLayoutFileName() {
+        return viewLayoutFileName;
+    }
+
+    public void setViewLayoutFileName(String viewLayoutFileName) {
+        this.viewLayoutFileName = viewLayoutFileName;
     }
 }

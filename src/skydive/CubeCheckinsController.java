@@ -32,12 +32,12 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
-
 /**
- * Created by piotr on 15-03-01.
+ * Created by Piotr on 06.07.2016.
  */
-public class PlotController {
-    private static final Logger log = LogManager.getLogger(PlotController.class);
+public class CubeCheckinsController implements IPlotController {
+
+    private static final Logger log = LogManager.getLogger(CubeCheckinsController.class);
 
     @FXML StackPane stackPane;
     @FXML Slider sliderStratum;
@@ -119,13 +119,6 @@ public class PlotController {
         updateStratum();
     }
 
-    @FXML public void loadTest() {
-        File f = new File("/Users/piotr/NetBeansProjects/JavaFXApplication1/Checkins_[MonetDB]");
-
-        datasetConfig = new DatasetConfig();
-        datasetConfig.load(f);
-    }
-
     @FXML public void buttonResetAnglesClicked() {
         log.info("buttonResetAnglesClicked");
         viewConfig.resetAngles();
@@ -176,11 +169,7 @@ public class PlotController {
         if (exit == false) {
             // time stratum changed.
             // determining minimum time interval...
-
-
-
             //updateTimeSlider();
-
             // updating stratum
             updateStratum();
         }
@@ -254,68 +243,9 @@ public class PlotController {
         updateStratum();
     }
 
-    @FXML public void fileOpen() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));
-        fileChooser.setTitle("Open Resource File");
-        File f = fileChooser.showOpenDialog(null);
-
-        datasetConfig = new DatasetConfig();
-        datasetConfig.load(f);
-
-        try {
-            databaseManager = new DatabaseManager(datasetConfig);
-            textFieldDatasetName.setText(datasetConfig.getName());
-            viewConfig.setPlotType(ViewConfig.PlotType.BOXES);
-            initFX();
-            updateStratum();
-        } catch (ClassNotFoundException e) {
-            log.error(e);
-            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error loading configuration file: " +
-                    datasetConfig.getFileName());
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();*/
-        }
-
-        textFieldDatasetName.setText(datasetConfig.getName());
-
-        viewConfig.setPlotType(ViewConfig.PlotType.BOXES);
-
-        initFX();
-        updateStratum();
-    }
-
-    @FXML public void checkBoxWireClicked() {
-        if (checkBoxWire.isSelected()) {
-            viewConfig.setWireMesh(true);
-        } else {
-            viewConfig.setWireMesh(false);
-        }
-        updateStratum();
-    }
-
-    @FXML public void buttonSnapshotClicked() {
-        WritableImage wi = new WritableImage(800,800);
-        SnapshotParameters param = new SnapshotParameters();
-        //param.setCamera(ParallelCameraBuilder.create().fieldOfView(45).build());
-        param.setDepthBuffer(true);
-        //param.setFill(Color.CORNSILK);
-
-        WritableImage snapshot = rectangleGroup.snapshot(param, wi);
-
-        File output = new File("snapshot" + new Date().getTime() + ".png");
-        try {
-            ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", output);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      *
-      */
+     */
     @FXML
     public void initFX() {
         log.info("initFX - START");
@@ -383,37 +313,6 @@ public class PlotController {
                 double y = event.getSceneY();
             }
         });
-
-        /*final Rotate xRotate = new Rotate(0,0,0,0,Rotate.X_AXIS);
-        final Rotate yRotate = new Rotate(0,0,0,0,Rotate.Y_AXIS);
-        camera.getTransforms().addAll(xRotate,yRotate);
-
-        scene.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getEventType() == MouseEvent.MOUSE_PRESSED ||
-                        event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-                    //acquire the new Mouse coordinates from the recent event
-                    double mouseXnew  = event.getSceneX();
-                    double mouseYnew = event.getSceneY();
-                    if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-                        //calculate the rotational change of the camera pitch
-                        double pitchRotate =xRotate.getAngle()+(mouseYnew - mouseYold) / rotateModifier;
-                        //set min/max camera pitch to prevent camera flipping
-                        pitchRotate = pitchRotate > cameraYlimit ? cameraYlimit : pitchRotate;
-                        pitchRotate = pitchRotate < -cameraYlimit ? -cameraYlimit : pitchRotate;
-                        //replace the old camera pitch rotation with the new one.
-                        xRotate.setAngle(pitchRotate);
-                        //calculate the rotational change of the camera yaw
-                        double yawRotate=yRotate.getAngle()-(mouseXnew - mouseXold) / rotateModifier;
-                        yRotate.setAngle(yawRotate);
-                    }
-                    mouseXold = mouseXnew;
-                    mouseYold = mouseYnew;
-                }
-            }
-        });*/
-
 
         scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
@@ -570,8 +469,8 @@ public class PlotController {
                             }
                         });
                         node = rect;
-                        }
-                        break;
+                    }
+                    break;
                     case BOXES: {
                         Box box = new Box(tileSize, tileSize, z);
 
@@ -599,7 +498,7 @@ public class PlotController {
 
                         node = box;
                     }
-                        break;
+                    break;
                 }
 
                 node.translateYProperty().set(i);
