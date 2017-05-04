@@ -1,0 +1,57 @@
+VBoxManage createvm --name "nytc" --register
+VBoxManage modifyvm "nytc" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc/testvm-disk01.vdi
+VBoxManage storageattach "nytc" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+
+vboxheadless -startvm nytc --vrdp on
+
+rdesktop localhost:3389
+
+vboxmanage modifyvm nytc --natdnshostresolver1 on
+
+vboxmanage modifyvm "nytc" --nic1 bridged --bridgeadapter1 eth0
+vvboxmanage modifyvm nytc --natdnshostresolver1 onboxmanage modifyvm "nytc" --nic1 none
+
+
+
+----------
+
+VBoxManage createvm --name "nytc2" --register
+VBoxManage modifyvm "nytc2" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc2/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc2" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc2" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc2/testvm-disk01.vdi
+VBoxManage storageattach "nytc2" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+
+vboxheadless -startvm nytc2 --vrdp on &
+
+rdesktop localhost:3389
+
+vboxmanage modifyvm nytc2 --natdnshostresolver1 on
+
+vboxmanage modifyvm "nytc2" --nic1 bridged --bridgeadapter1 eth0
+vvboxmanage modifyvm nytc2 --natdnshostresolver1 onboxmanage modifyvm "nytc2" --nic1 none
+
+---------
+
+
+
+VBoxManage createvm --name "nytc3" --register
+VBoxManage modifyvm "nytc3" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc3/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc3" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc3" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc3/testvm-disk01.vdi
+VBoxManage storageattach "nytc3" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm "nytc3" --nic1 nat --natdnshostresolver1 on
+rdesktop localhost:3389
+
+vboxheadless -startvm nytc3 --vrdp on &
+
