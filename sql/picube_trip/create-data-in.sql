@@ -114,7 +114,7 @@ CREATE TABLE DATA_IN_2010 (
     TOTAL_AMOUNT TEXT            
 );
 
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-01.csv' DELIMITER ',' CSV HEADER 
 \copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-02.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-03.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-04.csv' DELIMITER ',' CSV HEADER
@@ -318,3 +318,33 @@ CREATE TABLE DATA_IN_2015 (
 \copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-10.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-11.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-12.csv' DELIMITER ',' CSV HEADER
+
+-- YEAR 2016
+
+CREATE TABLE DATA_IN_2016 (
+    VENDORID TEXT, 
+    TPEP_PICKUP_DATETIME TEXT, 
+    TPEP_DROPOFF_DATETIME TEXT, 
+    PASSENGER_COUNT TEXT, 
+    TRIP_DISTANCE TEXT, 
+    PICKUP_LONGITUDE TEXT, 
+    PICKUP_LATITUDE TEXT, 
+    RATECODEID TEXT, 
+    STORE_AND_FWD_FLAG TEXT, 
+    DROPOFF_LONGITUDE TEXT, 
+    DROPOFF_LATITUDE TEXT, 
+    PAYMENT_TYPE TEXT, 
+    FARE_AMOUNT TEXT, 
+    EXTRA TEXT, 
+    MTA_TAX TEXT, 
+    TIP_AMOUNT TEXT, 
+    TOLLS_AMOUNT TEXT, 
+    IMPROVEMENT_SURCHARGE TEXT, 
+    TOTAL_AMOUNT TEXT             
+    );
+
+\copy data_in_2016 from '/home/piotr/nytc/yt1601.csv' DELIMITER ',' CSV HEADER  
+
+\copy data_in_2016 from 'L:/nytc/gt1601.csv' DELIMITER ',' CSV HEADER  
+
+\copy data_in_2016 from 'L:/nytc/ft1601.csv' DELIMITER ',' CSV HEADER  

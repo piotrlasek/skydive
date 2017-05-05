@@ -61,7 +61,8 @@ CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
             -- [SELECT]
             WITH DATA;
 
-        -- TIME: 2 hours 20 minutes
+        -- TIME: 2 hours 20 minutes (qnap)
+		--       less than 30 sec (for one month on MBP)
 
         RAISE NOTICE 'Creating indexes on XY_LAYER';
         CREATE INDEX ON PI_CUBE(XY_LAYER);
@@ -99,6 +100,8 @@ CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
         RAISE NOTICE 'Done.';
 
         RETURN 0;
+		
+		-- Takes 3 minutes for 1 month on MBP.
     END;
 $$ LANGUAGE plpgsql;
 
@@ -290,15 +293,24 @@ $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------------------------------
 
+SELECT INITIALIZE_PI_CUBE();
 
-select create_xy_layer(2);
--- TIME 28 minutes
+SELECT CREATE_BASE_LAYER();
+-- TIME: 29 sec (MBP 1 month yellow)
 
-select create_uv_layer(2, 2);
-select create_uv_layer(2, 3);
+SELECT CREATE_XY_LAYER(2);
+-- TIME 28 minutes (yellow full - qnap)
+-- TIME 28 secs (yellow, 1 month, MBP)
+
+SELECT CREATE_UV_LAYER(2, 2);
+SELECT CREATE_UV_LAYER(2, 3);
+
+-- 
 select create_uv_layer(2, 4);
 select create_uv_layer(2, 5);
 select create_uv_layer(2, 6);
+
+SELECT CREATE_XY_LAYER(3);
 
 select create_uv_layer(3, 2);
 select create_uv_layer(3, 3);
@@ -306,17 +318,23 @@ select create_uv_layer(3, 4);
 select create_uv_layer(3, 5);
 select create_uv_layer(3, 6);
 
+SELECT CREATE_XY_LAYER(4);
+
 select create_uv_layer(4, 2);
 select create_uv_layer(4, 3);
 select create_uv_layer(4, 4);
 select create_uv_layer(4, 5);
 select create_uv_layer(4, 6);
 
+SELECT CREATE_XY_LAYER(5);
+
 select create_uv_layer(5, 2);
 select create_uv_layer(5, 3);
 select create_uv_layer(5, 4);
 select create_uv_layer(5, 5);
 select create_uv_layer(5, 6);
+
+SELECT CREATE_XY_LAYER(6);
 
 select create_uv_layer(6, 2);
 select create_uv_layer(6, 3);
@@ -355,6 +373,7 @@ select create_pt_layer(2, 6, 4);
 select create_pt_layer(2, 6, 5);
 select create_pt_layer(2, 6, 6);
 
+----
 
 select create_pt_layer(3, 2, 2);
 select create_pt_layer(3, 2, 3);

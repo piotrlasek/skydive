@@ -89,3 +89,16 @@ sed '1d' yellow_tripdata_2015-10.csv > yt_2015-10.csv
 sed '1d' yellow_tripdata_2015-11.csv > yt_2015-11.csv
 sed '1d' yellow_tripdata_2015-12.csv > yt_2015-12.csv
 
+sed '1d' yellow_tripdata_2016-01.csv > yt_2016-01.csv
+sed '1d' yellow_tripdata_2016-02.csv > yt_2016-02.csv
+sed '1d' yellow_tripdata_2016-03.csv > yt_2016-03.csv
+sed '1d' yellow_tripdata_2016-04.csv > yt_2016-04.csv
+sed '1d' yellow_tripdata_2016-05.csv > yt_2016-05.csv
+sed '1d' yellow_tripdata_2016-06.csv > yt_2016-06.csv
+sed '1d' yellow_tripdata_2016-07.csv > yt_2016-07.csv
+sed '1d' yellow_tripdata_2016-08.csv > yt_2016-08.csv
+sed '1d' yellow_tripdata_2016-09.csv > yt_2016-09.csv
+sed '1d' yellow_tripdata_2016-10.csv > yt_2016-10.csv
+sed '1d' yellow_tripdata_2016-11.csv > yt_2016-11.csv
+sed '1d' yellow_tripdata_2016-12.csv > yt_2016-12.csv
+
