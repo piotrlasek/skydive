@@ -77,18 +77,18 @@ CREATE TABLE DATA_IN_2009 (
     TOTAL_AMT TEXT             
 );
 
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0901.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0902.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0903.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0904.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0905.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0906.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0907.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0908.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0909.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0910.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0911.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2009 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt0912.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0901.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0902.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0903.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0904.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0905.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0906.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0907.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0908.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0909.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0910.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0911.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2009 from '/home/piotr/nytc/yt0912.csv' DELIMITER ',' CSV HEADER
 
 -- -----------------------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS DATA_IN_2010;
@@ -114,18 +114,18 @@ CREATE TABLE DATA_IN_2010 (
     TOTAL_AMOUNT TEXT            
 );
 
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-01.csv' DELIMITER ',' CSV HEADER 
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2010 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2010-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-01.csv' DELIMITER ',' CSV HEADER 
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2010 from '/home/piotr/nytc/yt_2010-12.csv' DELIMITER ',' CSV HEADER
 
 -- -----------------------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS DATA_IN_2011;
@@ -151,18 +151,18 @@ CREATE TABLE DATA_IN_2011 (
     TOTAL_AMOUNT TEXT        
 );
 
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-01.csv' DELIMITER ',' CSV HEADER  
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2011 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2011-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2011 from '/home/piotr/nytc/yt_2011-12.csv' DELIMITER ',' CSV HEADER
 
 ---------------------------------------------------------------------------------------------------
 
@@ -189,18 +189,18 @@ CREATE TABLE DATA_IN_2012 (
     TOTAL_AMOUNT TEXT            
     );
 
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-01.csv' DELIMITER ',' CSV HEADER  
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2012 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2012-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2012 from '/home/piotr/nytc/yt_2012-12.csv' DELIMITER ',' CSV HEADER
 
 ---------------------------------------------------------------------------------------------------
 
@@ -227,18 +227,18 @@ CREATE TABLE DATA_IN_2013 (
     TOTAL_AMOUNT TEXT
     );
 
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-01.csv' DELIMITER ',' CSV HEADER  
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2013 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2013-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2013 from '/home/piotr/nytc/yt_2013-12.csv' DELIMITER ',' CSV HEADER
 
 
 ---------------------------------------------------------------------------------------------------
@@ -266,18 +266,18 @@ CREATE TABLE DATA_IN_2014 (
     TOTAL_AMOUNT TEXT            
     );
 
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-01.csv' DELIMITER ',' CSV HEADER  
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2014-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2014 from '/home/piotr/nytc/yt_2014-12.csv' DELIMITER ',' CSV HEADER
 
 
 ---------------------------------------------------------------------------------------------------
@@ -306,18 +306,18 @@ CREATE TABLE DATA_IN_2015 (
     TOTAL_AMOUNT TEXT             
     );
 
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-01.csv' DELIMITER ',' CSV HEADER  
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2015 from '/share/CACHEDEV1_DATA/.qpkg/PostgreSQL/bin/NYCTC/yt_2015-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-01.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-12.csv' DELIMITER ',' CSV HEADER
 
 -- YEAR 2016
 
@@ -343,8 +343,15 @@ CREATE TABLE DATA_IN_2016 (
     TOTAL_AMOUNT TEXT             
     );
 
-\copy data_in_2016 from '/home/piotr/nytc/yt1601.csv' DELIMITER ',' CSV HEADER  
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2016 from '/home/piotr/nytc/yt_2016-12.csv' DELIMITER ',' CSV HEADER
 
-\copy data_in_2016 from 'L:/nytc/gt1601.csv' DELIMITER ',' CSV HEADER  
-
-\copy data_in_2016 from 'L:/nytc/ft1601.csv' DELIMITER ',' CSV HEADER  

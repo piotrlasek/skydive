@@ -145,3 +145,5 @@ vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222
 vboxheadless -startvm ubuntu --vrdp on & 
 
 rdesktop localhost:3389 &
+
+vboxmanage controlvm ubuntu poweroff

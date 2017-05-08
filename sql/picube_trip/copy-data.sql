@@ -1,15 +1,15 @@
-﻿sed '1d' yellow_tripdata_2009-01.csv > yt0901.csv
-sed '1d' yellow_tripdata_2009-02.csv > yt0902.csv
-sed '1d' yellow_tripdata_2009-03.csv > yt0903.csv
-sed '1d' yellow_tripdata_2009-04.csv > yt0904.csv
-sed '1d' yellow_tripdata_2009-05.csv > yt0905.csv
-sed '1d' yellow_tripdata_2009-06.csv > yt0906.csv
-sed '1d' yellow_tripdata_2009-07.csv > yt0907.csv
-sed '1d' yellow_tripdata_2009-08.csv > yt0908.csv
-sed '1d' yellow_tripdata_2009-09.csv > yt0909.csv
-sed '1d' yellow_tripdata_2009-10.csv > yt0910.csv
-sed '1d' yellow_tripdata_2009-11.csv > yt0911.csv
-sed '1d' yellow_tripdata_2009-12.csv > yt0912.csv
+﻿sed '1d' yellow_tripdata_2009-01.csv > yt_2009-01.csv
+sed '1d' yellow_tripdata_2009-02.csv > yt_2009-02.csv
+sed '1d' yellow_tripdata_2009-03.csv > yt_2009-03.csv
+sed '1d' yellow_tripdata_2009-04.csv > yt_2009-04.csv
+sed '1d' yellow_tripdata_2009-05.csv > yt_2009-05.csv
+sed '1d' yellow_tripdata_2009-06.csv > yt_2009-06.csv
+sed '1d' yellow_tripdata_2009-07.csv > yt_2009-07.csv
+sed '1d' yellow_tripdata_2009-08.csv > yt_2009-08.csv
+sed '1d' yellow_tripdata_2009-09.csv > yt_2009-09.csv
+sed '1d' yellow_tripdata_2009-10.csv > yt_2009-10.csv
+sed '1d' yellow_tripdata_2009-11.csv > yt_2009-11.csv
+sed '1d' yellow_tripdata_2009-12.csv > yt_2009-12.csv
 
 sed '1d' yellow_tripdata_2010-01.csv > yt_2010-01.csv
 sed '1d' yellow_tripdata_2010-02.csv > yt_2010-02.csv
