@@ -1,8 +1,8 @@
 \timing on
 
-DROP TABLE IF EXISTS DATA_IN_2014;
+DROP TABLE IF EXISTS DATA_IN_2015;
 
-CREATE TABLE DATA_IN_2014 (
+CREATE TABLE DATA_IN_2015 (
     VENDORID TEXT, 
     TPEP_PICKUP_DATETIME TEXT, 
     TPEP_DROPOFF_DATETIME TEXT, 
@@ -24,17 +24,17 @@ CREATE TABLE DATA_IN_2014 (
     TOTAL_AMOUNT TEXT             
     );
 
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-02.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-03.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-04.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-05.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-06.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-07.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-08.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-09.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-10.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-11.csv' DELIMITER ',' CSV HEADER
-\copy data_in_2014 from '/home/piotr/nytc/yt_2014-12.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-02.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-03.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-04.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-05.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-06.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-07.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-08.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-09.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-10.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-11.csv' DELIMITER ',' CSV HEADER
+\copy data_in_2015 from '/home/piotr/nytc/yt_2015-12.csv' DELIMITER ',' CSV HEADER
 
 INSERT INTO DATA_IN_ALL SELECT
 	VENDOR_ID,
@@ -53,4 +53,4 @@ INSERT INTO DATA_IN_ALL SELECT
 	CASE WHEN PASSENGER_COUNT~E'^\\d+$'  THEN PASSENGER_COUNT::INTEGER ELSE 0 END AS PASSENGER_COUNT,
 	CASE WHEN RATE_CODE~E'^\\d+$' THEN RATE_CODE::INTEGER ELSE  -1 END AS RATE_CODE,
 	STORE_AND_FWD_FLAG
-FROM DATA_IN_2014;
+FROM DATA_IN_2015;
