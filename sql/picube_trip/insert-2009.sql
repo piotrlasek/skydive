@@ -24,6 +24,7 @@ CREATE TABLE DATA_IN_2009 (
     TOTAL_AMOUNT TEXT             
     );
 
+\copy data_in_2009 from '/home/piotr/nytc/yt_2009-01.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2009 from '/home/piotr/nytc/yt_2009-02.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2009 from '/home/piotr/nytc/yt_2009-03.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2009 from '/home/piotr/nytc/yt_2009-04.csv' DELIMITER ',' CSV HEADER
