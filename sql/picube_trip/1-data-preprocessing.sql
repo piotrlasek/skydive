@@ -5,6 +5,9 @@
 --                  format.
 -- ==================================================================
 
+TODO: FILE TO BE DELETED!
+
+
 -- HISTORY
 -- 4.05.2017
 --            Columns names have to be fixed in all years from 2009 until 2015 and data has to be imported again!!!
