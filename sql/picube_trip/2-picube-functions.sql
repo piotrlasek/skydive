@@ -184,7 +184,7 @@ CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
         RETURN BASE_TILE_SIZE;
     END;
 
-    -- 1.5 hours for two 2015, 2015 yellow taxi cab on sparq
+    -- 1.5 hours for two 2015, 2016 yellow taxi cab on sparq
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------
@@ -231,6 +231,8 @@ CREATE FUNCTION CREATE_BASE_LAYER() RETURNS INTEGER AS $$
         RETURN 0;
     END;
 $$ LANGUAGE plpgsql;
+
+-- 
 
 -- ------------------------------------------------------------------
 -- Creates a spatial layer of the pyramid.
