@@ -1,0 +1,5 @@
+﻿20.05.2017 12:20:24
+alter table data rename to data_15_16;
+
+select * into data from data_15_16 where pickup_datetime <
+'2015-04-01';

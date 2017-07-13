@@ -17,19 +17,21 @@ DROP TABLE IF EXISTS PI_CUBE;
 CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
     DECLARE MIN_LONGITUDE FLOAT;
     DECLARE MIN_LATITUDE FLOAT;
-    DECLARE MIN_PICKUP_TIME FLOAT;
+    DECLARE MIN_PICKUP_TIME TIMESTAMP;
 
     BEGIN
         RAISE NOTICE 'Initializing PI_CUBE table...';
 
-        SELECT GET_MIN_LATITUDE INTO MIN_LATITUDE;
-        SELECT GET_MIN_LONGITUDE INTO MIN_LONGITUDE;
-        SELECT GET_MIN_PICKUP_TIME INTO MIN_PICKUP_TIME;
+        SELECT GET_MIN_LATITUDE() INTO MIN_LATITUDE;
+        SELECT GET_MIN_LONGITUDE() INTO MIN_LONGITUDE;
+        SELECT GET_MIN_PICKUP_TIME() INTO MIN_PICKUP_TIME;
 
         RAISE NOTICE 'Dropping PI_CUBE table if exists...';
         DROP TABLE IF EXISTS PI_CUBE CASCADE;
 
         RAISE NOTICE 'Creating PI_CUBE table';
+        RAISE NOTICE '%', now();
+		select now();
         CREATE TABLE PI_CUBE AS
             SELECT
                 0 AS XY_LAYER, -- xy layer
@@ -52,42 +54,58 @@ CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
                 PICKUP_DATETIME 
             -- [SELECT]
             WITH DATA;
+		select now();
+        RAISE NOTICE '%', now();
 
         -- TIME: 2 hours 20 minutes (qnap)
 		--       less than 30 sec (for one month on MBP)
 
         RAISE NOTICE 'Creating indexes on XY_LAYER';
         CREATE INDEX ON PI_CUBE(XY_LAYER);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating indexes on UV_LAYER';
         CREATE INDEX ON PI_CUBE(UV_LAYER);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating indexes on PT_LAYER';
         CREATE INDEX ON PI_CUBE(PT_LAYER);
+        RAISE NOTICE '%', now();
         -- TIME: 20 mintes 
         
         RAISE NOTICE 'Creating index on X';
         CREATE INDEX ON PI_CUBE(X);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on Y';
         CREATE INDEX ON PI_CUBE(Y);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on U';
         CREATE INDEX ON PI_CUBE(U);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on V';
         CREATE INDEX ON PI_CUBE(V);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on PT';
         CREATE INDEX ON PI_CUBE(PT);
+        RAISE NOTICE '%', now();
         -- TIME: 40 minutes
 
         RAISE NOTICE 'Creating index on (X, Y)';
         CREATE INDEX ON PI_CUBE(X, Y);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on (U, V)';
         CREATE INDEX ON PI_CUBE(U, V);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on (X, Y, PT)';
         CREATE INDEX ON PI_CUBE(X, Y, PT);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on (U, V, PT)';
         CREATE INDEX ON PI_CUBE(U, V, PT);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on (X, Y, U, V)';
         CREATE INDEX ON PI_CUBE(X, Y, U, V);
+        RAISE NOTICE '%', now();
         RAISE NOTICE 'Creating index on (X, Y, U, V, PT)';
         CREATE INDEX ON PI_CUBE(X, Y, U, V, PT);
+        RAISE NOTICE '%', now();
         -- TIME: 
         RAISE NOTICE 'Done.';
 
@@ -95,70 +113,146 @@ CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
 		
 		-- Takes 3 minutes for 1 month on MBP.
         -- Takes 6 hours for two years (yellow taxi cab) on sparq.
+        -- 12866 - 3.6 hours on sparq
+    END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION INITIALIZE_PI_CUBE_SHORT() RETURNS INTEGER AS $$
+    DECLARE MIN_LONGITUDE FLOAT;
+    DECLARE MIN_LATITUDE FLOAT;
+    DECLARE MIN_PICKUP_TIME TIMESTAMP;
+
+    BEGIN
+        RAISE NOTICE 'Initializing PI_CUBE table...';
+
+        SELECT GET_MIN_LATITUDE() INTO MIN_LATITUDE;
+        SELECT GET_MIN_LONGITUDE() INTO MIN_LONGITUDE;
+        SELECT GET_MIN_PICKUP_TIME() INTO MIN_PICKUP_TIME;
+
+        RAISE NOTICE 'Dropping PI_CUBE table if exists...';
+        DROP TABLE IF EXISTS PI_CUBE CASCADE;
+
+        RAISE NOTICE 'Creating PI_CUBE table';
+        RAISE NOTICE '%', now();
+		
+        CREATE TABLE PI_CUBE AS
+            SELECT
+                0 AS XY_LAYER, -- xy layer
+                0 AS UV_LAYER, -- uv layer
+                0 AS PT_LAYER, -- pickup time
+                CAST((PICKUP_LONGITUDE - MIN_LONGITUDE) * 100000000 AS INT) AS X,
+                CAST((PICKUP_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS Y,
+                CAST((DROPOFF_LONGITUDE - MIN_LONGITUDE) * 100000000 AS INT) AS U,
+                CAST((DROPOFF_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS V,
+                EXTRACT(EPOCH FROM (PICKUP_DATETIME - MIN_PICKUP_TIME))::INTEGER AS PT,
+                SUM(TRIP_TIME) AS TT,
+                COUNT(*) AS CNT
+            FROM
+                DATA
+            GROUP BY
+                PICKUP_LONGITUDE,
+                PICKUP_LATITUDE,
+                DROPOFF_LONGITUDE,
+                DROPOFF_LATITUDE,
+                PICKUP_DATETIME 
+            -- [SELECT]
+            WITH DATA;
+		
+        RAISE NOTICE '%', now();
+
+        -- TIME: 2 hours 20 minutes (qnap)
+		--       less than 30 sec (for one month on MBP)
+		--       4 minutes on sparq for 2 years
+
+        RAISE NOTICE 'Creating indexes removed.';
+        RAISE NOTICE 'Done.';
+		
+		
+		ALTER TABLE pi_cube ADD COLUMN zoo BIGINT;
+		UPDATE pi_cube SET zoo = st_morton(x, y);
+
+        RETURN 0;
+		
+		-- Takes ...
     END;
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------
 -- ...
 -- ------------------------------------------------------------------
-DROP FUNCTION IF_EXISTS GET_MIN_LONGITUDE() CASCADE;
+DROP FUNCTION IF EXISTS GET_MIN_LONGITUDE() CASCADE;
 CREATE OR REPLACE FUNCTION GET_MIN_LONGITUDE() RETURNS FLOAT AS $$
     DECLARE MIN_PICKUP_LONGITUDE FLOAT;
     DECLARE MIN_DROPOFF_LONGITUDE FLOAT;
     DECLARE MIN_LONGITUDE FLOAT;
 
-    RAISE NOTICE '   Selecting minimal longitude...';
-    SELECT MIN(DROPOFF_LONGITUDE)
-        FROM DATA INTO MIN_DROPOFF_LONGITUDE;
-    
-    IF MIN_PICKUP_LONGITUDE < MIN_DROPOFF_LONGITUDE THEN
-        MIN_LONGITUDE := MIN_PICKUP_LONGITUDE;
-    ELSE
-        MIN_LONGITUDE := MIN_DROPOFF_LONGITUDE;
-    END IF
+    BEGIN
+        RAISE NOTICE '%', now();
+        RAISE NOTICE '   Selecting minimal longitude...';
+        SELECT MIN(DROPOFF_LONGITUDE)
+            FROM DATA INTO MIN_DROPOFF_LONGITUDE;
+        
+        IF MIN_PICKUP_LONGITUDE < MIN_DROPOFF_LONGITUDE THEN
+            MIN_LONGITUDE := MIN_PICKUP_LONGITUDE;
+        ELSE
+            MIN_LONGITUDE := MIN_DROPOFF_LONGITUDE;
+        END IF;
 
-    RETURN MIN_LONGITUDE;
+        RAISE NOTICE '%', now();
+        RETURN MIN_LONGITUDE;
+    END;
 
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------
 -- ...
 -- ------------------------------------------------------------------
-DROP FUNCTION IF_EXISTS GET_MIN_LATITUDE() CASCADE;
+DROP FUNCTION IF EXISTS GET_MIN_LATITUDE() CASCADE;
 CREATE OR REPLACE FUNCTION GET_MIN_LATITUDE() RETURNS FLOAT AS $$
     DECLARE MIN_PICKUP_LATITUDE FLOAT;
     DECLARE MIN_DROPOFF_LATITUDE FLOAT;
     DECLARE MIN_LATITUDE FLOAT;
 
-    RAISE NOTICE '   Selecting minimal latitude...';
-    SELECT MIN(PICKUP_LATITUDE)
-        FROM DATA INTO MIN_PICKUP_LATITUDE;
+    BEGIN
+        RAISE NOTICE '   Selecting minimal latitude...';
+        RAISE NOTICE '%', now();
+        SELECT MIN(PICKUP_LATITUDE)
+            FROM DATA INTO MIN_PICKUP_LATITUDE;
 
-    SELECT MIN(DROPOFF_LATITUDE)
-        FROM DATA INTO MIN_DROPOFF_LATITUDE;
+        RAISE NOTICE '%', now();
+        SELECT MIN(DROPOFF_LATITUDE)
+            FROM DATA INTO MIN_DROPOFF_LATITUDE;
 
-    IF MIN_PICKUP_LATITUDE < MIN_DROPOFF_LATITUDE THEN
-        MIN_LATITUDE := MIN_PICKUP_LATITUDE;
-    ELSE
-        MIN_LATITUDE := MIN_DROPOFF_LATITUDE;
-    END IF
+        RAISE NOTICE '%', now();
+        IF MIN_PICKUP_LATITUDE < MIN_DROPOFF_LATITUDE THEN
+            MIN_LATITUDE := MIN_PICKUP_LATITUDE;
+        ELSE
+            MIN_LATITUDE := MIN_DROPOFF_LATITUDE;
+        END IF;
+        RAISE NOTICE '%', now();
 
-    RETURN MIN_LATITUDE;
+        RETURN MIN_LATITUDE;
+    END;
 
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------
 -- ...
 -- ------------------------------------------------------------------
-DROP FUNCTION IF_EXISTS GET_MIN_PICKUP_TIME() CASCADE;
-CREATE OR REPLACE FUNCTION GET_MIN_PICKUP_TIME() RETURNS FLOAT AS $$
+DROP FUNCTION IF EXISTS GET_MIN_PICKUP_TIME() CASCADE;
+CREATE OR REPLACE FUNCTION GET_MIN_PICKUP_TIME() RETURNS TIMESTAMP AS $$
     DECLARE MIN_PICKUP_TIME TIMESTAMP;
 
-    RAISE NOTICE '   Selecting minimal pickup time...';
-    SELECT MIN(PICKUP_DATETIME)
-        FROM DATA INTO MIN_PICKUP_TIME;
+    BEGIN
+        RAISE NOTICE '   Selecting minimal pickup time...';
+        RAISE NOTICE '%', now();
+        SELECT MIN(PICKUP_DATETIME)
+            FROM DATA INTO MIN_PICKUP_TIME;
 
-    RETURN MIN_PICKUP_TIME;
+        RAISE NOTICE '%', now();
+        RETURN MIN_PICKUP_TIME;
+    END;
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------
@@ -178,14 +272,21 @@ CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
         RAISE NOTICE '   Start: %', now();
         CELLS_PER_DIM = 1024;
         SELECT MAX(X) INTO MAX_X FROM PI_CUBE WHERE XY_LAYER = 0;
+        RAISE NOTICE '%', now();
         SELECT MIN(X) INTO MIN_X FROM PI_CUBE WHERE XY_LAYER = 0;
+        RAISE NOTICE '%', now();
         BASE_TILE_SIZE = (MAX_X - MIN_X) / CELLS_PER_DIM;
         RAISE NOTICE '   End  : %', now();
         RETURN BASE_TILE_SIZE;
     END;
 
-    -- 1.5 hours for two 2015, 2016 yellow taxi cab on sparq
+    -- 1.5 hours for two 2015, 2016 yellow taxi cab on sparq !!!
 $$ LANGUAGE plpgsql;
+
+-- 19.05.2017 10:29:41
+-- For some reason we had to rebuild all indexes on pi_cube.
+-- reindex table pi_cube;
+-- 12258 secs
 
 -- ------------------------------------------------------------------
 -- The function creates the base layer of the pi_cube.
@@ -201,7 +302,8 @@ CREATE FUNCTION CREATE_BASE_LAYER() RETURNS INTEGER AS $$
         RAISE NOTICE '   Start: %', now();
         BASE_TIME_INTERVAL = 60 * 60;               -- 60 = 1 minute
         SELECT GET_BASE_TILE_SIZE() INTO BASE_TILE_SIZE;
-
+        RAISE NOTICE '   Base tile size: %', BASE_TILE_SIZE;
+        RAISE NOTICE '%', now();
         INSERT INTO PI_CUBE 
             SELECT
                 1, -- XY_LAYER, 2-D
@@ -246,6 +348,7 @@ CREATE FUNCTION CREATE_XY_LAYER(XY_LAYER_NUM INT) RETURNS INTEGER AS $$
     DECLARE RESULT BIGINT;
 
     BEGIN
+        RAISE NOTICE '%', now();
         INSERT INTO PI_CUBE 
             SELECT
                 XY_LAYER_NUM,   -- XY_LAYER
@@ -270,7 +373,8 @@ CREATE FUNCTION CREATE_XY_LAYER(XY_LAYER_NUM INT) RETURNS INTEGER AS $$
                 U_GROUP,
                 V_GROUP,
                 PT_GROUP;
-            RETURN 0;
+        RAISE NOTICE '%', now();
+        RETURN 0;
     END;
 $$ LANGUAGE plpgsql;
 
@@ -287,6 +391,7 @@ CREATE FUNCTION CREATE_UV_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT) RETURNS INTE
     DECLARE RESULT BIGINT;
 
     BEGIN
+        RAISE NOTICE '%', now();
         INSERT INTO PI_CUBE 
             SELECT
                 XY_LAYER_NUM,   -- XY_LAYER
@@ -311,6 +416,7 @@ CREATE FUNCTION CREATE_UV_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT) RETURNS INTE
                 U_GROUP,
                 V_GROUP,
                 PT_GROUP;
+        RAISE NOTICE '%', now();
         RETURN 0;
     END;
 $$ LANGUAGE plpgsql;
@@ -326,6 +432,7 @@ CREATE FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
                                    PT_LAYER_NUM INT) RETURNS INTEGER AS $$
     DECLARE RESULT BIGINT;
     BEGIN
+        RAISE NOTICE '%', now();
         INSERT INTO PI_CUBE 
             SELECT
                 XY_LAYER_NUM,   -- XY_LAYER
@@ -350,6 +457,7 @@ CREATE FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
                 U_GROUP,
                 V_GROUP,
                 PT_GROUP;
+        RAISE NOTICE '%', now();
         RETURN 0;
     END;
 $$ LANGUAGE plpgsql;
@@ -367,6 +475,7 @@ SELECT INITIALIZE_PI_CUBE();
 
 SELECT CREATE_BASE_LAYER();
 -- TIME: 29 sec (MBP 1 month yellow)
+-- TIME:      yellow, 2015-2016, sparq
 
 SELECT CREATE_XY_LAYER(2);
 -- TIME 28 minutes (yellow full - qnap)
