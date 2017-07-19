@@ -9,7 +9,7 @@
 -- Note that the primary-key declaration creates an index.
 -- ===========================================================================
 
-drop table if exists Pyramid cascade;
+-- drop table if exists Pyramid cascade;
 
 create table Pyramid (
     lev    smallint not null, -- level / stratum that this cell / tile is at

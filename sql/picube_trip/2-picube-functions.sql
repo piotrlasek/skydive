@@ -5,16 +5,16 @@
 --                  a pi-cube.
 -- ==================================================================
 
-\TIMING ON
+\timing on 
 
 -- ------------------------------------------------------------------
 -- Initialize pi_cube by removing "duplicates".
 -- ------------------------------------------------------------------
-DROP FUNCTION IF EXISTS INITIALIZE_PI_CUBE();
-DROP TABLE IF EXISTS PI_CUBE;
+-- DROP FUNCTION IF EXISTS INITIALIZE_PI_CUBE();
+-- DROP TABLE IF EXISTS PI_CUBE;
 \timing ON
 --
-CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
     DECLARE MIN_LONGITUDE FLOAT;
     DECLARE MIN_LATITUDE FLOAT;
     DECLARE MIN_PICKUP_TIME TIMESTAMP;
@@ -111,70 +111,61 @@ CREATE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
 
         RETURN 0;
 		
-		-- Takes 3 minutes for 1 month on MBP.
+	-- Takes 3 minutes for 1 month on MBP.
         -- Takes 6 hours for two years (yellow taxi cab) on sparq.
         -- 12866 - 3.6 hours on sparq
     END;
 $$ LANGUAGE plpgsql;
 
 
-CREATE OR REPLACE FUNCTION INITIALIZE_PI_CUBE_SHORT() RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION INITIALIZE_POINT() RETURNS INTEGER AS $$
     DECLARE MIN_LONGITUDE FLOAT;
     DECLARE MIN_LATITUDE FLOAT;
     DECLARE MIN_PICKUP_TIME TIMESTAMP;
 
     BEGIN
-        RAISE NOTICE 'Initializing PI_CUBE table...';
+        RAISE NOTICE 'Initializing POINT table...';
 
         SELECT GET_MIN_LATITUDE() INTO MIN_LATITUDE;
         SELECT GET_MIN_LONGITUDE() INTO MIN_LONGITUDE;
-        SELECT GET_MIN_PICKUP_TIME() INTO MIN_PICKUP_TIME;
+        -- SELECT GET_MIN_PICKUP_TIME() INTO MIN_PICKUP_TIME;
 
-        RAISE NOTICE 'Dropping PI_CUBE table if exists...';
-        DROP TABLE IF EXISTS PI_CUBE CASCADE;
+        RAISE NOTICE 'Dropping POINT table if exists...';
+        DROP TABLE IF EXISTS POINT CASCADE;
 
-        RAISE NOTICE 'Creating PI_CUBE table';
+        RAISE NOTICE 'Creating POINT table';
         RAISE NOTICE '%', now();
 		
-        CREATE TABLE PI_CUBE AS
+        CREATE TABLE POINT AS
             SELECT
-                0 AS XY_LAYER, -- xy layer
-                0 AS UV_LAYER, -- uv layer
-                0 AS PT_LAYER, -- pickup time
                 CAST((PICKUP_LONGITUDE - MIN_LONGITUDE) * 100000000 AS INT) AS X,
-                CAST((PICKUP_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS Y,
-                CAST((DROPOFF_LONGITUDE - MIN_LONGITUDE) * 100000000 AS INT) AS U,
-                CAST((DROPOFF_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS V,
-                EXTRACT(EPOCH FROM (PICKUP_DATETIME - MIN_PICKUP_TIME))::INTEGER AS PT,
-                SUM(TRIP_TIME) AS TT,
-                COUNT(*) AS CNT
+                CAST((PICKUP_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS Y
+                --CAST((DROPOFF_LONGITUDE - MIN_LONGITUDE) * 100000000 AS INT) AS U,
+                --CAST((DROPOFF_LATITUDE - MIN_LATITUDE) * 100000000 AS INT) AS V,
+                --EXTRACT(EPOCH FROM (PICKUP_DATETIME - MIN_PICKUP_TIME))::INTEGER AS PT,
+                --SUM(TRIP_TIME) AS TT,
+                --COUNT(*) AS CNT
             FROM
                 DATA
-            GROUP BY
-                PICKUP_LONGITUDE,
-                PICKUP_LATITUDE,
-                DROPOFF_LONGITUDE,
-                DROPOFF_LATITUDE,
-                PICKUP_DATETIME 
+            --GROUP BY
+            --    PICKUP_LONGITUDE,
+            --    PICKUP_LATITUDE
             -- [SELECT]
             WITH DATA;
 		
         RAISE NOTICE '%', now();
-
-        -- TIME: 2 hours 20 minutes (qnap)
-		--       less than 30 sec (for one month on MBP)
-		--       4 minutes on sparq for 2 years
-
-        RAISE NOTICE 'Creating indexes removed.';
         RAISE NOTICE 'Done.';
 		
-		
-		ALTER TABLE pi_cube ADD COLUMN zoo BIGINT;
-		UPDATE pi_cube SET zoo = st_morton(x, y);
+	--ALTER TABLE point ADD COLUMN zoo BIGINT;
+	--UPDATE point SET zoo = st_morton(x, y);
 
-        RETURN 0;
-		
-		-- Takes ...
+        --RAISE NOTICE '%', now();
+
+        -- TIME: 2 hours 20 minutes (qnap)
+	--       less than 30 sec (for one month on MBP)
+	--       4 minutes on sparq for 2 years for one month
+
+	RETURN 0;
     END;
 $$ LANGUAGE plpgsql;
 
@@ -259,7 +250,7 @@ $$ LANGUAGE plpgsql;
 -- ...
 -- ------------------------------------------------------------------
 DROP FUNCTION IF EXISTS GET_BASE_TILE_SIZE() CASCADE;
-\TIMING ON
+\timing on
 -- 
 CREATE OR REPLACE FUNCTION GET_BASE_TILE_SIZE() RETURNS FLOAT AS $$
     DECLARE MIN_X BIGINT;
@@ -294,7 +285,7 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS CREATE_BASE_LAYER() CASCADE;
 \timing on
 -- 
-CREATE FUNCTION CREATE_BASE_LAYER() RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION CREATE_BASE_LAYER() RETURNS INTEGER AS $$
     DECLARE BASE_TILE_SIZE FLOAT;
     DECLARE BASE_TIME_INTERVAL INTEGER;
     BEGIN
@@ -344,7 +335,7 @@ DROP FUNCTION CREATE_XY_LAYER(XY_LAYER_NUM INT) CASCADE;
 
 \timing on
 
-CREATE FUNCTION CREATE_XY_LAYER(XY_LAYER_NUM INT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION CREATE_XY_LAYER(XY_LAYER_NUM INT) RETURNS INTEGER AS $$
     DECLARE RESULT BIGINT;
 
     BEGIN
@@ -387,7 +378,7 @@ DROP FUNCTION CREATE_UV_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT) CASCADE;
 
 \timing on
 
-CREATE FUNCTION CREATE_UV_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION CREATE_UV_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT) RETURNS INTEGER AS $$
     DECLARE RESULT BIGINT;
 
     BEGIN
@@ -428,7 +419,7 @@ DROP FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
 
 \timing on
 
-CREATE FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
+CREATE OR REPLACE FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
                                    PT_LAYER_NUM INT) RETURNS INTEGER AS $$
     DECLARE RESULT BIGINT;
     BEGIN
@@ -463,166 +454,3 @@ CREATE FUNCTION CREATE_PT_LAYER(XY_LAYER_NUM INT, UV_LAYER_NUM INT,
 $$ LANGUAGE plpgsql;
 
 -- ------------------------------------------------------------------------------------------
-
-CREATE FUNCTION LOG_TIME() RETURNS INTEGER AS $$
-    BEGIN
-        RAISE NOTICE '%', now();
-        RETURN 0;
-    END;
-$$ LANGUAGE plpgsql;
-
-SELECT INITIALIZE_PI_CUBE();
-
-SELECT CREATE_BASE_LAYER();
--- TIME: 29 sec (MBP 1 month yellow)
--- TIME:      yellow, 2015-2016, sparq
-
-SELECT CREATE_XY_LAYER(2);
--- TIME 28 minutes (yellow full - qnap)
--- TIME 28 secs (yellow, 1 month, MBP)
--- TIME 32 secs (yellow, 2015-2016, sparq)
-
-SELECT CREATE_UV_LAYER(2, 2);
--- TIME 23 secs (yel, 15-16, sparq)
-SELECT CREATE_UV_LAYER(2, 3);
--- TIME 15 (y, 15-16, sparq)
-select create_uv_layer(2, 4);
--- TIME 13 (y, 15-16, sparq)
-select create_uv_layer(2, 5);
--- TIME 10 (y, 15-16, sparq)
-select create_uv_layer(2, 6);
--- TIME 9 (y, 15-16, sparq)
-
-SELECT CREATE_XY_LAYER(3);
--- TIME 32 secs (yellow, 2015-2016, sparq)
-
-select create_uv_layer(3, 2);
-select create_uv_layer(3, 3);
-select create_uv_layer(3, 4);
-select create_uv_layer(3, 5);
-select create_uv_layer(3, 6);
-
-SELECT CREATE_XY_LAYER(4);
--- TIME 42 secs (yellow, 2015-2016, sparq)
-
-select create_uv_layer(4, 2);
-select create_uv_layer(4, 3);
-select create_uv_layer(4, 4);
-select create_uv_layer(4, 5);
-select create_uv_layer(4, 6);
-
-SELECT CREATE_XY_LAYER(5);
--- TIME 47 (yellow, 2015-2016, sparq)
-
-select create_uv_layer(5, 2);
-select create_uv_layer(5, 3);
-select create_uv_layer(5, 4);
-select create_uv_layer(5, 5);
-select create_uv_layer(5, 6);
-
-SELECT CREATE_XY_LAYER(6);
--- TIME  (yellow, 2015-2016, sparq)
-
-select create_uv_layer(6, 2);
-select create_uv_layer(6, 3);
-select create_uv_layer(6, 4);
-select create_uv_layer(6, 5);
-select create_uv_layer(6, 6);
-
-
-select create_pt_layer(2, 2, 2);
-select create_pt_layer(2, 2, 3);
-select create_pt_layer(2, 2, 4);
-select create_pt_layer(2, 2, 5);
-select create_pt_layer(2, 2, 6);
-
-select create_pt_layer(2, 3, 2);
-select create_pt_layer(2, 3, 3);
-select create_pt_layer(2, 3, 4);
-select create_pt_layer(2, 3, 5);
-select create_pt_layer(2, 3, 6);
-
-select create_pt_layer(2, 4, 2);
-select create_pt_layer(2, 4, 3);
-select create_pt_layer(2, 4, 4);
-select create_pt_layer(2, 4, 5);
-select create_pt_layer(2, 4, 6);
-
-select create_pt_layer(2, 5, 2);
-select create_pt_layer(2, 5, 3);
-select create_pt_layer(2, 5, 4);
-select create_pt_layer(2, 5, 5);
-select create_pt_layer(2, 5, 6);
-
-select create_pt_layer(2, 6, 2);
-select create_pt_layer(2, 6, 3);
-select create_pt_layer(2, 6, 4);
-select create_pt_layer(2, 6, 5);
-select create_pt_layer(2, 6, 6);
-
-----
-
-select create_pt_layer(3, 2, 2);
-select create_pt_layer(3, 2, 3);
-select create_pt_layer(3, 2, 4);
-select create_pt_layer(3, 2, 5);
-select create_pt_layer(3, 2, 6);
-
-select create_pt_layer(3, 3, 2);
-select create_pt_layer(3, 3, 3);
-select create_pt_layer(3, 3, 4);
-select create_pt_layer(3, 3, 5);
-select create_pt_layer(3, 3, 6);
-
-select create_pt_layer(3, 4, 2);
-select create_pt_layer(3, 4, 3);
-select create_pt_layer(3, 4, 4);
-select create_pt_layer(3, 4, 5);
-select create_pt_layer(3, 4, 6);
-
-select create_pt_layer(3, 5, 2);
-select create_pt_layer(3, 5, 3);
-select create_pt_layer(3, 5, 4);
-select create_pt_layer(3, 5, 5);
-select create_pt_layer(3, 5, 6);
-
-select create_pt_layer(3, 6, 2);
-select create_pt_layer(3, 6, 3);
-select create_pt_layer(3, 6, 4);
-select create_pt_layer(3, 6, 5);
-select create_pt_layer(3, 6, 6);
-
-select create_pt_layer(4, 6, 2);
-select create_pt_layer(4, 6, 3);
-select create_pt_layer(4, 6, 4);
-select create_pt_layer(4, 6, 5);
-select create_pt_layer(4, 6, 6);
-
-
-select create_pt_layer(5, 6, 2);
-select create_pt_layer(5, 6, 3);
-select create_pt_layer(5, 6, 4);
-select create_pt_layer(5, 6, 5);
-select create_pt_layer(5, 6, 6);
-
-
-select create_pt_layer(6, 6, 2);
-select create_pt_layer(6, 6, 3);
-select create_pt_layer(6, 6, 4);
-select create_pt_layer(6, 6, 5);
-select create_pt_layer(6, 6, 6);
-
-
-select create_pt_layer(5, 6, 2);
-select create_pt_layer(5, 6, 3);
-select create_pt_layer(5, 6, 4);
-select create_pt_layer(5, 6, 5);
-select create_pt_layer(5, 6, 6);
-
-
--- STATS
-
-select xy_layer, count(*) from pi_cube group by xy_layer;
--- TIME: 6 minutes
-
-select xy_layer, uv_layer, pt_layer, count(xy_layer) from pi_cube where xy_layer > 1 group by xy_layer, uv_layer, pt_layer order by xy_layer, uv_layer, pt_layer;

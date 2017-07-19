@@ -5,7 +5,7 @@
 -- 2017-03-31
 -- ===========================================================================
 
-drop table if exists Point cascade;
+-- drop table if exists Point cascade;
 
 create table Point (
     row    integer not null, -- to number the rows 0 ..,
