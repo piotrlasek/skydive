@@ -27,14 +27,19 @@ public class QueryHelper {
      * @param attributes
      * @return 
      */
-    public static String getTuplesQuery(String tableName, String[] pyramidCoordinates,
+    public static String getTuplesQuery(String uiLayout, String tableName, String[] pyramidCoordinates,
                                         String[] measures, String[] attributes,
                                         int[] stratumCoordinates,
                                         Filter filter)
         throws Exception {
-
-        if (stratumCoordinates.length != measures.length - 1) {
-            throw new Exception("Number of stratum's coordinates should be equal to measures size.");
+        if (uiLayout.equals("3dview.fxml")) {
+            if (stratumCoordinates.length != measures.length - 1) {
+                throw new Exception("Number of stratum's coordinates should be one less than measures size.");
+            }
+        } else if (uiLayout.equals("timeview.fxml")) {
+            if (stratumCoordinates.length != measures.length) {
+                throw new Exception("Number of stratum's coordinates should be equal to measures size.");
+            }
         }
 
         StringBuilder sb = new StringBuilder();
@@ -53,7 +58,11 @@ public class QueryHelper {
         }
 
         for (Object a : attributes) {
-            sb.append(", " + a);
+            if (uiLayout.equals("timeview.fxml")) {//need to take sum of count for timeview
+                sb.append(", SUM(" + a + ") AS " + a);
+            } else {
+                sb.append(", " + a);
+            }
             attributesCounter++;
         }
 
@@ -67,7 +76,7 @@ public class QueryHelper {
             if (coordinateIndex > 0) {
                 sb.append(" AND ");
             }
-            sb.append(coordinate + " = " + stratumCoordinates[coordinateIndex] + " ");
+            sb.append(coordinate + " = " + stratumCoordinates[coordinateIndex]);
             coordinateIndex++;
         }
 
@@ -76,6 +85,12 @@ public class QueryHelper {
         if (filter != null && !filter.isEmpty()) {
             sb.append(" AND ");
             sb.append(filter.toSQL());
+        }
+
+        // GROUP BY (only for time, which groups by layer)
+        if (uiLayout.equals("timeview.fxml")) {
+            sb.append(" GROUP BY " + measures[0]);
+            //first element because measures for time is an array of size 1
         }
 
         // ORDER BY
@@ -93,27 +108,27 @@ public class QueryHelper {
 
         // SORT
         // ----
-        sb.append(" ASC ");
+        sb.append(" ASC");
 
         return sb.toString();
     }
-    
+
     /**
      * 
      * @param rs
      * @return 
      */
-    public static Tuple toTuple(ResultSet rs, String[] measures,
-            String attributes[]) throws SQLException {
+    public static ThreeDTuple toThreeDTuple(ResultSet rs, String[] measures,
+                                            String attributes[]) throws SQLException {
         
         int x = rs.getInt(measures[0]);
         int y = rs.getInt(measures[1]);
         int t = rs.getInt(measures[2]);
         long v = (long) rs.getDouble(attributes[0]);
 
-        BaseTuple bt;
+        ThreeDTuple bt;
 
-        bt = new BaseTuple(x, y, v);
+        bt = new ThreeDTuple(x, y, v);
         bt.setTime(t);
 
         if (attributes.length > 1) {
@@ -123,12 +138,23 @@ public class QueryHelper {
             }
             bt.valueObject = vo;
         } /*else {
-            bt = new BaseTuple(x, y, v);
+            bt = new ThreeDTuple(x, y, v);
         }*/
 
         return bt;
     }
-    
+
+    public static TimeTuple toTimeTuple(ResultSet rs, String[] measures,
+                                        String attributes[]) throws SQLException {
+        long time = rs.getLong(measures[0]); //take this as a string so the axes can be created properly
+        int count = rs.getInt(attributes[0]);
+
+        TimeTuple tt;
+
+        tt = new TimeTuple(time, count);
+        return tt;
+    }
+
     /**
      *
      */

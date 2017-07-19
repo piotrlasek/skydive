@@ -3,7 +3,7 @@ package skydive.gui;
 import javafx.geometry.Point3D;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import skydive.db.Stratum;
+import skydive.db.ThreeDStratum;
 
 /**
  * Created by Piotr Lasek on 15-03-10.
@@ -14,8 +14,8 @@ import skydive.db.Stratum;
 public class EnhancedTriangulator extends Triangulator {
 
     private static final Logger log = LogManager.getLogger(EnhancedTriangulator.class);
-    public EnhancedTriangulator(Stratum stratum, ViewConfig vc) {
-        super(stratum, vc);
+    public EnhancedTriangulator(ThreeDStratum threeDStratum, ViewConfig vc) {
+        super(threeDStratum, vc);
     }
 
     /**
@@ -79,7 +79,7 @@ public class EnhancedTriangulator extends Triangulator {
      */
     public float[] getPoints() {
         double tileSize = getTileSize();
-        Point3D midTmp = stratum.getMid();
+        Point3D midTmp = threeDStratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
         if (points == null) {

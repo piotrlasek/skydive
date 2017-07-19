@@ -5,7 +5,10 @@
  */
 package skydive.db;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -25,7 +28,7 @@ public class DatasetConfig {
     private String pyramidType;
     private String pyramidTableName;
     private String pyramidCoordinates;
-    private String viewLayoutFileName;
+    private String uiLayout;
 
     /**
      *
@@ -38,9 +41,9 @@ public class DatasetConfig {
      * @param isNew
      */
     public DatasetConfig(String name, String connectionString,
-            String measures, String attributes, String databaseType,
-            String driver, String pyramidType, String pyramidTableName,
-            String pyramidCoordinates, boolean isNew) {
+                         String measures, String attributes, String databaseType,
+                         String driver, String pyramidType, String pyramidTableName,
+                         String pyramidCoordinates, String uiLayout, boolean isNew) {
         this.name = name;
         this.measures = measures;
         this.attributes = attributes;
@@ -51,6 +54,7 @@ public class DatasetConfig {
         this.pyramidType = pyramidType;
         this.setPyramidTableName(pyramidTableName);
         this.setPyramidCoordinates(pyramidCoordinates);
+        this.setUILayout(uiLayout);
     }
 
     /**
@@ -96,6 +100,7 @@ public class DatasetConfig {
     }*/
 
     /**
+     *
      * @param fileName
      */
     public void load(File fileName) {
@@ -118,7 +123,7 @@ public class DatasetConfig {
             setPyramidType(prop.getProperty("pyramidType"));
             setPyramidCoordinates(prop.getProperty("pyramidCoordinates"));
             setPyramidTableName(prop.getProperty("pyramidTableName"));
-            setViewLayoutFileName(prop.getProperty("viewLayoutFileName"));
+            setUILayout(prop.getProperty("uiLayout"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -131,6 +136,7 @@ public class DatasetConfig {
             }
         }
     }
+
 
     /**
      *
@@ -230,11 +236,7 @@ public class DatasetConfig {
         this.pyramidCoordinates = pyramidCoordinates;
     }
 
-    public String getViewLayoutFileName() {
-        return viewLayoutFileName;
-    }
+    public String getUILayout() { return uiLayout; }
 
-    public void setViewLayoutFileName(String viewLayoutFileName) {
-        this.viewLayoutFileName = viewLayoutFileName;
-    }
+    public void setUILayout(String uiLayout) { this.uiLayout = uiLayout; }
 }

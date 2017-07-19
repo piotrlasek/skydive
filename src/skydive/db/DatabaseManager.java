@@ -8,11 +8,7 @@ package skydive.db;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Properties;
@@ -114,12 +110,11 @@ public class DatabaseManager {
      * @return
      */
     public DatasetConfig createNew(String name, String connectionString,
-            String measures, String attributes, String databaseType,
-            String driver, String pyramidType, String pyramidTableType, String pyramidCoordinates,
-            boolean isNew) {
+                                   String measures, String attributes, String databaseType,
+                                   String driver, String pyramidType, String pyramidTableType,
+                                   String pyramidCoordinates, String uiLayout, boolean isNew) {
         
-        DatasetConfig dc = new DatasetConfig(name, connectionString,
-        measures, attributes, databaseType, driver, pyramidType, pyramidTableType, pyramidCoordinates, isNew);
+        DatasetConfig dc = new DatasetConfig(name, connectionString, measures, attributes, databaseType, driver, pyramidType, pyramidTableType, pyramidCoordinates, uiLayout, isNew);
         
         return dc;
     }
