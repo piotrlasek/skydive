@@ -1,0 +1,32 @@
+create index zoo_idx on point(zoo);
+
+select popbasewimax();
+
+select popbystratumwimax();
+12411450 ms
+3,4 hours
+II
+
+
+DATASET: 1/3 OF THE NYTC DATASET ( 211 MLN OF RECORDS)
+
+b  - base
+hl - higher level strata
+s  - size
+#  - number of tuples
+t  - building time
+
+WITH ISLANDS
+s:    4.5 GB
+#: 188 931 031
+t: 8.5 hours (b: 0.25, hl: 8.25)
+
+WITH ISLANDS (RECTIFY BY ORDER)
+s:  
+#: 
+t: ... hours (b: 0.29, hl: ...)
+
+NO ISLANDS
+s: 2.0 GB
+#: 83 652 699
+t: 

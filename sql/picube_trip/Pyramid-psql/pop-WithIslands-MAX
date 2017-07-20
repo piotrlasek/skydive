@@ -10,23 +10,22 @@
 
 -- ===========================================================================
 
-
-create table if not exists PyramidNI (
+create table if not exists pyramidwimax (
     lev smallint not null,
     zoo bigint not null,
     hlzoo bigint not null,
     point int,
-    constraint pyramidPKNI
+    constraint pyramidwimaxPK
         primary key(lev, zoo)
 );
 
 -- pop base no islands
-create or replace function popbaseni() returns int as $$
+create or replace function popbasewimax() returns int as $$
     declare dim_      smallint default 2;
     declare maxDepth_ smallint default 31;
 
     begin
-        insert into PyramidNI (lev, zoo, hlzoo, point)
+        insert into pyramidwimax (lev, zoo, hlzoo, point)
         with
             Base (lev, zoo, hlzoo, point) as (
                select
@@ -46,7 +45,9 @@ create or replace function popbaseni() returns int as $$
     end;
 $$ language plpgsql;
 
-create or replace function popbystratumni() returns int as $$
+-- ------------------------------------------------------------------
+
+create or replace function popbystratumwimax() returns int as $$
     declare dim_      smallint default 2;
     declare maxDepth_ smallint default 31;
     declare stratum   smallint default 0;
@@ -55,16 +56,24 @@ create or replace function popbystratumni() returns int as $$
         stratum = maxDepth_;
         while stratum > 1 loop
 	    RAISE NOTICE 'Building stratum %.', stratum -1;
-            insert into PyramidNI (lev, zoo, hlzoo, point)
-            with SuperCell (stratum, zoo, hlzoo, point) as (
+            insert into pyramidwimax (lev, zoo, hlzoo, point)
+            with Upper (lev, zoo, hlzoo, point) as (
+               select  lev, zoo,
+                  max(hlzoo) over (
+                    order by lev, zoo asc
+                    rows between unbounded preceding and current row),
+                    point
+               from pyramidwimax
+	       where lev = stratum
+           ),
+            SuperCell (stratum, zoo, hlzoo, point) as (
                select stratum-1,
                       min(zoo),
                       zooAtLevel(
                         cast((dim_) as smallint), cast((maxDepth_) as smallint),
                         cast((stratum - 2) as smallint), cast((min(zoo)) as bigint)),
                         sum(point)
-               from PyramidNI
-               where lev = stratum
+               from Upper
                group by hlzoo 
            )
            select *

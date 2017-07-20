@@ -1,0 +1,1 @@
+psql -d postgres -c "copy (select * from pyramidni limit 5) to stdout with csv header delimiter ','" > pyramidni.csv
