@@ -1,8 +1,8 @@
 package skydive.gui;
 
 import javafx.geometry.Point3D;
-import skydive.db.BaseTuple;
-import skydive.db.Stratum;
+import skydive.db.ThreeDStratum;
+import skydive.db.ThreeDTuple;
 import skydive.db.Tuple;
 
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import java.util.Collection;
  */
 public class Triangulator {
 
-    protected final Stratum stratum;
+    protected final ThreeDStratum threeDStratum;
     protected Tuple[][] matrix;
     protected int width;
     protected int height;
@@ -25,13 +25,13 @@ public class Triangulator {
 
     /**
      *
-     * @param stratum
+     * @param threeDStratum
      */
-    public Triangulator(Stratum stratum, ViewConfig vc) {
-        this.stratum = stratum;
+    public Triangulator(ThreeDStratum threeDStratum, ViewConfig vc) {
+        this.threeDStratum = threeDStratum;
         viewConfig = vc;
-        width = (int) stratum.getMax().getX() + 1;
-        height = (int) stratum.getMax().getY()  + 1;
+        width = (int) threeDStratum.getMax().getX() + 1;
+        height = (int) threeDStratum.getMax().getY()  + 1;
 
         System.out.println("Triangulator, width: " + width + " height: " + height);
 
@@ -50,7 +50,7 @@ public class Triangulator {
      *
      */
     public void printStratum() {
-        Collection<Tuple> tuples = stratum.getTuples();
+        Collection<Tuple> tuples = threeDStratum.getTuples();
 
         System.out.println("Tuples:");
 
@@ -87,11 +87,11 @@ public class Triangulator {
             for(int y = 0; y < height; y++) {
                 Tuple t = matrix[x][y];
                 if (t != null) {
-                    BaseTuple bt = (BaseTuple) t;
+                    ThreeDTuple bt = (ThreeDTuple) t;
                     bt.setZ(bt.getZ() + 5);
                 } else if (t == null) {
                     long z = 0;
-                    t = new BaseTuple(x, y, z);
+                    t = new ThreeDTuple(x, y, z);
                     matrix[x][y] = t;
                 }
             }
@@ -103,7 +103,7 @@ public class Triangulator {
      */
     private void fillMatrix() {
 
-        Collection<Tuple> tuples = stratum.getTuples();
+        Collection<Tuple> tuples = threeDStratum.getTuples();
 
         for(Tuple t : tuples) {
             int x = (int) t.getX();
@@ -125,7 +125,7 @@ public class Triangulator {
 
         double tileSize = getTileSize();
 
-        Point3D midTmp = stratum.getMid();
+        Point3D midTmp = threeDStratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
         if (points == null) {
@@ -148,12 +148,12 @@ public class Triangulator {
 
 
     /**
-     * Return size of a tile based on a stratum's "space" layer number.
+     * Return size of a tile based on a threeDStratum's "space" layer number.
      *
      * @return  tile size
      */
     public double getTileSize() {
-        int spaceStratumNumber = stratum.getStratumCoordinates()[0];
+        int spaceStratumNumber = threeDStratum.getStratumCoordinates()[0];
         double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, spaceStratumNumber);
         return tileSize;
     }

@@ -7,7 +7,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -17,11 +20,12 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Box;
+import javafx.scene.shape.MeshView;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
-import javafx.stage.FileChooser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import skydive.db.*;
@@ -32,15 +36,12 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
-/**
- * Created by Piotr on 06.07.2016.
- */
-public class CubeCheckinsController implements IPlotController {
 
-    private static final Logger log = LogManager.getLogger(CubeCheckinsController.class);
+public class ThreeDController {
+    private static final Logger log = LogManager.getLogger(ThreeDController.class);
 
     @FXML StackPane stackPane;
-    @FXML Slider sliderStratum;
+    @FXML Slider sliderSpaceStratum;
     @FXML Slider sliderTimeStratum;
     @FXML TextField textFieldDatasetName;
     @FXML Slider sliderHueShift;
@@ -56,7 +57,7 @@ public class CubeCheckinsController implements IPlotController {
     ViewConfig viewConfig = new ViewConfig();
     DatasetConfig datasetConfig;
     DatabaseManager databaseManager;
-    Stratum stratum;
+    ThreeDStratum threeDStratum;
     Group rectangleGroup;
     Group axes = new Group();
     int spaceStratumNumber = 9;
@@ -74,7 +75,7 @@ public class CubeCheckinsController implements IPlotController {
     private Integer maxTimeInStratum;
 
     @FXML public void initialize() {
-        log.info("INITIALIZE");
+        log.info("Initialize 3D View");
         filter = new Filter();
         FilterAttribute filterAttribute = new FilterAttribute();
         filterAttribute.setName("time");
@@ -110,6 +111,21 @@ public class CubeCheckinsController implements IPlotController {
         });
     }
 
+    //Configure the view while opening the dataset file before showing it
+    public void prepareView(File file) {
+        datasetConfig = new DatasetConfig();
+        datasetConfig.load(file);
+        try {
+            databaseManager = new DatabaseManager(datasetConfig);
+        } catch (ClassNotFoundException e) {
+            log.error(e);
+        }
+        textFieldDatasetName.setText(datasetConfig.getName());
+        viewConfig.setPlotType(ViewConfig.PlotType.BOXES);
+        initFX();
+        updateStratum();
+    }
+
     @FXML public void checkBoxPerspectiveClicked() {
         if (checkBoxPerspective.isSelected()) {
             viewConfig.setCameraType("perspective");
@@ -117,6 +133,13 @@ public class CubeCheckinsController implements IPlotController {
             viewConfig.setCameraType("parallel");
         }
         updateStratum();
+    }
+
+    @FXML public void loadTest() {
+        File f = new File("/Users/piotr/NetBeansProjects/JavaFXApplication1/Checkins_[MonetDB]");
+
+        datasetConfig = new DatasetConfig();
+        datasetConfig.load(f);
     }
 
     @FXML public void buttonResetAnglesClicked() {
@@ -140,8 +163,7 @@ public class CubeCheckinsController implements IPlotController {
     }
 
     @FXML public void sliderTimeStratumMouseDragged() {
-        log.info("sliderBaseTileSizeMouseDragged");
-
+        log.info("sliderTimeStratumMouseDragged");
 
         minTimeInStratum = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
                 "where space_layer = " + spaceStratumNumber + " and  " +
@@ -153,7 +175,7 @@ public class CubeCheckinsController implements IPlotController {
 
         timeFilterSlider.setMax(maxTimeInStratum);
 
-        spaceStratumNumber = (int) sliderStratum.getValue();
+        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
 
         boolean exit = true;
@@ -167,10 +189,12 @@ public class CubeCheckinsController implements IPlotController {
         previousTimeStratumNumber = timeStratumNumber;
 
         if (exit == false) {
-            // time stratum changed.
+            // time threeDStratum changed.
             // determining minimum time interval...
+
             //updateTimeSlider();
-            // updating stratum
+
+            // updating threeDStratum
             updateStratum();
         }
     }
@@ -203,7 +227,6 @@ public class CubeCheckinsController implements IPlotController {
 
     @FXML public void buttonDetailsMouseClicked() {
         log.info("buttonDetailsMouseClicked");
-
         DataSetEditFrame dsef = new DataSetEditFrame(datasetConfig);
         dsef.setVisible(true);
     }
@@ -231,16 +254,42 @@ public class CubeCheckinsController implements IPlotController {
         updateStratum();
     }
 
-    @FXML public void sliderStratumMouseReleased() {
-        log.info("sliderStratumMouseReleased " + sliderStratum.getValue());
-        spaceStratumNumber = (int) sliderStratum.getValue();
+    @FXML public void sliderSpaceStratumMouseReleased() {
+        log.info("sliderSpaceStratumMouseReleased " + sliderSpaceStratum.getValue());
+        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
         updateStratum();
     }
 
     @FXML public void sliderTimeStratumMouseReleased() {
-        log.info("sliderStratumMouseReleased " + sliderStratum.getValue());
+        log.info("sliderTimeStratumMouseReleased " + sliderTimeStratum.getValue());
         timeStratumNumber = (int) sliderTimeStratum.getValue();
         updateStratum();
+    }
+
+    @FXML public void checkBoxWireClicked() {
+        if (checkBoxWire.isSelected()) {
+            viewConfig.setWireMesh(true);
+        } else {
+            viewConfig.setWireMesh(false);
+        }
+        updateStratum();
+    }
+
+    @FXML public void buttonSnapshotClicked() {
+        WritableImage wi = new WritableImage(800,800);
+        SnapshotParameters param = new SnapshotParameters();
+        //param.setCamera(ParallelCameraBuilder.create().fieldOfView(45).build());
+        param.setDepthBuffer(true);
+        //param.setFill(Color.CORNSILK);
+
+        WritableImage snapshot = rectangleGroup.snapshot(param, wi);
+
+        File output = new File("snapshot" + new Date().getTime() + ".png");
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -248,7 +297,7 @@ public class CubeCheckinsController implements IPlotController {
      */
     @FXML
     public void initFX() {
-        log.info("initFX - START");
+        log.info("initFX 3D - START");
         StackPane root = new StackPane();
         root.setBackground(Background.EMPTY);
         scene = new SubScene(root, 800, 600, true, SceneAntialiasing.BALANCED);
@@ -314,6 +363,36 @@ public class CubeCheckinsController implements IPlotController {
             }
         });
 
+        /*final Rotate xRotate = new Rotate(0,0,0,0,Rotate.X_AXIS);
+        final Rotate yRotate = new Rotate(0,0,0,0,Rotate.Y_AXIS);
+        camera.getTransforms().addAll(xRotate,yRotate);
+
+        scene.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getEventType() == MouseEvent.MOUSE_PRESSED ||
+                        event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+                    //acquire the new Mouse coordinates from the recent event
+                    double mouseXnew  = event.getSceneX();
+                    double mouseYnew = event.getSceneY();
+                    if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+                        //calculate the rotational change of the camera pitch
+                        double pitchRotate =xRotate.getAngle()+(mouseYnew - mouseYold) / rotateModifier;
+                        //set min/max camera pitch to prevent camera flipping
+                        pitchRotate = pitchRotate > cameraYlimit ? cameraYlimit : pitchRotate;
+                        pitchRotate = pitchRotate < -cameraYlimit ? -cameraYlimit : pitchRotate;
+                        //replace the old camera pitch rotation with the new one.
+                        xRotate.setAngle(pitchRotate);
+                        //calculate the rotational change of the camera yaw
+                        double yawRotate=yRotate.getAngle()-(mouseXnew - mouseXold) / rotateModifier;
+                        yRotate.setAngle(yawRotate);
+                    }
+                    mouseXold = mouseXnew;
+                    mouseYold = mouseYnew;
+                }
+            }
+        });*/
+
         scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
             @Override
@@ -377,7 +456,7 @@ public class CubeCheckinsController implements IPlotController {
 
         stackPane.getChildren().add(scene);
 
-        log.info("initFX - END");
+        log.info("initFX 3D - END");
     }
 
     /**
@@ -386,11 +465,11 @@ public class CubeCheckinsController implements IPlotController {
      */
     private void drawTuples(Group rectangleGroup) {
 
-        // assumes that the stratum is loaded
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, stratum.getSpaceStratumNumber());
+        // assumes that the threeDStratum is loaded
+        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, threeDStratum.getSpaceStratumNumber());
 
-        //stratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
-        Point3D midTmp = stratum.getMid();
+        //threeDStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
+        Point3D midTmp = threeDStratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
         Group plot = new Group();
@@ -407,11 +486,10 @@ public class CubeCheckinsController implements IPlotController {
         b2.translateXProperty().set(1000);
         b2.translateYProperty().set(1000);
 
-
         if (viewConfig.getPlotType().equals(ViewConfig.PlotType.MESH)) {
             // Show MESH
-            Triangulator triangulator = new EnhancedTriangulator(stratum, viewConfig);
-            //Triangulator triangulator = new Triangulator(stratum, viewConfig);
+            Triangulator triangulator = new EnhancedTriangulator(threeDStratum, viewConfig);
+            //Triangulator triangulator = new Triangulator(threeDStratum, viewConfig);
 
             /*meshView = new MeshView(new MyMesh(t, viewConfig));
 
@@ -431,11 +509,11 @@ public class CubeCheckinsController implements IPlotController {
             plot.translateZProperty().set(-midData.getZ());
         } else {
             // Show TILES or BOXES
-            for (Tuple t : stratum.getTuples()) {
+            for (Tuple t : threeDStratum.getTuples()) {
 
-                BaseTuple bt = (BaseTuple) t;
+                ThreeDTuple bt = (ThreeDTuple) t;
 
-                //double z = (bt.value / stratum.getMax().getZ()) * 200;
+                //double z = (bt.value / threeDStratum.getMax().getZ()) * 200;
                 double z = viewConfig.getScaleZ() * bt.getZ();
                 //double i = (bt.x * tileSize - midData.getX());
                 //double j = (bt.y * tileSize - midData.getY());
@@ -447,7 +525,6 @@ public class CubeCheckinsController implements IPlotController {
 
                 //double zTranslate = z - midTmp.getZ();
                 double zTranslate = z;
-
 
                 switch (viewConfig.getPlotType()) {
                     case TILES: {
@@ -520,7 +597,7 @@ public class CubeCheckinsController implements IPlotController {
     }
 
     /**
-     *
+     * Never called because viewConfig.setHueShift is always used instead
      * @param hueShift
      */
     public void setHueShift(int hueShift) {
@@ -598,7 +675,7 @@ public class CubeCheckinsController implements IPlotController {
     public void updateStratum() {
         log.info("updateStratum START");
 
-        spaceStratumNumber = (int) sliderStratum.getValue();
+        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
 
         try {
@@ -611,7 +688,7 @@ public class CubeCheckinsController implements IPlotController {
                 if (i == 1) stratumCoordinates[i] = timeStratumNumber;
             }
             log.info("t1");
-            stratum = stratumLoader.loadStratum(stratumCoordinates, filter);
+            threeDStratum = stratumLoader.loadThreeDStratum(stratumCoordinates, filter);
             log.info("t2");
             rectangleGroup.getChildren().clear();
             log.info("t3");

@@ -19,5 +19,8 @@ public interface Tuple {
     public long getY();
     public long getZ();
 
-    Integer getTime();
+    //both 3D and Time have "time" measure, but only 3D has X and Y, so the generic tuple should
+    //have only "getTime", not getX and getY
+
+    public int getTime();
 }

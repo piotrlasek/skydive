@@ -9,10 +9,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import skydive.gui.Filter;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
- * A class responsible for loading a stratum into memory.
+ * A class responsible for loading a threeDStratum into memory.
  *
  * @author Piotr Lasek
  */
@@ -28,6 +31,7 @@ public class StratumLoader {
     String pyramidTableName;
     String[] pyramidCoordinates;
     int maxNumberOfTimeIntervals;
+    String uiLayout;
 
     /**
      * A constructor.
@@ -43,22 +47,23 @@ public class StratumLoader {
         measures = datasetConfig.getMeasures().split(";");
         pyramidTableName = datasetConfig.getPyramidTableName();
         pyramidCoordinates = datasetConfig.getPyramidCoordinates();
+        uiLayout = datasetConfig.getUILayout();
 
         log.info("StratumLoader created.");
     }
 
     /**
-     * Loads stratum identified by stratumCoordinates.
+     * Loads threeDStratum identified by stratumCoordinates.
      *
-     * @param stratumCoordinates coordinates of a stratum to be loaded
+     * @param stratumCoordinates coordinates of a threeDStratum to be loaded
      */
-    public Stratum loadStratum(int[] stratumCoordinates, Filter filter) throws SQLException {
-        Stratum stratum = new Stratum(stratumCoordinates);
+    public ThreeDStratum loadThreeDStratum(int[] stratumCoordinates, Filter filter) throws SQLException {
+        ThreeDStratum threeDStratum = new ThreeDStratum(stratumCoordinates);
         Connection connection = databaseManager.getConnection();
         Statement statement = connection.createStatement();
 
         try {
-            String query = QueryHelper.getTuplesQuery(pyramidTableName, pyramidCoordinates,
+            String query = QueryHelper.getTuplesQuery(uiLayout, pyramidTableName, pyramidCoordinates,
                 measures, attributes, stratumCoordinates, filter);
 
             log.info("EXECUTING QUERY: ");
@@ -67,17 +72,45 @@ public class StratumLoader {
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()) {
-                Tuple tuple = QueryHelper.toTuple(rs, measures, attributes);
-                stratum.addTuple(tuple);
+                ThreeDTuple tuple = QueryHelper.toThreeDTuple(rs, measures, attributes);
+                threeDStratum.addTuple(tuple);
             }
 
             log.info("DONE");
-            log.info("Number or records read: " + stratum.getTuples().size());
+            log.info("Number of records read: " + threeDStratum.getTuples().size());
         } catch (Exception e) {
             log.error(e);
             e.printStackTrace();
         }
 
-        return stratum;
+        return threeDStratum;
+    }
+
+    public TimeStratum loadTimeStratum(int[] stratumCoordinates, Filter filter) throws SQLException {
+        TimeStratum timeStratum = new TimeStratum(stratumCoordinates);
+        Connection connection = databaseManager.getConnection();
+        Statement statement = connection.createStatement();
+
+        try {
+            String query = QueryHelper.getTuplesQuery(uiLayout, pyramidTableName, pyramidCoordinates,
+                    measures, attributes, stratumCoordinates, filter);
+
+            log.info("EXECUTING QUERY: ");
+            log.info(query);
+
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) {
+                TimeTuple tuple = QueryHelper.toTimeTuple(rs, measures, attributes);
+                timeStratum.addTuple(tuple);
+            }
+
+            log.info("DONE");
+            log.info("Number of records read: " + timeStratum.getTuples().size());
+        } catch (Exception e) {
+            log.error(e);
+            e.printStackTrace();
+        }
+        return timeStratum;
     }
 }

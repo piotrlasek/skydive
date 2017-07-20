@@ -1,84 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/.morton.c.swp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/SFC.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/hilbert.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/PiCube_TaxiCab_[Postgresql].conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/SFC.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/hilbert.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/hilbert.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/key_vec.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/key_vec.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/morton.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql/hilbert/morton.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/CubeCheckinsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/IPlotController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/MainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/PiCubeTripController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/cubecheckins.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/picubetrip.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/skydive/PlotController.java" afterPath="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Adding a data file (checkins cubed_pyramid).">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/3dview.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/TimeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/db/ThreeDStratum.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/db/TimeStratum.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skydive/db/TimeTuple.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/CubeCheckinsController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/BaseTuple.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/skydive/CubeCheckinsController.java" afterPath="$PROJECT_DIR$/src/skydive/ThreeDController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/ThreeDTuple.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/AbstractLayout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/DimensionInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/GridConstraints.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/GridLayoutManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/HorizontalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/LayoutState.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/LayoutState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/Spacer.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/Spacer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/SupportCode.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/SupportCode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/Util.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="$PROJECT_DIR$/out/production/Skydive/com/intellij/uiDesigner/core/VerticalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/MainController.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/d2i/StratumVis.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/d2i/StratumVis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/DatabaseManager.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/DatabaseManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/DatasetConfig.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/DatasetConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/QueryHelper.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/QueryHelper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/Stratum.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/Stratum.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/StratumLoader.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/StratumLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/db/Tuple.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/db/Tuple.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/gui/EnhancedTriangulator.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/gui/EnhancedTriangulator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Skydive/skydive/gui/Triangulator.class" afterPath="$PROJECT_DIR$/out/production/Skydive/skydive/gui/Triangulator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Skydive.iml" afterPath="$PROJECT_DIR$/Skydive.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" afterPath="$PROJECT_DIR$/conf/Checkins_[MonetDB]" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Checkins_[MonetDB]_2" afterPath="$PROJECT_DIR$/conf/Checkins_[MonetDB]_2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].conf" afterPath="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" afterPath="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/Seattle_calls_[MonetDB]" afterPath="$PROJECT_DIR$/conf/Seattle_calls_[MonetDB]" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/cubed_checkins/create_cp.sql" afterPath="$PROJECT_DIR$/sql/cubed_checkins/create_cp.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/cubed_checkins/define_cp_functions.sql" afterPath="$PROJECT_DIR$/sql/cubed_checkins/define_cp_functions.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/1-create-pi-cube.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/1-create-pi-cube.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/2-init-pi-cube.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/2-init-pi-cube.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/3-get-base-tile-size.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/3-get-base-tile-size.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/4-create-base-layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/4-create-base-layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/5-create-space-layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/5-create-space-layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/6-create-time-layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/6-create-time-layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/7-create-layers.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/7-create-layers.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/test.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/test.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/tmp/1-create-first-layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/tmp/1-create-first-layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/tmp/2-create-first-layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/tmp/2-create-first-layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/tmp/create_first_layer.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/tmp/create_first_layer.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/tmp/define_pi-cube_functions.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/tmp/define_pi-cube_functions.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_checkins/tmp/insert_into_picube.sql" afterPath="$PROJECT_DIR$/sql/picube_checkins/tmp/insert_into_picube.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_trip/0-clear-db.sql" afterPath="$PROJECT_DIR$/sql/picube_trip/0-clear-db.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_trip/1-data-preprocessing.sql" afterPath="$PROJECT_DIR$/sql/picube_trip/1-data-preprocessing.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/picube_trip/2-picube-functions.sql" afterPath="$PROJECT_DIR$/sql/picube_trip/2-picube-functions.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/log4j2.xml" afterPath="$PROJECT_DIR$/src/log4j2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/Controller.java" afterPath="$PROJECT_DIR$/src/skydive/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/Main.java" afterPath="$PROJECT_DIR$/src/skydive/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/Aggregate.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Aggregate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/DataObject.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/DataObjectReader.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataObjectReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/DataToGraphics.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/DataToGraphics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/Stratum.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Stratum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.form" afterPath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/StratumVis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/TextureGenerator.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/TextureGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/d2i/Tile.java" afterPath="$PROJECT_DIR$/src/skydive/d2i/Tile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/NYTC[Postgresql].conf" afterPath="$PROJECT_DIR$/conf/NYTC[Postgresql].conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/MainController.java" afterPath="$PROJECT_DIR$/src/skydive/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" afterPath="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/Pyramid.java" afterPath="$PROJECT_DIR$/src/skydive/db/Pyramid.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" afterPath="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/Stratum.java" afterPath="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" afterPath="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/Tuple.java" afterPath="$PROJECT_DIR$/src/skydive/db/Tuple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/db/ValueObject.java" afterPath="$PROJECT_DIR$/src/skydive/db/ValueObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.form" afterPath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" afterPath="$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/Filter.java" afterPath="$PROJECT_DIR$/src/skydive/gui/Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" afterPath="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/FilterInterval.java" afterPath="$PROJECT_DIR$/src/skydive/gui/FilterInterval.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/GraphicalVariable.java" afterPath="$PROJECT_DIR$/src/skydive/gui/GraphicalVariable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" afterPath="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" afterPath="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" afterPath="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/skydive/main.fxml" afterPath="$PROJECT_DIR$/src/skydive/main.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,7 +64,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Skydive$Main.coverage" NAME="Main Coverage Results" MODIFIED="1454523113990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>skydive.*</FILTER>
@@ -151,69 +123,104 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThreeDController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/ThreeDController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="681" column="19" lean-forward="false" selection-start-line="681" selection-start-column="19" selection-end-line="681" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/skydive/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2746988">
-              <caret line="73" column="58" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
+            <state relative-caret-position="505">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/skydive/TimeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StratumLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-524">
+              <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeStratum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/TimeStratum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatasetConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/DatasetConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="232" column="5" lean-forward="false" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#6135#6136#0" expanded="true" />
+                <element signature="e#6187#6188#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <file leaf-file-name="QueryHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1769" column="52" selection-start-line="1769" selection-start-column="52" selection-end-line="1769" selection-end-column="52" />
+            <state relative-caret-position="15">
+              <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cubecheckins.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/cubecheckins.fxml">
+      <file leaf-file-name="TimeTuple.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/TimeTuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/main.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="109" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cubed_Checkins_[Postgresql].conf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CubeCheckinsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skydive/CubeCheckinsController.java">
+      <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="233" column="22" selection-start-line="233" selection-start-column="22" selection-end-line="233" selection-end-column="22" />
+            <state relative-caret-position="18">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreeDStratum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skydive/db/ThreeDStratum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -244,20 +251,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/db/StratumLoader.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/ValueObject.java" />
-        <option value="$PROJECT_DIR$/src/skydive/d2i/Aggregate.java" />
-        <option value="$PROJECT_DIR$/sql/monet-checkins-cubed-pyramid.sql" />
-        <option value="$PROJECT_DIR$/sql/define_cp_functions.sql" />
         <option value="$PROJECT_DIR$/sql/create_cp.sql" />
         <option value="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].txt" />
         <option value="$PROJECT_DIR$/src/skydive/gui/MyMesh.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/MyMeshView.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/ViewConfig.java" />
-        <option value="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
-        <option value="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Statement.java" />
         <option value="$PROJECT_DIR$/conf/Checkins_[MonetDB]" />
         <option value="$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB]" />
@@ -274,61 +272,52 @@
         <option value="$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java" />
         <option value="$PROJECT_DIR$/src/skydive/db/Pyramid.java" />
         <option value="$PROJECT_DIR$/src/skydive/db/Tuple.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
         <option value="$PROJECT_DIR$/src/skydive/db/Stratum.java" />
         <option value="$PROJECT_DIR$/src/skydive/db/BaseTuple.java" />
         <option value="$PROJECT_DIR$/src/skydive/gui/Filter.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
-        <option value="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/sql/nytc-data-preparation.sql" />
         <option value="$PROJECT_DIR$/src/skydive/utils/DataGenerator.java" />
         <option value="$PROJECT_DIR$/sql/picube_trip/1-data-preprocessing.sql" />
         <option value="$PROJECT_DIR$/src/skydive/PiCubeTripController.java" />
         <option value="$PROJECT_DIR$/src/skydive/picubetrip.fxml" />
         <option value="$PROJECT_DIR$/conf/PiCube_TaxiCab_[Postgresql].conf" />
-        <option value="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" />
         <option value="$PROJECT_DIR$/src/skydive/CubeCheckinsController.java" />
         <option value="$PROJECT_DIR$/src/skydive/PlotController.java" />
         <option value="$PROJECT_DIR$/src/skydive/main.fxml" />
         <option value="$PROJECT_DIR$/src/skydive/IPlotController.java" />
-        <option value="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" />
         <option value="$PROJECT_DIR$/src/skydive/cubecheckins.fxml" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
+        <option value="$PROJECT_DIR$/conf/NYTC[Postgresql].conf" />
+        <option value="$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf" />
+        <option value="$PROJECT_DIR$/src/skydive/3dview.fxml" />
+        <option value="$PROJECT_DIR$/src/skydive/db/ThreeDStratum.java" />
+        <option value="$PROJECT_DIR$/src/skydive/ThreeDController.java" />
+        <option value="$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java" />
+        <option value="$PROJECT_DIR$/src/skydive/gui/Triangulator.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/StratumLoader.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/QueryHelper.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/TimeTuple.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/DatasetConfig.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/TimeStratum.java" />
+        <option value="$PROJECT_DIR$/src/skydive/db/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/skydive/MainController.java" />
+        <option value="$PROJECT_DIR$/src/skydive/TimeController.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-13" />
-    <option name="y" value="-13" />
-    <option name="width" value="2906" />
-    <option name="height" value="1746" />
+    <option name="x" value="-7" />
+    <option name="width" value="1837" />
+    <option name="height" value="1047" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <OptionsSetting value="true" id="Undo Check Out" />
-    <OptionsSetting value="true" id="Get Latest Version" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -347,45 +336,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.8 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -395,11 +379,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -413,23 +397,66 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Skydive" />
+              <option name="myItemId" value="skydive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skydive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -471,15 +498,22 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="964" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Projects/skydive" />
+    <property name="last_opened_file_path" value="$USER_HOME$/tmp/skydive" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files (x86)/nodejs/node" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Piotr\GitHubProjects\skydive\src\skydive\db" />
+      <recent name="C:\Users\Piotr\GitHubProjects\skydive\src\skydive" />
+      <recent name="C:\Users\Piotr\GitHubProjects\skydive\conf" />
       <recent name="C:\Users\Piotr\Dropbox\SRC\IdeaProjects\Skydive\conf" />
       <recent name="C:\Users\Piotr\Dropbox\SRC\IdeaProjects\Skydive\data" />
-      <recent name="C:\Users\Piotr\IdeaProjects\Skydive\conf" />
-      <recent name="$PROJECT_DIR$/conf" />
-      <recent name="$PROJECT_DIR$/sql" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="skydive" />
+      <recent name="skydive.db" />
+      <recent name="skydive.gui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Piotr\Dropbox\SRC\IdeaProjects\Skydive\src\skydive" />
@@ -511,35 +545,35 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -549,27 +583,24 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -653,6 +684,9 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -740,13 +774,13 @@
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
       <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <setting name="launchBrowser" value="false" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -770,27 +804,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -809,6 +822,12 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -882,35 +901,8 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -919,8 +911,9 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -961,12 +954,43 @@
         <item index="0" class="java.lang.String" itemvalue="Application.DataGenerator" />
       </list>
     </recent_temporary>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -975,6 +999,7 @@
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1454004912796" duration="5641000" />
@@ -1031,88 +1056,104 @@
       <workItem from="1467903889138" duration="3042000" />
       <workItem from="1468257595804" duration="61000" />
       <workItem from="1469132759394" duration="1237000" />
+      <workItem from="1500479262088" duration="294000" />
+      <workItem from="1500479988146" duration="1381000" />
     </task>
     <task id="LOCAL-00001" summary="Some very minor changes.">
       <created>1454013650868</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1454013650868</updated>
     </task>
     <task id="LOCAL-00002" summary="Some very minor changes.">
       <created>1454085911400</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1454085911400</updated>
     </task>
     <task id="LOCAL-00003" summary="Some very minor changes.">
       <created>1454085920380</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1454085920380</updated>
     </task>
     <task id="LOCAL-00004" summary="Some very minor changes.">
       <created>1454359527759</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1454359527759</updated>
     </task>
     <task id="LOCAL-00005" summary="Adding support for cubed pyramids.">
       <created>1454359559865</created>
       <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1454359559865</updated>
     </task>
     <task id="LOCAL-00006" summary="Refactoring code:&#10;- adding extra fields in configuration files&#10;- adding support for cubed pyramids by generating sql queries in more general way&#10;- etc.">
       <created>1454448153021</created>
       <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1454448153021</updated>
     </task>
     <task id="LOCAL-00007" summary="Rewriting QueryHelper.getStratum() function.">
       <created>1454513613809</created>
       <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1454513613809</updated>
     </task>
     <task id="LOCAL-00008" summary="Lot's of changes - mostly related to filtering.">
       <created>1455223062395</created>
       <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1455223062395</updated>
     </task>
     <task id="LOCAL-00009" summary="Some fixes.">
       <created>1455281634226</created>
       <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1455281634227</updated>
     </task>
     <task id="LOCAL-00010" summary="Some fixes.">
       <created>1456522944712</created>
       <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1456522944712</updated>
     </task>
     <task id="LOCAL-00011" summary="Some fixes.">
       <created>1460662272980</created>
       <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1460662272980</updated>
     </task>
     <task id="LOCAL-00012" summary="Some changes.">
       <created>1463768596205</created>
       <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1463768596205</updated>
     </task>
     <task id="LOCAL-00013" summary="Adding a data file (checkins cubed_pyramid).">
       <created>1463768770527</created>
       <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1463768770527</updated>
     </task>
     <task id="LOCAL-00014" summary="Adding a data file (checkins cubed_pyramid).">
       <created>1467830904128</created>
       <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1467830904128</updated>
     </task>
@@ -1120,7 +1161,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210654000" />
+    <option name="totallyTimeSpent" value="212329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1132,26 +1173,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2906" height="1746" extended-state="7" />
+    <frame x="-7" y="0" width="1837" height="1047" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14541547" sideWeight="0.505036" order="14" side_tool="true" content_ui="tabs" x="2098" y="474" width="1043" height="295" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31912568" sideWeight="0.5070343" order="14" side_tool="true" content_ui="tabs" x="2098" y="474" width="1043" height="295" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32886806" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30382514" sideWeight="0.49496403" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3690556" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4119223" sideWeight="0.49496403" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893226" sideWeight="0.4978678" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18445559" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13337085" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296433" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31912568" sideWeight="0.49296567" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31935048" sideWeight="0.49569497" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1166,6 +1213,9 @@
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1200,14 +1250,8 @@
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/skydive/MainController.java</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1216,214 +1260,73 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041420117">
-          <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/Checkins_[MonetDB]">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14201184">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33215547">
-          <caret line="103" column="14" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/MyMesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/DataSetEditFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="255" column="9" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/MyMeshView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/scene/control/Alert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/scene/SubScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/sql/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jdbcclient.jar!/nl/cwi/monetdb/jdbc/MonetConnection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34801763">
-          <caret line="1054" column="0" selection-start-line="1054" selection-start-column="0" selection-end-line="1054" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterInterval.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/gui/FilterAttribute.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.077071294">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/nytc-data-preparation.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03057554">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/create_cp.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+        <state relative-caret-position="0">
+          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/define_cp_functions.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/Pyramid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/db/Stratum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="78" column="6" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/db/ValueObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/TextureGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="652" column="0" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="652" column="0" lean-forward="false" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/utils/DataGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="e#451#452#0" expanded="false" />
@@ -1442,172 +1345,335 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/picube_trip/0-clear-db.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/picube_trip/1-data-preprocessing.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Stratum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        <state relative-caret-position="0">
+          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/DataObjectReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/DataObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/d2i/Aggregate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33076924">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/picubetrip.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21301155">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/PiCubeTripController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatasetConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="232" column="28" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
-          <folding>
-            <element signature="e#6199#6200#0" expanded="false" />
-            <element signature="e#6240#6241#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6368#6369#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/IPlotController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/gui/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="109" lean-forward="false" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/cubecheckins.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24675">
+          <caret line="1769" column="52" lean-forward="false" selection-start-line="1769" selection-start-column="52" selection-end-line="1769" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Checkins_[MonetDB]">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Checkins_[MonetDB]_2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[MonetDB].conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/Seattle_calls_[MonetDB]">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/PiCube_TaxiCab_[Postgresql].conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.649123">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/NYTC[Postgresql].conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/Cubed_Checkins_[Postgresql].conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/main.fxml">
+    <entry file="file://$PROJECT_DIR$/src/skydive/3dview.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="109" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/EnhancedTriangulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/ThreeDTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-884">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding>
+            <element signature="e#1969#1970#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/gui/Triangulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="93" column="45" lean-forward="false" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Pyramid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/BaseTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/ThreeDController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="681" column="19" lean-forward="false" selection-start-line="681" selection-start-column="19" selection-end-line="681" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/ThreeDStratum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/QueryHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/TimeTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatasetConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="232" column="5" lean-forward="false" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
+          <folding>
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6187#6188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/StratumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-524">
+          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/TimeStratum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/CubeCheckinsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="22" selection-start-line="233" selection-start-column="22" selection-end-line="233" selection-end-column="22" />
+        <state relative-caret-position="135">
+          <caret line="438" column="33" lean-forward="false" selection-start-line="438" selection-start-column="33" selection-end-line="438" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/skydive/cubecheckins.fxml">
+    <entry file="file://$PROJECT_DIR$/src/skydive/db/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1769" column="52" selection-start-line="1769" selection-start-column="52" selection-end-line="1769" selection-end-column="52" />
+        <state relative-caret-position="18">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/skydive/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2746988">
-          <caret line="73" column="58" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="505">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skydive/TimeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
