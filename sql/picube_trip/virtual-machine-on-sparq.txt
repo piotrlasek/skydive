@@ -147,3 +147,40 @@ vboxheadless -startvm ubuntu --vrdp on &
 rdesktop localhost:3389 &
 
 vboxmanage controlvm ubuntu poweroff
+
+-----------------------
+21.07.2017 09.:27:00
+
+
+
+
+
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable --dhcp on
+VBoxManage natnetwork start --netname natnet1
+
+VBoxManage createvm --name "ubuntu" --register
+VBoxManage modifyvm "ubuntu" --memory 16384 --acpi on --boot1 dvd --ostype Linux 
+VBoxManage createvdi --filename /local/data1/piotr/VMs/ubuntu/testvm-disk01.vdi --size 4194304
+VBoxManage storagectl "ubuntu" --name "IDE Controller" --add ide
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /local/data1/piotr/VMs/ubuntu/testvm-disk01.vdi
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /local/data1/piotr/dvd/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm ubuntu --nic1 natnetwork --nat-network1 natnet1 --cableconnected1 on
+
+This is probably not required:
+vboxmanage modifyvm ubuntu --natpf1 "ssh,tcp,,2222,,22"
+
+This worked!
+
+
+UWAGA: Jeśli zmienił się IP to trzeba go zmienić rowniez ponizej!!!
+
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 delete "ssh"
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.8]:22"
+vboxheadless -startvm ubuntu --vrdp on & 
+
+rdesktop localhost:3389 &
+
+vboxmanage controlvm ubuntu poweroff
+
