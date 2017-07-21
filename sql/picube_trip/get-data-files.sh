@@ -1,7 +1,7 @@
 NYTC_PATH="https://s3.amazonaws.com/nyc-tlc/trip+data"
-NYTC_HOME="/home/piotr/nytc"
+NYTC_HOME="~/nytc/data"
 
-for year in {2015..2015}
+for year in {2009..2015}
 do
   for month in {01..12}
   do
