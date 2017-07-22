@@ -1,7 +1,7 @@
 NYTC_PATH="https://s3.amazonaws.com/nyc-tlc/trip+data"
-NYTC_HOME="~/nytc/data"
+NYTC_HOME="~/nytc"
 
-for year in {2009..2015}
+for year in {2009..2014}
 do
   for month in {01..12}
   do
@@ -11,6 +11,6 @@ do
       echo "==============================================================="
       wget $NYTC_PATH/$fyt -P $NYTC_HOME
       echo "Changing format..."
-      sed '1d' $NYTC_HOME/$fyt > "yt_"$year"-"$month".csv" # yt_2009-10.csv
+      sed '1d' $NYTC_HOME/$fyt > $NYTC_HOME/"yt_"$year"-"$month".csv" # yt_2009-10.csv
   done
 done
