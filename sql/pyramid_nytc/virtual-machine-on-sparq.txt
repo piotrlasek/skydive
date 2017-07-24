@@ -1,0 +1,207 @@
+VBoxManage createvm --name "nytc" --register
+VBoxManage modifyvm "nytc" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc/testvm-disk01.vdi
+VBoxManage storageattach "nytc" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+
+vboxheadless -startvm nytc --vrdp on
+
+rdesktop localhost:3389
+
+vboxmanage modifyvm nytc --natdnshostresolver1 on
+
+vboxmanage modifyvm "nytc" --nic1 bridged --bridgeadapter1 eth0
+vvboxmanage modifyvm nytc --natdnshostresolver1 onboxmanage modifyvm "nytc" --nic1 none
+
+
+
+----------
+
+VBoxManage createvm --name "nytc2" --register
+VBoxManage modifyvm "nytc2" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc2/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc2" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc2" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc2/testvm-disk01.vdi
+VBoxManage storageattach "nytc2" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+
+vboxheadless -startvm nytc2 --vrdp on &
+
+rdesktop localhost:3389
+
+vboxmanage modifyvm nytc2 --natdnshostresolver1 on
+
+vboxmanage modifyvm "nytc2" --nic1 bridged --bridgeadapter1 eth0
+vvboxmanage modifyvm nytc2 --natdnshostresolver1 onboxmanage modifyvm "nytc2" --nic1 none
+
+---------
+
+
+
+VBoxManage createvm --name "nytc3" --register
+VBoxManage modifyvm "nytc3" --memory 16384 --acpi on --boot1 dvd --nic1 bridged --bridgeadapter1 eth0 --ostype Ubuntu
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc3/testvm-disk01.vdi --size 200000
+VBoxManage storagectl "nytc3" --name "IDE Controller" --add ide
+
+VBoxManage storageattach "nytc3" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc3/testvm-disk01.vdi
+VBoxManage storageattach "nytc3" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm "nytc3" --nic1 nat --natdnshostresolver1 on
+rdesktop localhost:3389
+
+vboxheadless -startvm nytc3 --vrdp on &
+
+----
+
+vboxmanage controlvm nytc4 poweroff
+
+
+
+
+
+
+
+sparq 77 % vboxmanage natnetwork add --netname NatNetwork --network "10.0.0.0/8" --enable --dhcp on
+sparq 78 % VBoxManage dhcpserver add --netname NatNetwork --ip 10.0.0.3 --lowerip 10.10.0.1 --upperip 10.10.0.254 --netmask 255.0.0.0
+sparq 79 % VBoxManage dhcpserver modify --netname NatNetwork --enable
+
+VBoxManage hostonlyif create vboxnet0
+VBoxManage hostonlyif ipconfig vboxnet0 --ip 10.1.1.1 --netmask 255.255.255.0
+VBoxManage modifyvm nytc4 --nic1 hostonly --nictype1 82540EM  --hostonlyadapter1 vboxnet0
+
+VBoxManage modifyvm nytc4 --nic2 nat --nictype2 82540EM --hostonlyadapter2 vboxnet1
+
+VBoxManage list vms
+
+
+!!!!
+
+vboxmanage modifyvm nytc4 --nic1 natnetwork --nat-network1 NatNetwork --cableconnected1 on
+
+
+
+CentOS-7-x86_64-Minimal-1611.iso
+
+
+boxmanage modifyvm "nytc5" --nic1 nat --natdnshostresolver1 on
+
+
+------------
+
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable --dhcp on
+VBoxManage natnetwork start --netname natnet1
+
+VBoxManage createvm --name "nytc5" --register
+VBoxManage modifyvm "nytc5" --memory 16384 --acpi on --boot1 dvd --ostype Linux 
+VBoxManage createvdi --filename /tmp/plasek/VMs/nytc5/testvm-disk01.vdi --size 4194304
+VBoxManage storagectl "nytc5" --name "IDE Controller" --add ide
+VBoxManage storageattach "nytc5" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/nytc5/testvm-disk01.vdi
+VBoxManage storageattach "nytc5" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm nytc5 --nic1 natnetwork --nat-network1 natnet1 --cableconnected1 on
+
+This is probably not required:
+vboxmanage modifyvm nytc5 --natpf1 "ssh,tcp,,2222,,22"
+
+This worked!
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.5]:22"
+
+Zmiana rozmiaru dysku
+VBoxManage modifyhd /tmp/plasek/VMs/nytc5/testvm-disk01.vdi --resize 4194304
+
+rdesktop localhost:3389
+
+-----------
+
+Do it again with 
+
+05.05.2017 09:21:54
+-------------------
+
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable --dhcp on
+VBoxManage natnetwork start --netname natnet1
+
+VBoxManage createvm --name "ubuntu" --register
+VBoxManage modifyvm "ubuntu" --memory 16384 --acpi on --boot1 dvd --ostype Linux 
+VBoxManage createvdi --filename /tmp/plasek/VMs/ubuntu/testvm-disk01.vdi --size 4194304
+VBoxManage storagectl "ubuntu" --name "IDE Controller" --add ide
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /tmp/plasek/VMs/ubuntu/testvm-disk01.vdi
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /tmp/plasek/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm ubuntu --nic1 natnetwork --nat-network1 natnet1 --cableconnected1 on
+
+This is probably not required:
+vboxmanage modifyvm ubuntu --natpf1 "ssh,tcp,,2222,,22"
+
+This worked!
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 delete "ssh"
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.6]:22"
+vboxheadless -startvm ubuntu --vrdp on & 
+
+rdesktop localhost:3389 &
+
+vboxmanage controlvm ubuntu poweroff
+
+-----------------------
+21.07.2017 09.:27:00
+
+
+
+
+
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable
+VBoxManage natnetwork add --netname natnet1 --network "192.168.15.0/24" --enable --dhcp on
+VBoxManage natnetwork start --netname natnet1
+
+VBoxManage createvm --name "ubuntu" --register
+VBoxManage modifyvm "ubuntu" --memory 16384 --acpi on --boot1 dvd --ostype Linux 
+VBoxManage createvdi --filename /local/data1/piotr/VMs/ubuntu/testvm-disk01.vdi --size 4194304
+VBoxManage storagectl "ubuntu" --name "IDE Controller" --add ide
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /local/data1/piotr/VMs/ubuntu/testvm-disk01.vdi
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /local/data1/piotr/dvd/ubuntu-16.04.2-server-amd64.iso
+
+vboxmanage modifyvm ubuntu --nic1 natnetwork --nat-network1 natnet1 --cableconnected1 on
+
+This is probably not required:
+vboxmanage modifyvm ubuntu --natpf1 "ssh,tcp,,2222,,22"
+
+This worked!
+
+
+UWAGA: Jeśli zmienił się IP to trzeba go zmienić rowniez ponizej!!!
+
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 delete "ssh"
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.8]:22"
+vboxheadless -startvm ubuntu --vrdp on & 
+
+rdesktop localhost:3389 &
+
+vboxmanage controlvm ubuntu poweroff
+
+
+-- podmiana lokalizacji maszyny na stara, ta sprzed wyczerpania sie miejsca na dysku.
+
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 delete "ssh"
+vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.6]:22"
+
+A
+A
+VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /local/data1/plasek/VMs/ubuntu-01/testvm-disk01.vdi
+A
+A
+B
+B
+B
+B
+B
+B
+B
+B
+B
+y

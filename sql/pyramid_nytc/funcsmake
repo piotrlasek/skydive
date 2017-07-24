@@ -1,0 +1,6 @@
+pg_config --includedir-server
+
+cc -fpic -c -I/usr/include/postgresql/9.5/server funcs.c
+cc -shared -o funcs.so funcs.o
+
+create function morton2d(integer,integer) returns bigint as '/home/piotr/funcs', 'morton2d' language c strict;
