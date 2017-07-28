@@ -79,3 +79,104 @@ delete from data where dropoff_longitude > -72.0059;
 
 delete from data where pickup_time > dropoff_time;
 
+
+
+
+nytcfull=# select count(*) from data;
+
+
+
+
+select count(*) from data where pickup_latitude < 38.7128;
+
+
+
+
+
+
+   count
+------------
+ 1310910867
+(1 row)
+
+Time: 1933392.988 ms
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=# select count(*) from data where pickup_latitude < 38.7128;
+  count
+----------
+ 85483632
+(1 row)
+
+Time: 1761945.479 ms
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=#
+nytcfull=# create table data_raw as select * from data;
+SELECT 1310910867
+Time: 1284578.599 ms
+
+
+
+DELETE 85483632
+Time: 2943264.550 ms
+nytcfull=# delete from data where pickup_latitude > 42.7128;
+DELETE 35035
+Time: 164537.900 ms
+nytcfull=# delete from data where pickup_longitude < -76.0059;
+DELETE 23518
+Time: 197857.041 ms
+nytcfull=# delete from data where pickup_longitude > -72.0059;
+DELETE 224658
+Time: 2888949.862 ms
+nytcfull=#
+nytcfull=# delete from data where dropoff_latitude < 38.7128;
+DELETE 1156872
+Time: 2116139.349 ms
+nytcfull=# delete from data where dropoff_latitude > 42.7128;
+DELETE 17864
+Time: 144183.312 ms
+nytcfull=# delete from data where dropoff_longitude < -76.0059;
+DELETE 13475
+Time: 135736.495 ms
+nytcfull=# delete from data where dropoff_longitude > -72.0059;
+DELETE 163348
+Time: 2150371.687 ms
+nytcfull=#
+nytcfull=# delete from data where pickup_time > dropoff_time;
+ERROR:  column "pickup_time" does not exist
+LINE 1: delete from data where pickup_time > dropoff_time;
+                               ^
+Time: 82.016 ms
+
+
+
+nytcfull=# \d data
+                     Table "public.data"
+      Column       |            Type             | Modifiers
+-------------------+-----------------------------+-----------
+ pickup_datetime   | timestamp without time zone |
+ dropoff_datetime  | timestamp without time zone |
+ pickup_longitude  | double precision            |
+ pickup_latitude   | double precision            |
+ dropoff_longitude | double precision            |
+ dropoff_latitude  | double precision            |
+ trip_time         | integer                     |
+Indexes:
+    "data_dropoff_latitude_idx" btree (dropoff_latitude)
+    "data_dropoff_longitude_idx" btree (dropoff_longitude)
+    "data_pickup_latitude_idx" btree (pickup_latitude)
+    "data_pickup_longitude_idx" btree (pickup_longitude)
+
+nytcfull=# delete from data where pickup_datetime > dropoff_datetime;
+DELETE 249287
+Time: 679536.254 ms
+
+
+
+
