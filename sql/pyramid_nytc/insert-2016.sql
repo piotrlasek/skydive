@@ -3,25 +3,25 @@
 DROP TABLE IF EXISTS DATA_IN_2016;
 
 CREATE TABLE DATA_IN_2016 (
-    VENDORID TEXT, 
-    TPEP_PICKUP_DATETIME TEXT, 
-    TPEP_DROPOFF_DATETIME TEXT, 
-    PASSENGER_COUNT TEXT, 
-    TRIP_DISTANCE TEXT, 
-    PICKUP_LONGITUDE TEXT, 
-    PICKUP_LATITUDE TEXT, 
-    RATECODEID TEXT, 
-    STORE_AND_FWD_FLAG TEXT, 
-    DROPOFF_LONGITUDE TEXT, 
-    DROPOFF_LATITUDE TEXT, 
-    PAYMENT_TYPE TEXT, 
-    FARE_AMOUNT TEXT, 
-    EXTRA TEXT, 
-    MTA_TAX TEXT, 
-    TIP_AMOUNT TEXT, 
-    TOLLS_AMOUNT TEXT, 
-    IMPROVEMENT_SURCHARGE TEXT, 
-    TOTAL_AMOUNT TEXT             
+    vendorid text, 
+    tpep_pickup_datetime text, 
+    tpep_dropoff_datetime text, 
+    passenger_count text, 
+    trip_distance text, 
+    pickup_longitude text, 
+    pickup_latitude text, 
+    ratecodeid text, 
+    store_and_fwd_flag text, 
+    dropoff_longitude text, 
+    dropoff_latitude text, 
+    payment_type text, 
+    fare_amount text, 
+    extra text, 
+    mta_tax text, 
+    tip_amount text, 
+    tolls_amount text, 
+    improvement_surcharge text, 
+    total_amount text             
     );
 
 \copy data_in_2016 from '/home/piotr/nytc/yt_2016-01.csv' DELIMITER ',' CSV HEADER
@@ -37,23 +37,12 @@ CREATE TABLE DATA_IN_2016 (
 \copy data_in_2016 from '/home/piotr/nytc/yt_2016-11.csv' DELIMITER ',' CSV HEADER
 \copy data_in_2016 from '/home/piotr/nytc/yt_2016-12.csv' DELIMITER ',' CSV HEADER
 
-
-INSERT INTO DATA_IN_ALL
-SELECT
-	VENDORID,
-	CASE WHEN PICKUP_LONGITUDE~E'^-?\\d*\\.\\d*' THEN PICKUP_LONGITUDE::FLOAT ELSE 0 END AS PICKUP_LONGITUDE,
-	CASE WHEN PICKUP_LATITUDE~E'^-?\\d*\\.\\d*' THEN PICKUP_LATITUDE::FLOAT ELSE 0 END AS PICKUP_LATITUDE,
-	CASE WHEN DROPOFF_LONGITUDE~E'^-?\\d*\\.\\d*' THEN DROPOFF_LONGITUDE::FLOAT ELSE 0 END AS DROPOFF_LONGITUDE,
-	CASE WHEN DROPOFF_LATITUDE~E'^-?\\d*\\.\\d*' THEN DROPOFF_LATITUDE::FLOAT ELSE 0 END AS DROPOFF_LATITUDE,
-	CASE WHEN tpep_pickup_datetime~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN TO_TIMESTAMP(tpep_pickup_datetime,	'yyyy-mm-dd HH24:MI:SS') ELSE NULL END AS PICKUP_DATETIME,
-	CASE WHEN tpep_dropoff_datetime~E'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' THEN TO_TIMESTAMP(tpep_dropoff_datetime, 'yyyy-mm-dd HH24:MI:SS')  ELSE NULL END AS DROPOFF_DATETIME,
-	CASE WHEN TRIP_DISTANCE~E'^\\d*\\.\\d*' THEN TRIP_DISTANCE::FLOAT ELSE 0 END AS TRIP_DISTANCE,
-	CASE WHEN FARE_AMOUNT~E'^\\d*\\.\\d*' THEN FARE_AMOUNT::FLOAT ELSE 0 END AS FARE_AMOUNT,
-	CASE WHEN extra~E'^\\d*\\.\\d*' THEN extra::FLOAT ELSE 0 END AS SURCHARGE,
-	CASE WHEN MTA_TAX~E'^\\d*\\.\\d*' THEN MTA_TAX::FLOAT ELSE 0 END AS MTA_TAX,
-	CASE WHEN TOLLS_AMOUNT~E'^\\d*\\.\\d*' THEN TOLLS_AMOUNT::FLOAT ELSE 0 END AS TOLLS_AMOUNT,
-	CASE WHEN TOTAL_AMOUNT~E'^\\d*\\.\\d*' THEN TOTAL_AMOUNT::FLOAT ELSE 0 END AS TOTAL_AMOUNT,
-	CASE WHEN PASSENGER_COUNT~E'^\\d+$'  THEN PASSENGER_COUNT::INTEGER ELSE 0 END AS PASSENGER_COUNT,
-	CASE WHEN ratecodeid~E'^\\d+$' THEN ratecodeid::INTEGER ELSE  -1 END AS RATE_CODE,
-	STORE_AND_FWD_FLAG
+INSERT INTO DATA_IN_ALL SELECT
+	case when tpep_pickup_datetime~e'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' then to_timestamp(tpep_pickup_datetime,	'yyyy-mm-dd hh24:mi:ss') else null end as pickup_datetime,
+	case when tpep_dropoff_datetime~e'^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d$' then to_timestamp(tpep_dropoff_datetime, 'yyyy-mm-dd hh24:mi:ss')  else null end as dropoff_datetime,
+	case when pickup_longitude~e'^-?\\d*\\.\\d*' then pickup_longitude::float else 0 end as pickup_longitude,
+	case when pickup_latitude~e'^-?\\d*\\.\\d*' then pickup_latitude::float else 0 end as pickup_latitude,
+	case when dropoff_longitude~e'^-?\\d*\\.\\d*' then dropoff_longitude::float else 0 end as dropoff_longitude,
+	case when dropoff_latitude~e'^-?\\d*\\.\\d*' then dropoff_latitude::float else 0 end as dropoff_latitude
 FROM DATA_IN_2016;
+

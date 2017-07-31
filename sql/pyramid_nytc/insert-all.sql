@@ -48,6 +48,7 @@ SET
             EXTRACT(EPOCH FROM DROPOFF_DATETIME - PICKUP_DATETIME) >=0
         THEN
             EXTRACT(EPOCH FROM DROPOFF_DATETIME - PICKUP_DATETIME) / 60 ELSE 0 END;
+
 -- 87 minutes / 270 mln records
 
 select now();
@@ -75,6 +76,8 @@ select
         min(dropoff_latitude) as DROP_LAT_MIN, max(dropoff_latitude) as DROP_LAT_MAX
 from data;
 
+-- time
+
 
 delete from data where pickup_latitude < 38.7128;
 delete from data where pickup_latitude > 42.7128;
@@ -89,3 +92,5 @@ delete from data where dropoff_longitude > -72.0059;
 delete from data where pickup_time > dropoff_time;
 
 -- Number of records for the years 2015 - 2016: 
+
+

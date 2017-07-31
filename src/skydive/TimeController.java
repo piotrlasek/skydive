@@ -20,7 +20,7 @@ import skydive.gui.FilterInterval;
 import java.io.File;
 import java.sql.SQLException;
 
-public class TimeController {
+public class TimeController implements SkydiveController {
     private static final Logger log = LogManager.getLogger(TimeController.class);
 
     @FXML BorderPane chartPane;

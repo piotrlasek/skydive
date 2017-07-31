@@ -37,8 +37,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 
-public class ThreeDController {
-    private static final Logger log = LogManager.getLogger(ThreeDController.class);
+public class NYTCController implements SkydiveController {
+    private static final Logger log = LogManager.getLogger(NYTCController.class);
 
     @FXML StackPane stackPane;
     @FXML Slider sliderSpaceStratum;

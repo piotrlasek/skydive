@@ -3,7 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.ThreeDController">
+<BorderPane prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.NYTCController">
    <center>
         <SplitPane dividerPositions="0.2782101167315175" prefHeight="160.0" prefWidth="200.0">
             <items>
