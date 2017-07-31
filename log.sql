@@ -178,5 +178,86 @@ DELETE 249287
 Time: 679536.254 ms
 
 
+nytcfull=# create table point as select pickup_longitude as x, pickup_longitude as y from data;
+SELECT 1223543178
+Time: 1147632.780 ms
+
+
+
+
+
+Time: 375.925 ms
+nytcfull=# select initialize_point();
+NOTICE:  Initializing POINT table...
+NOTICE:     Selecting minimal latitude...
+CONTEXT:  SQL statement "SELECT GET_MIN_LATITUDE()"
+PL/pgSQL function initialize_point() line 9 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LATITUDE()"
+PL/pgSQL function initialize_point() line 9 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LATITUDE()"
+PL/pgSQL function initialize_point() line 9 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LATITUDE()"
+PL/pgSQL function initialize_point() line 9 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LATITUDE()"
+PL/pgSQL function initialize_point() line 9 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LONGITUDE()"
+PL/pgSQL function initialize_point() line 10 at SQL statement
+NOTICE:     Selecting minimal longitude...
+CONTEXT:  SQL statement "SELECT GET_MIN_LONGITUDE()"
+PL/pgSQL function initialize_point() line 10 at SQL statement
+NOTICE:  2017-07-29 08:36:58.239085-05
+CONTEXT:  SQL statement "SELECT GET_MIN_LONGITUDE()"
+PL/pgSQL function initialize_point() line 10 at SQL statement
+NOTICE:  Dropping POINT table if exists...
+NOTICE:  Creating POINT table
+NOTICE:  2017-07-29 08:36:58.239085-05
+NOTICE:  2017-07-29 08:36:58.239085-05
+NOTICE:  Done.
+ initialize_point
+------------------
+                0
+(1 row)
+
+Time: 1388954.282 ms
+nytcfull=# select count(*) from point;
+   count
+------------
+ 1223543178
+(1 row)
+
+Time: 471336.737 ms
+
+
+Time: 135.952 ms
+nytcfull=# alter table point add column zoo bigint;
+ALTER TABLE
+Time: 17.141 ms
+nytcfull=# update point set zoo = morton2d(x,y);
+UPDATE 1223543178
+Time: 3776796.096 ms
+
+nytcfull=# select popbase();
+ popbase
+---------
+       0
+(1 row)
+
+Time: 11 994 530.020 ms
+
+
+nytcfull=# select popbystratum();
+
+
+ popbystratum
+--------------
+            0
+(1 row)
+
+Time: 6 369 977.265 ms
 
 
