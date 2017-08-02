@@ -243,3 +243,13 @@ nytcfull=# select popbystratum();
 (1 row)
 
 Time: 6 369 977.265 ms
+
+-- VIRTUAL MACHINE MAC BOOK
+
+\i pyramid-08-01.sql
+
+ Time: 1050534.545 ms
+
+
+ ALTER TABLE
+ Time: 3253550.999 ms

@@ -1,3 +1,10 @@
+-- Date        : July 24, 2017
+-- Author      : Piotr Lasek
+-- Description : 
+
+
+sudo apt-get install postgresql-server-dev-9.3
+
 pg_config --includedir-server
 
 cc -fpic -c -I/usr/include/postgresql/9.5/server funcs.c
@@ -5,7 +12,7 @@ cc -shared -o funcs.so funcs.o
 
 alter table point add column zoo bigint;
 
+alter user piotr with superuser;
 create function morton2d(integer,integer) returns bigint as '/home/piotr/funcs', 'morton2d' language c strict;
 
 update point set zoo = morton2d(x,y);
-
