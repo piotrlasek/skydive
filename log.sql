@@ -4,11 +4,6 @@ create index on data(dropoff_longitude); -- 30  minutes
 select now();
 create index on data(dropoff_latitude); -- 30 minutes
 select now();
-\
-
-
-
-
 
 
 CREATE INDEX
@@ -19,8 +14,6 @@ nytcfull=# select now();
 (1 row)
 
 nytcfull=# create index on data(pickup_latitude); --
-
-
 
 CREATE INDEX
 nytcfull=# select now();
@@ -44,8 +37,6 @@ nytcfull=# select now();
 -------------------------------
  2017-07-25 09:07:55.926099-05
 (1 row)
-
-
 
 nytcfull=# select
 nytcfull-#         min(pickup_longitude) as PICK_LON_MIN, max(pickup_longitude) as PICK_LON_MAX,
@@ -90,10 +81,6 @@ nytcfull=# select count(*) from data;
 select count(*) from data where pickup_latitude < 38.7128;
 
 
-
-
-
-
    count
 ------------
  1310910867
@@ -120,7 +107,6 @@ nytcfull=#
 nytcfull=# create table data_raw as select * from data;
 SELECT 1310910867
 Time: 1284578.599 ms
-
 
 
 DELETE 85483632
@@ -153,8 +139,6 @@ ERROR:  column "pickup_time" does not exist
 LINE 1: delete from data where pickup_time > dropoff_time;
                                ^
 Time: 82.016 ms
-
-
 
 nytcfull=# \d data
                      Table "public.data"
@@ -259,5 +243,3 @@ nytcfull=# select popbystratum();
 (1 row)
 
 Time: 6 369 977.265 ms
-
-
