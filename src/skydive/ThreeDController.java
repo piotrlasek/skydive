@@ -189,12 +189,12 @@ public class ThreeDController implements SkydiveController {
         previousTimeStratumNumber = timeStratumNumber;
 
         if (exit == false) {
-            // time threeDStratum changed.
+            // time nytcStratum changed.
             // determining minimum time interval...
 
             //updateTimeSlider();
 
-            // updating threeDStratum
+            // updating nytcStratum
             updateStratum();
         }
     }
@@ -465,10 +465,10 @@ public class ThreeDController implements SkydiveController {
      */
     private void drawTuples(Group rectangleGroup) {
 
-        // assumes that the threeDStratum is loaded
+        // assumes that the nytcStratum is loaded
         double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, threeDStratum.getSpaceStratumNumber());
 
-        //threeDStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
+        //nytcStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
         Point3D midTmp = threeDStratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
@@ -489,7 +489,7 @@ public class ThreeDController implements SkydiveController {
         if (viewConfig.getPlotType().equals(ViewConfig.PlotType.MESH)) {
             // Show MESH
             Triangulator triangulator = new EnhancedTriangulator(threeDStratum, viewConfig);
-            //Triangulator triangulator = new Triangulator(threeDStratum, viewConfig);
+            //Triangulator triangulator = new Triangulator(nytcStratum, viewConfig);
 
             /*meshView = new MeshView(new MyMesh(t, viewConfig));
 
@@ -513,7 +513,7 @@ public class ThreeDController implements SkydiveController {
 
                 ThreeDTuple bt = (ThreeDTuple) t;
 
-                //double z = (bt.value / threeDStratum.getMax().getZ()) * 200;
+                //double z = (bt.value / nytcStratum.getMax().getZ()) * 200;
                 double z = viewConfig.getScaleZ() * bt.getZ();
                 //double i = (bt.x * tileSize - midData.getX());
                 //double j = (bt.y * tileSize - midData.getY());

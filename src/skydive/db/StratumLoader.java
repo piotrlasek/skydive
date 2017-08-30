@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * A class responsible for loading a threeDStratum into memory.
@@ -23,14 +24,11 @@ public class StratumLoader {
 
     private static final Logger log = LogManager.getLogger(StratumLoader.class);
 
-    //private DatasetConfig datasetConfig;
     private DatabaseManager databaseManager;
-    //private Connection connection;
     private String[] attributes;
     private String[] measures;
     String pyramidTableName;
     String[] pyramidCoordinates;
-    int maxNumberOfTimeIntervals;
     String uiLayout;
 
     /**
@@ -40,9 +38,10 @@ public class StratumLoader {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public StratumLoader(DatabaseManager databaseManager, DatasetConfig datasetConfig) throws SQLException, ClassNotFoundException {
-        this.databaseManager = databaseManager;
+    public StratumLoader(DatabaseManager databaseManager, DatasetConfig datasetConfig)
+        throws SQLException, ClassNotFoundException {
 
+        this.databaseManager = databaseManager;
         attributes = datasetConfig.getAttributes().split(";");
         measures = datasetConfig.getMeasures().split(";");
         pyramidTableName = datasetConfig.getPyramidTableName();
@@ -86,6 +85,13 @@ public class StratumLoader {
         return threeDStratum;
     }
 
+    /**
+     *
+     * @param stratumCoordinates
+     * @param filter
+     * @return
+     * @throws SQLException
+     */
     public TimeStratum loadTimeStratum(int[] stratumCoordinates, Filter filter) throws SQLException {
         TimeStratum timeStratum = new TimeStratum(stratumCoordinates);
         Connection connection = databaseManager.getConnection();
@@ -112,5 +118,46 @@ public class StratumLoader {
             e.printStackTrace();
         }
         return timeStratum;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public NYTCStratum queryZoo(int level) throws SQLException {
+        Connection connection = databaseManager.getConnection();
+        Statement statement = connection.createStatement();
+        NYTCStratum stratum = new NYTCStratum(null);
+
+        ArrayList<Tuple> tuples = new ArrayList();
+        Tuple t = new NYTCTuple();
+
+        String q = "with tuples as ( " +
+            "       select point as z, zoo, " +
+            "              morton_dec_x(zoo) as x, " +
+            "              morton_dec_y(zoo) as x, " +
+            "              zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo) as zal, " +
+            "              zooatlevel(cast(2 as smallint), cast(31 as smallint), cast(lev+1 as smallint), zoo) as zalp1, " +
+            "              morton_dec_x( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as xal, " +
+            "              morton_dec_y( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as yal " +
+            "       from   pyramid " +
+            "       where  lev = " + level + ")" +
+            "select zoo, " +
+            " zal, zalp1, ((cast(z as float) ) - cast((select min(z) from tuples) as float) ) as z, " +
+            "       xal, yal, x, y " +
+            "from  tuples";
+
+        log.info(q);
+
+        ResultSet rs = statement.executeQuery(q);
+
+        while(rs.next()) {
+            NYTCTuple tuple = QueryHelper.toNYTCTuple(rs);
+            stratum.addTuple(tuple);
+        }
+
+        statement.close();
+
+        return stratum;
     }
 }

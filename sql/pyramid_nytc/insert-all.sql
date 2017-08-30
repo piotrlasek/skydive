@@ -89,7 +89,8 @@ delete from data where dropoff_latitude > 42.7128;
 delete from data where dropoff_longitude < -76.0059;
 delete from data where dropoff_longitude > -72.0059;
 
-delete from data where pickup_time > dropoff_time;
+
+
 
 -- Number of records for the years 2015 - 2016: 
 

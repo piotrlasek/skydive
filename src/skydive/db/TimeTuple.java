@@ -16,7 +16,7 @@ public class TimeTuple implements Tuple {
 
     public long getX() { return 0; }
     public long getY() { return 0; }
-    public long getZ() { return 0; }
+    public float getZ() { return 0; }
 
     public int getCount() { return count; }
 

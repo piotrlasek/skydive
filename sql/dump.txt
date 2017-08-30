@@ -1,1 +1,24 @@
+-- Date        : 2017-08-02 13:19
+-- Author      : Piotr Lasek
+-- Description : Dumping and restoring datasets.
+--
+
 psql -d postgres -c "copy (select * from pyramidni limit 5) to stdout with csv header delimiter ','" > pyramidni.csv
+
+sudo -u postgres pg_dump --no-owner -d nytcfull -t pyramid > pyramid-08-01.sql
+
+sudo -u postgres pg_dump --no-owner -d nytcfull -t point > point-08-02.sql;
+
+25 minuets on vm on sparq
+
+-- Pyramid
+
+scp -P 2222 piotr@127.0.0.1:/home/piotr/nytc/pyramid-08-01.sql ~/data/
+scp plasek@sparq:~/data/pyramid-08-01.sql /tmp/
+scp plasek@indigo.cse.yorku.ca:/tmp/pyramid-08-01.csv .
+
+-- Point
+
+scp -P 2222 piotr@127.0.0.1:/home/piotr/nytc/point-08-03.sql ~/data/
+scp plasek@sparq:~/data/point-08-03.sql /tmp/
+scp plasek@indigo.cse.yorku.ca:/tmp/point-08-01.csv .
