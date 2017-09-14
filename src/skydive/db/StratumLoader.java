@@ -132,19 +132,20 @@ public class StratumLoader {
         ArrayList<Tuple> tuples = new ArrayList();
         Tuple t = new NYTCTuple();
 
-        String q = "with tuples as ( " +
-            "       select point as z, zoo, " +
-            "              morton_dec_x(zoo) as x, " +
-            "              morton_dec_y(zoo) as x, " +
-            "              zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo) as zal, " +
-            "              zooatlevel(cast(2 as smallint), cast(31 as smallint), cast(lev+1 as smallint), zoo) as zalp1, " +
-            "              morton_dec_x( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as xal, " +
-            "              morton_dec_y( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as yal " +
-            "       from   pyramid " +
-            "       where  lev = " + level + ")" +
+        String q = "" +
+            "with tuples as ( " +
+            "   select point as z, zoo, " +
+            "          morton_dec_x(zoo) as x, " +
+            "          morton_dec_y(zoo) as y, " +
+            "          zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo) as zal, " +
+            "          zooatlevel(cast(2 as smallint), cast(31 as smallint), cast(lev+1 as smallint), zoo) as zalp1, " +
+            "          morton_dec_x( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as xal, " +
+            "          morton_dec_y( zooatlevel(cast(2 as smallint), cast(31 as smallint), lev, zoo)) as yal " +
+            "   from   pyramid " +
+            "   where  lev = " + level + ")" +
             "select zoo, " +
             " zal, zalp1, ((cast(z as float) ) - cast((select min(z) from tuples) as float) ) as z, " +
-            "       xal, yal, x, y " +
+            "       xal, yal, xal as x, yal as y " +
             "from  tuples";
 
         log.info(q);

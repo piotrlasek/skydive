@@ -10,7 +10,7 @@ public class Morton2D {
 
     private static final Logger log = LogManager.getLogger(Morton2D.class);
 
-    public static long mordon2d(long x, long y) {
+    public static long morton2d(long x, long y) {
         long d;
 
         x = (x | (x << 16)) & 0x0000FFFF0000FFFFL;
@@ -26,7 +26,6 @@ public class Morton2D {
         y = (y | (y << 1)) & 0x5555555555555555L;
 
         d = x | (y << 1);
-
 
         return d;
     }
@@ -82,17 +81,21 @@ public class Morton2D {
     public static void main(String[] args) {
         long zoo;
 
-        zoo = Morton2D.mordon2d(0,0);
+        zoo = Morton2D.morton2d(0,0);
         Morton2D.log.info(zoo);
-        zoo = Morton2D.mordon2d(1,0);
+        zoo = Morton2D.morton2d(1,0);
         Morton2D.log.info(zoo);
-        zoo = Morton2D.mordon2d(0,1);
+        zoo = Morton2D.morton2d(0,1);
         Morton2D.log.info(zoo);
-        zoo = Morton2D.mordon2d(1,1);
+        zoo = Morton2D.morton2d(1,1);
         Morton2D.log.info(zoo);
-        zoo = Morton2D.mordon2d(15,15);
+        zoo = Morton2D.morton2d(15,15);
         Morton2D.log.info(zoo);
-        zoo = Morton2D.mordon2d(8,9);
+        zoo = Morton2D.morton2d(8,9);
+        Morton2D.log.info(zoo);
+
+
+        zoo = Morton2D.morton2d(2146941188, 2147097832);
         Morton2D.log.info(zoo);
 
     }
