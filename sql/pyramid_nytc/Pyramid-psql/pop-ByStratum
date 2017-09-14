@@ -22,6 +22,7 @@ create function popbystratum() returns int as $$
 
     begin
         stratum_ = (select max(lev) from Pyramid);
+	    RAISE NOTICE 'Lev %.', stratum_;
         while stratum_ > 0 loop
             insert into Pyramid(lev, zoo, base, lft, rght, point)
             with

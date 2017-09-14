@@ -118,6 +118,30 @@ CREATE OR REPLACE FUNCTION INITIALIZE_PI_CUBE() RETURNS INTEGER AS $$
 $$ LANGUAGE plpgsql;
 
 
+-- -----------------------------------
+
+create or replace function normalize_point() returns integer as $$
+declare maxx bigint;
+declare maxy bigint;
+declare p231 bigint;
+declare mx bigint;
+declare my bigint;
+begin
+    select max(x) from point into maxx;
+    select max(y) from point into maxy;
+    select pow(2,31) into p231;
+    select p231 / maxx into mx;
+    select p231 / maxy into my;
+
+    update point set x = mx * x where x <> 0;
+    update point set y = my * y where y <> 0;
+
+    return 0;
+end;
+$$ language plpgsql;
+
+-- -----------------------------------
+
 CREATE OR REPLACE FUNCTION INITIALIZE_POINT() RETURNS INTEGER AS $$
     DECLARE MIN_LONGITUDE FLOAT;
     DECLARE MIN_LATITUDE FLOAT;
