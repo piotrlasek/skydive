@@ -439,7 +439,7 @@ public class NYTCController implements SkydiveController {
         // assumes that the nytcStratum is loaded
         double tileSize = 2; // viewConfig.getBaseTileSize() * Math.pow(2, nytcStratum.getSpaceStratumNumber());
 
-        /*Box b1 = new Box(50, 50, 30);
+        Box b1 = new Box(50, 50, 30);
         b1.translateXProperty().set(0);
         b1.translateYProperty().set(0);
         b1.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -460,7 +460,7 @@ public class NYTCController implements SkydiveController {
                 log.info("b2");
             }
         });
-        b.setId("BOX 2");*/
+        b.setId("BOX 2");
 
 
         //nytcStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);

@@ -190,18 +190,7 @@ vboxmanage controlvm ubuntu poweroff
 vboxmanage natnetwork modify --netname natnet1 --port-forward-4 delete "ssh"
 vboxmanage natnetwork modify --netname natnet1 --port-forward-4 "ssh:tcp:[]:2222:[192.168.15.6]:22"
 
-A
-A
 VBoxManage storageattach "ubuntu" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium /local/data1/plasek/VMs/ubuntu-01/testvm-disk01.vdi
-A
-A
-B
-B
-B
-B
-B
-B
-B
-B
-B
-y
+
+
+ssh -p 2222 piotr@127.0.0.1
