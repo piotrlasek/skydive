@@ -17,7 +17,7 @@ public class ThreeDTuple implements Tuple {
     
     public long y;
     
-    public long value;
+    public float value;
 
     public ValueObject valueObject;
 
@@ -93,7 +93,7 @@ public class ThreeDTuple implements Tuple {
      *
      * @return
      */
-    public long getZ() {
+    public float getZ() {
         return value;
     }
 
@@ -101,7 +101,7 @@ public class ThreeDTuple implements Tuple {
      *
      * @param z
      */
-    public void setZ(long z) {this.value = z; }
+    public void setZ(float z) {this.value = z; }
 
     /**
      *

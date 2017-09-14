@@ -12,17 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.RotateEvent;
-import javafx.scene.input.ScrollEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.MeshView;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
@@ -57,10 +53,10 @@ public class NYTCController implements SkydiveController {
     ViewConfig viewConfig = new ViewConfig();
     DatasetConfig datasetConfig;
     DatabaseManager databaseManager;
-    ThreeDStratum threeDStratum;
+    NYTCStratum nytcStratum;
     Group rectangleGroup;
     Group axes = new Group();
-    int spaceStratumNumber = 9;
+    int level = 9;
     int timeStratumNumber = 9;
 
     /*private double mouseYold;
@@ -128,8 +124,10 @@ public class NYTCController implements SkydiveController {
 
     @FXML public void checkBoxPerspectiveClicked() {
         if (checkBoxPerspective.isSelected()) {
+            log.info("Camera type: perspective.");
             viewConfig.setCameraType("perspective");
         } else {
+            log.info("Camera type: parallel.");
             viewConfig.setCameraType("parallel");
         }
         updateStratum();
@@ -165,38 +163,38 @@ public class NYTCController implements SkydiveController {
     @FXML public void sliderTimeStratumMouseDragged() {
         log.info("sliderTimeStratumMouseDragged");
 
-        minTimeInStratum = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
-                "where space_layer = " + spaceStratumNumber + " and  " +
+        /*minTimeInStratum = databaseManager.getInt("SELECT min(time) from cubed_pyramid " +
+                "where space_layer = " + level + " and  " +
                 "time_layer = " + timeStratumNumber);
 
         maxTimeInStratum = databaseManager.getInt("SELECT max(time) from cubed_pyramid " +
-                "where space_layer = " + spaceStratumNumber + " and  " +
+                "where space_layer = " + level + " and  " +
                 "time_layer = " + timeStratumNumber);
 
         timeFilterSlider.setMax(maxTimeInStratum);
 
-        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
+        level = (int) sliderSpaceStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
 
         boolean exit = true;
 
         if (previousTimeStratumNumber != timeStratumNumber ||
-                previousSpaceStratum != spaceStratumNumber) {
+                previousSpaceStratum != level) {
             exit = false;
         }
 
-        previousSpaceStratum = spaceStratumNumber;
+        previousSpaceStratum = level;
         previousTimeStratumNumber = timeStratumNumber;
 
         if (exit == false) {
-            // time threeDStratum changed.
+            // time nytcStratum changed.
             // determining minimum time interval...
 
             //updateTimeSlider();
 
-            // updating threeDStratum
+            // updating nytcStratum
             updateStratum();
-        }
+        }*/
     }
 
     @FXML public void onTimeFilterSliderDragged() {
@@ -256,7 +254,7 @@ public class NYTCController implements SkydiveController {
 
     @FXML public void sliderSpaceStratumMouseReleased() {
         log.info("sliderSpaceStratumMouseReleased " + sliderSpaceStratum.getValue());
-        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
+        level = (int) sliderSpaceStratum.getValue();
         updateStratum();
     }
 
@@ -346,52 +344,26 @@ public class NYTCController implements SkydiveController {
             }
         });
 
-        scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                log.info("setOnMouseReleased()");
-                viewConfig.setOtx(0d);
-                viewConfig.setOty(0d);
-            }
-        });
-
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                double x = event.getSceneX();
-                double y = event.getSceneY();
+                //log.info("scene.mouseClicked: " + x + ", " + y + " SOURCE: " + event.getSource().toString());
+                PickResult pr = event.getPickResult();
+                //log.info(pr.getIntersectedNode().getId());
+                //log.info(pr.toString());
+
+                String idTab[] = pr.getIntersectedNode().getId().split(",");
+                long zoo = new Long(idTab[0]);
+                long zal = new Long(idTab[1]);
+                long zalp1 = new Long(idTab[2]);
+                long x = new Long(idTab[3]);
+                long y = new Long(idTab[4]);
+                long xal = new Long(idTab[5]);
+                long yal = new Long(idTab[6]);
+
+                log.info("x: " + x + ", y: " + y + ", zoo: " + zoo + ", zal: " + zal + ", zalp1: " + zalp1);
             }
         });
-
-        /*final Rotate xRotate = new Rotate(0,0,0,0,Rotate.X_AXIS);
-        final Rotate yRotate = new Rotate(0,0,0,0,Rotate.Y_AXIS);
-        camera.getTransforms().addAll(xRotate,yRotate);
-
-        scene.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getEventType() == MouseEvent.MOUSE_PRESSED ||
-                        event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-                    //acquire the new Mouse coordinates from the recent event
-                    double mouseXnew  = event.getSceneX();
-                    double mouseYnew = event.getSceneY();
-                    if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-                        //calculate the rotational change of the camera pitch
-                        double pitchRotate =xRotate.getAngle()+(mouseYnew - mouseYold) / rotateModifier;
-                        //set min/max camera pitch to prevent camera flipping
-                        pitchRotate = pitchRotate > cameraYlimit ? cameraYlimit : pitchRotate;
-                        pitchRotate = pitchRotate < -cameraYlimit ? -cameraYlimit : pitchRotate;
-                        //replace the old camera pitch rotation with the new one.
-                        xRotate.setAngle(pitchRotate);
-                        //calculate the rotational change of the camera yaw
-                        double yawRotate=yRotate.getAngle()-(mouseXnew - mouseXold) / rotateModifier;
-                        yRotate.setAngle(yawRotate);
-                    }
-                    mouseXold = mouseXnew;
-                    mouseYold = mouseYnew;
-                }
-            }
-        });*/
 
         scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
@@ -421,7 +393,6 @@ public class NYTCController implements SkydiveController {
                         rz.setAngle(tz);
                     } else {
                         if (otx == 0d) {
-                            log.info("XXX");
                             otx = event.getSceneX();
                         }
 
@@ -465,135 +436,89 @@ public class NYTCController implements SkydiveController {
      */
     private void drawTuples(Group rectangleGroup) {
 
-        // assumes that the threeDStratum is loaded
-        double tileSize = viewConfig.getBaseTileSize() * Math.pow(2, threeDStratum.getSpaceStratumNumber());
+        // assumes that the nytcStratum is loaded
+        double tileSize = 2; // viewConfig.getBaseTileSize() * Math.pow(2, nytcStratum.getSpaceStratumNumber());
 
-        //threeDStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
-        Point3D midTmp = threeDStratum.getMid();
+        /*Box b1 = new Box(50, 50, 30);
+        b1.translateXProperty().set(0);
+        b1.translateYProperty().set(0);
+        b1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event){
+                log.info("b1");
+            }
+        });
+        b1.setId("BOX 1");
+
+        Box b = new Box(50, 50, 50);
+        b.translateXProperty().set(60);
+        b.translateYProperty().set(60);
+
+        b.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                log.info("b2");
+            }
+        });
+        b.setId("BOX 2");*/
+
+
+        //nytcStratum = StratumLoader.loadStratum(datasetConfig, stratumNumber);
+        Point3D midTmp = nytcStratum.getMid();
         Point3D midData = midTmp.multiply(tileSize);
 
         Group plot = new Group();
 
-        Box b1 = new Box(tileSize, tileSize, 0);
-        Box b2 = new Box(tileSize, tileSize, 0);
-
-        plot.getChildren().add(b1);
-        plot.getChildren().add(b2);
-
-        b1.translateXProperty().set(-1000);
-        b1.translateYProperty().set(-1000);
-
-        b2.translateXProperty().set(1000);
-        b2.translateYProperty().set(1000);
-
-        if (viewConfig.getPlotType().equals(ViewConfig.PlotType.MESH)) {
-            // Show MESH
-            Triangulator triangulator = new EnhancedTriangulator(threeDStratum, viewConfig);
-            //Triangulator triangulator = new Triangulator(threeDStratum, viewConfig);
-
-            /*meshView = new MeshView(new MyMesh(t, viewConfig));
-
-            if (viewConfig.isWireMesh()) {
-                meshView.setDrawMode(DrawMode.LINE);
-            } else {
-                meshView.setDrawMode(DrawMode.FILL);
+        plot.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                log.info("group");
             }
+        });
 
-            meshView.getTransforms().add(new Rotate(270));
 
-            meshView.setMaterial();*/
-            MyMeshView meshView = new MyMeshView(viewConfig, triangulator);
-
-            //axes.getChildren().add(meshView);
-            plot.getChildren().add(meshView);
-            plot.translateZProperty().set(-midData.getZ());
-        } else {
-            // Show TILES or BOXES
-            for (Tuple t : threeDStratum.getTuples()) {
-
-                ThreeDTuple bt = (ThreeDTuple) t;
-
-                //double z = (bt.value / threeDStratum.getMax().getZ()) * 200;
-                double z = viewConfig.getScaleZ() * bt.getZ();
-                //double i = (bt.x * tileSize - midData.getX());
-                //double j = (bt.y * tileSize - midData.getY());
-
-                double i = (bt.x * tileSize - 500);
-                double j = (bt.y * tileSize -500);
-
-                Node node = null;
-
-                //double zTranslate = z - midTmp.getZ();
-                double zTranslate = z;
-
-                switch (viewConfig.getPlotType()) {
-                    case TILES: {
-                        Rectangle rect = new Rectangle(tileSize + 1, tileSize + 1);
-                        Color c;
-                        if (bt.valueObject != null) {
-                            c = bt.getColor();
-                        } else {
-                            c = Color.hsb(z + viewConfig.getHueShift(), 1.0, 1.0, 0.8);
-                        }
-                        rect.setFill(c);
-                        log.info("a");
-
-                        rect.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent event) {
-                                Rectangle x = (Rectangle) event.getSource();
-                                log.info("z: " + x.getId());
-                            }
-                        });
-                        node = rect;
-                    }
-                    break;
-                    case BOXES: {
-                        Box box = new Box(tileSize, tileSize, z);
-
-                        Color c;
-                        if (bt.valueObject != null) {
-                            c = bt.getColor();
-                        } else {
-                            c = Color.hsb(z + viewConfig.getHueShift(), 1.0, 1.0, 1);
-                        }
-
-                        PhongMaterial pm = new PhongMaterial();
-                        pm.setDiffuseColor(c);
-                        pm.setSpecularColor(c);
-                        box.setMaterial(pm);
-                        zTranslate -= z / 2;
-                        box.setId("" + z);
-
-                        box.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent event) {
-                                Box x = (Box) event.getSource();
-                                log.info("z: " + x.getId());
-                            }
-                        });
-
-                        node = box;
-                    }
-                    break;
-                }
-
-                node.translateYProperty().set(i);
-                node.translateXProperty().set(j);
-                node.translateZProperty().set(zTranslate);
-
-                // TODO: Node (tiles) may have an ID.
-                //b.setMaterial(material);
-                //rectangleGroup.getChildren().add(node);
-                //xxx++;
-                //node.setId("" + xxx);
-
-                plot.getChildren().add(node);
+        plot.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                log.info("plot");
             }
+        });
+
+        // Show TILES or BOXES
+        for (NYTCTuple bt : nytcStratum.getTuples()) {
+            //double z = (bt.value / nytcStratum.getMax().getZ()) * 200;
+            double z = viewConfig.getScaleZ() * 100f * bt.getZ() / nytcStratum.getMaxZ();
+            double i = (bt.getX() * tileSize - midData.getX());
+            double j = (bt.getY() * tileSize - midData.getY());
+
+            Node node = null;
+
+            double zTranslate = z - midTmp.getZ();
+
+            Box box = new Box(tileSize, tileSize, 0);
+
+            Color c;
+            double colorZ = bt.getZ() / nytcStratum.getMaxZ();
+            double saturation = 1;
+            c = Color.hsb(240 + 360 * colorZ + viewConfig.getHueShift(), saturation, 1.0, 1);
+
+            PhongMaterial pm = new PhongMaterial();
+            pm.setDiffuseColor(c);
+            pm.setSpecularColor(c);
+            box.setMaterial(pm);
+            box.setId("" + bt.getZoo() + "," + bt.getZal() + "," + bt.getZalp1() + "," + bt.getX() + "," + bt.getY() + "," +
+                    bt.getXal() + "," + bt.getYal() + "," + bt.getZ());
+
+            node = box;
+            node.translateYProperty().set(j);
+            node.translateXProperty().set(i);
+
+            plot.getChildren().add(node);
         }
 
         // add plot
         rectangleGroup.getChildren().add(plot);
+
     }
 
     /**
@@ -675,7 +600,7 @@ public class NYTCController implements SkydiveController {
     public void updateStratum() {
         log.info("updateStratum START");
 
-        spaceStratumNumber = (int) sliderSpaceStratum.getValue();
+        level = (int) sliderSpaceStratum.getValue();
         timeStratumNumber = (int) sliderTimeStratum.getValue();
 
         try {
@@ -684,11 +609,14 @@ public class NYTCController implements SkydiveController {
             // TODO: The below section is hardcoded for pyramids and cubed pyramids with time.
             int[] stratumCoordinates = new int[datasetConfig.getPyramidCoordinates().length];
             for (int i = 0; i < stratumCoordinates.length; i++) {
-                if (i == 0) stratumCoordinates[i] = spaceStratumNumber;
+                if (i == 0) stratumCoordinates[i] = level;
                 if (i == 1) stratumCoordinates[i] = timeStratumNumber;
             }
+
             log.info("t1");
-            threeDStratum = stratumLoader.loadThreeDStratum(stratumCoordinates, filter);
+
+            nytcStratum = stratumLoader.queryZoo(level);
+
             log.info("t2");
             rectangleGroup.getChildren().clear();
             log.info("t3");

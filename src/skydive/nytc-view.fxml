@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.NYTCController">
+
+<BorderPane prefHeight="765.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skydive.NYTCController">
    <center>
         <SplitPane dividerPositions="0.2782101167315175" prefHeight="160.0" prefWidth="200.0">
             <items>
@@ -123,7 +125,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="5.0" prefWidth="249.0">
                             <center>
-                                <Slider fx:id="sliderSpaceStratum" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" onMouseReleased="#sliderSpaceStratumMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="7.0" BorderPane.alignment="CENTER">
+                                <Slider fx:id="sliderSpaceStratum" blockIncrement="1.0" majorTickUnit="1.0" max="31.0" minorTickCount="0" onMouseReleased="#sliderSpaceStratumMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="22.0" BorderPane.alignment="CENTER">
                                     <BorderPane.margin>
                                         <Insets />
                                     </BorderPane.margin>
@@ -177,7 +179,7 @@
                                 </Label>
                             </left>
                             <center>
-                                <Slider fx:id="sliderBaseTile" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderBaseTileSizeMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" BorderPane.alignment="CENTER">
+                                <Slider fx:id="sliderBaseTile" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderBaseTileSizeMouseReleased" showTickLabels="true" showTickMarks="true" value="100.0" BorderPane.alignment="CENTER">
                                     <BorderPane.margin>
                                         <Insets />
                                     </BorderPane.margin>
@@ -196,7 +198,7 @@
                                 </Label>
                             </left>
                             <center>
-                                <Slider fx:id="sliderHueShift" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderHueShiftMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" BorderPane.alignment="CENTER">
+                                <Slider fx:id="sliderHueShift" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderHueShiftMouseReleased" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
                                     <BorderPane.margin>
                                         <Insets />
                                     </BorderPane.margin>
@@ -205,7 +207,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="8.0" prefWidth="257.0">
                             <center>
-                                <Slider fx:id="sliderScaleZ" blockIncrement="1.0" majorTickUnit="50.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderScaleZMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" BorderPane.alignment="CENTER">
+                                <Slider fx:id="sliderScaleZ" blockIncrement="1.0" majorTickUnit="10.0" max="250.0" minorTickCount="0" onMouseReleased="#sliderScaleZMouseReleased" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" BorderPane.alignment="CENTER">
                                     <BorderPane.margin>
                                         <Insets />
                                     </BorderPane.margin>

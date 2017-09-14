@@ -144,6 +144,14 @@ public class QueryHelper {
         return bt;
     }
 
+    /**
+     *
+     * @param rs
+     * @param measures
+     * @param attributes
+     * @return
+     * @throws SQLException
+     */
     public static TimeTuple toTimeTuple(ResultSet rs, String[] measures,
                                         String attributes[]) throws SQLException {
         long time = rs.getLong(measures[0]); //take this as a string so the axes can be created properly
@@ -161,5 +169,29 @@ public class QueryHelper {
     public static void createPyramid() {
         // TODO: Pyramid creation should be managed by SKYDIVE. For now, it is created manually.
     }
-    
+
+    public static NYTCTuple toNYTCTuple(ResultSet rs) throws SQLException {
+        NYTCTuple tuple = new NYTCTuple();
+
+        long zoo = rs.getLong("zoo");
+        long zal = rs.getLong("zal");       // zoo at level
+        long zalp1 = rs.getLong("zalp1");   // zoo at level + 1
+
+        long x = rs.getInt("x");
+        long y = rs.getInt("y");
+        long xal = rs.getInt("xal");
+        long yal = rs.getInt("yal");
+        long z = rs.getInt("z");
+
+        tuple.setX(x);
+        tuple.setY(y);
+        tuple.setZ(z);
+        tuple.setZoo(zoo);
+        tuple.setZal(zal);
+        tuple.setXal(xal);
+        tuple.setYal(yal);
+        tuple.setZalp1(zalp1);
+
+        return tuple;
+    }
 }
