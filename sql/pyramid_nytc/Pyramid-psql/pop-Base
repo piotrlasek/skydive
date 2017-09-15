@@ -33,8 +33,8 @@ create function popbase() returns int as $$
                 from Point
                 group by zoo
             ),
-            -- left  : at which level does this tile and the one left of it touch?
-            -- right : at which level does this tile and the one right of it touch?
+            -- left : at which level does this tile and the one left of it touch?
+            -- right: at which level does this tile and the one right of it touch?
             Neighbour (zoo, lft, rght, point) as (
                 select  zoo, adjAtLevel(dim_, maxDepth_, zoo,
                             max(zoo) over (
@@ -51,7 +51,7 @@ create function popbase() returns int as $$
                         point
                 from Base
             ),
-            -- ceiling : the level at which this tile touches a neighbour
+            -- ceiling: the level at which this tile touches a neighbour
             Ceiling (zoo, ceiling, lft, rght, point) as (
                 select zoo,
                     case
