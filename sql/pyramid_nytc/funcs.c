@@ -7,8 +7,11 @@
 PG_MODULE_MAGIC; 
 #endif 
 
-uint64_t morton_enc(uint32_t x, uint32_t y) {
-    uint64_t d = 0;
+int64_t morton_enc(uint32_t xi, uint32_t yi) {
+    int64_t d = 0;
+    uint64_t x = xi;
+    uint64_t y = yi;
+
     x = (x | (x << 16)) & 0x0000FFFF0000FFFF;
     x = (x | (x << 8)) & 0x00FF00FF00FF00FF;
     x = (x | (x << 4)) & 0x0F0F0F0F0F0F0F0F;

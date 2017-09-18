@@ -1,14 +1,10 @@
 package skydive.utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 /**
  * Created by Piotr Lasek on 01.08.2017.
  */
 public class Morton2D {
 
-    private static final Logger log = LogManager.getLogger(Morton2D.class);
 
     public static long morton2d(long x, long y) {
         long d;

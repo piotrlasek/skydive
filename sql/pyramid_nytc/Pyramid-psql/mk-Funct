@@ -35,10 +35,13 @@ begin
         return deepest + 1;
     else
         return deepest
-                - floor(ln(zooA # zooB)  / (dim * ln(2)));
+               -- - floor(ln(zooA # zooB) / (dim * ln(2)));
+               - floor(log(dim * 2, abs(zooA - zooB)));
     end if;
 end;
 $$ language plpgsql;
+
+-- --------------------------------------
 
 -- select adjatlevel(cast((3) as smallint), cast((4) as smallint), cast((3) as bigint), cast((4) as bigint));
 
@@ -58,8 +61,15 @@ create function zooAtLevel(
     level smallint,
     zoo bigint
     ) returns bigint as $$
+    declare div integer;
 begin
-    return floor(zoo / power(power(CAST((2) as bigint), dim), abs(deepest - level)));
+
+    div = power(4, abs(deepest - level));
+
+    -- raise 4 to the number of levels we want to and then divide...
+    -- return floor(zoo / power(power(CAST((2) as bigint), dim), abs(deepest - level)));
+    return zoo / div;
+
 end;
 $$ language plpgsql;
 

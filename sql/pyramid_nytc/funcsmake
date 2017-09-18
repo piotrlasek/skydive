@@ -7,14 +7,16 @@ sudo apt-get install postgresql-server-dev-9.3
 
 pg_config --includedir-server
 
+-- UWAGA 9.5 czasami należy zmienić na 9.3!!!
+
 cc -fpic -c -I/usr/include/postgresql/9.5/server funcs.c
 cc -shared -o funcs.so funcs.o
 
 alter table point add column zoo bigint;
 
 alter user piotr with superuser;
-create function morton_enc(integer,integer) returns bigint as '/funcs', 'morton_enc' language c strict;
 
+create function morton_enc(integer,integer) returns bigint as '/home/piotr/Shared/skydive/sql/pyramid_nytc/funcs', 'morton_enc' language c strict;
 
 create function morton_dec_x(bigint) returns int as '/funcs', 'morton_dec_x' language c strict;
 create function morton_dec_y(bigint) returns int as '/funcs', 'morton_dec_y' language c strict;
