@@ -1,0 +1,8 @@
+2017-08-22 13:27
+
+1. Select a point - top left corner of a window of interest at a given
+   layer.
+2. Remember zoo.
+3. Determine zoo at the higher level stratum.
+4. ...
+5. ...

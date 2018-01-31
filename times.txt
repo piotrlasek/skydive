@@ -1,0 +1,9 @@
+
+#records        1 223 543 178
+zoo values      1.06
+init. point     0.39
+
+                NI          WI       WI max
+--------------------------------------------
+popbase         3.33       3.01     
+popbystratum    1.77

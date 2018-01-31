@@ -28,8 +28,8 @@ import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import skydive.db.*;
-import skydive.gui.*;
+import skydive.database.*;
+import skydive.viewer.*;
 
 import javax.imageio.ImageIO;
 import java.io.File;

@@ -11,11 +11,11 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import skydive.db.*;
-import skydive.gui.DataSetEditFrame;
-import skydive.gui.Filter;
-import skydive.gui.FilterAttribute;
-import skydive.gui.FilterInterval;
+import skydive.database.*;
+import skydive.viewer.DataSetEditFrame;
+import skydive.viewer.Filter;
+import skydive.viewer.FilterAttribute;
+import skydive.viewer.FilterInterval;
 
 import java.io.File;
 import java.sql.SQLException;

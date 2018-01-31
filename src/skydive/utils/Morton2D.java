@@ -2,7 +2,7 @@ package skydive.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import skydive.db.StratumLoader;
+import skydive.database.StratumLoader;
 
 /**
  * Created by Piotr Lasek on 01.08.2017.
@@ -92,37 +92,7 @@ public class Morton2D {
         double zal = zoo / p;
         //Morton2D.log.info("a: " + a + ", b: " + b + ", p: " + p + ", zal: " + Math.floor(zal));
         //Morton2D.log.info("" + zoo + " / Math.pow(" + "Math.pow(2, " + dim + "), Math.abs(" + deepest + " - " + level + "))");
-
         return Math.floor(zal);
-    }
-    /**
-     *
-     * @param dim
-     * @param deepest
-     * @param level
-     * @param zoo
-     * @return
-     */
-    public static long zooAtLevelB(int dim, int deepest, int level, long zoo) {
-
-        long tzoo1 = zoo;
-        long tzoo2 = zoo;
-        long tzoo3 = zoo;
-
-        int div = (int) Math.pow(4, deepest-level);
-        tzoo3 = tzoo3 / div;
-
-        System.out.println("------------");
-        for (int i = 0; i < deepest - level; i++) {
-           tzoo1 = (tzoo1 / 4);
-           tzoo2 = (long) Math.floor(tzoo2 /4);
-        }
-
-        System.out.println(">" + tzoo1);
-        System.out.println(">" + tzoo2);
-        System.out.println(">" + tzoo3);
-
-        return (long) Math.floor(tzoo2);
     }
 
     /**
@@ -159,13 +129,19 @@ public class Morton2D {
         zoo = Morton2D.morton2d(2146941188, 2147097832);
         Morton2D.log.info(zoo);
         */
+        /*
         Morton2D.log.info("---------------------");
-        //Morton2D.log.info(Morton2D.zooAtLevelA(2, 31, 18, 1072178917556894766L));
         Morton2D.log.info(Morton2D.zooAtLevelB(2, 31, 18, 1072178917556894766L));
-        Morton2D.log.info("---------------------");
-        //Morton2D.log.info(Morton2D.zooAtLevelA(2, 31, 18, 1072178917613240256L));
         Morton2D.log.info(Morton2D.zooAtLevelB(2, 31, 18, 1072178917613240256L));
         Morton2D.log.info("---------------------");
+        Morton2D.log.info("---------------------");
+        Morton2D.log.info("---------------------");
+        Morton2D.log.info("---------------------");
+        */
+        long za = 973859886970576630L;
+        long zb = 973859886974469577L;
+        Morton2D.log.info("---------------------");
+        Morton2D.log.info(Morton2D.adjAtLevel2(2, 31, za, zb));
 
         /*Morton2D.log.info(Morton2D.adjAtLevel2(2, 31, 1072178917556894766L, 1072178917613240256L));
         Morton2D.log.info(Morton2D.adjAtLevel2(2, 31, 31, 32));

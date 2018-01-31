@@ -1,0 +1,40 @@
+CREATE INDEX ON DATA_5mln(PICKUP_DATETIME);
+CREATE INDEX ON DATA_5mln(DROPOFF_DATETIME);
+CREATE INDEX ON DATA_5mln(PICKUP_LONGITUDE);
+CREATE INDEX ON DATA_5mln(PICKUP_LATITUDE);
+CREATE INDEX ON DATA_5mln(DROPOFF_LONGITUDE);
+CREATE INDEX ON DATA_5mln(DROPOFF_LATITUDE);
+
+ALTER TABLE DATA_5MLN ADD COLUMN TRIP_TIME_SEC INTEGER;
+
+UPDATE DATA_5MLN SET TRIP_TIME_SEC = EXTRACT(EPOCH FROM (DROPOFF_DATETIME - PICKUP_DATETIME))::INTEGER WHERE DROPOFF_DATETIME > '2000-01-01' AND DROPOFF_DATETIME >= PICKUP_DATETIME;
+
+min
+40.514708, -74.187078
+
+max
+40.944278, -73.619383
+
+delete from DATA_5MLN where pickup_latitude < 40.514708;
+delete from DATA_5MLN where pickup_latitude > 40.944278;
+delete from DATA_5MLN where pickup_longitude < -74.187078;
+delete from DATA_5MLN where pickup_longitude > -73.619383;
+
+delete from DATA_5MLN where dropoff_latitude < 40.514708;
+delete from DATA_5MLN where dropoff_latitude > 40.944278;
+delete from DATA_5MLN where dropoff_longitude < -74.187078;
+delete from DATA_5MLN where dropoff_longitude > -73.619383;
+
+CREATE TABLE data_5mln_xy AS
+    SELECT
+        CAST(PICKUP_LONGITUDE - (select min(pickup_LONGITUDE) from data_5mln) AS BIGINT) AS X,
+        -CAST(pickup_latitude - (select max(pickup_latitude) from data_5mln) AS BIGINT) AS Y,
+        1 as point
+    FROM
+        DATA_5mln
+    limit 10;
+
+    select cast(1000000 * (pickup_longitude - (select min(pickup_longitude) from data_5mln)) as bigint) as x,
+           cast(1000000 * (pickup_latitude - (select max(pickup_latitude) from data_5mln)) as bigint) as y
+    from   data_5mln
+    limit  10;

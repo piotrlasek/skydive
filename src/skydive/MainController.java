@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import skydive.db.DatasetConfig;
+import skydive.database.DatasetConfig;
 
 import java.io.File;
 import java.io.IOException;
