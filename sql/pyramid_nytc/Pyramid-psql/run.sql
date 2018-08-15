@@ -1,6 +1,6 @@
 \timing on
-\i mk-Funct
-\i create-Pyramid
-\i pop-Base
-\i pop-ByStratum
+\i mk-Funct.sql
+\i create-Pyramid.sql
+\i pop-Base.sql
+\i pop-ByStratum.sql
 select popbase();

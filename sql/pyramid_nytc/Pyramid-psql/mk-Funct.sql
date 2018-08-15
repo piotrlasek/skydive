@@ -53,15 +53,19 @@ $$ language plpgsql;
 --     zoo     : the zoo to "convert"
 -- returns the zoo "converted" to represent tiles at level
 
-drop function if exists zooAtLevel(dim smallint, deepest smallint, level smallint, zoo bigint) cascade;
+drop function if exists zooAtLevel(
+    dim smallint,
+    deepest smallint,
+    level smallint,
+    zoo bigint) cascade;
 
 create function zooAtLevel(
     dim smallint,
     deepest smallint,
     level smallint,
-    zoo bigint
-    ) returns bigint as $$
-    declare div integer;
+    zoo bigint)
+        returns bigint as $$
+declare div integer;
 begin
 
     div = power(4, abs(deepest - level));
