@@ -1,0 +1,40 @@
+
+insert into Pyramid (lev, zoo, #point)
+with
+	-- group the raw data (Point) for "base" of pyramid
+	Base (zoo, #point) as (
+		select zoo, count(*)
+		from Point
+		group by zoo
+	),
+	Neighbour(zoo, before, after, #point) as (
+		select  zoo, 
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 preceding
+									 and 1 preceding),
+						0) ),
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 following
+									 and 1 following),
+						0) ),
+				#point
+		from Base
+	),
+	Ceiling(zoo, ceiling, #point) as (
+		select zoo,
+			case
+				when before > after then before
+				else                     after
+			end as ceiling,
+				#point
+		from Neighbour
+	)
+select ceiling, zoo, #point
+from Ceiling;
+

@@ -1,0 +1,6 @@
+
+create table Point (
+	row#   integer not null,
+	zoo    bigint  not null
+);
+

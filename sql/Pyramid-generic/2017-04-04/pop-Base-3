@@ -1,0 +1,62 @@
+
+insert into Pyramid (lev, zoo, left, right, #point)
+with
+	-- group the raw data (Point) for "base" of pyramid
+	Base (zoo, #point) as (
+		select zoo, count(*)
+		from Point
+		group by zoo
+	),
+	-- before : at which level does this tile and the one before it touch?
+	-- after  : at which level does this tile and the one after it touch?
+	Neighbour(zoo, before, after, #point) as (
+		select  zoo, 
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 preceding
+									 and 1 preceding),
+						0) ),
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 following
+									 and 1 following),
+						0) ),
+				#point
+		from Base
+	),
+	-- ceiling : the level at which this tile touches a neighbour
+	Ceiling(zoo, ceiling, #point) as (
+		select zoo,
+			case
+				when before > after then before
+				else                     after
+			end as ceiling,
+				#point
+		from Neighbour
+	),
+	-- left  : the level assigned to the neighbour before (to the left)
+	-- right : the level assigned to the neighbour after  (to the right)
+	Adjacent(lev, zoo, left, right, #point) as (
+		select  ceiling, zoo,
+				coalesce(
+					max(ceiling) over (
+						order by zoo asc
+						rows between 1 preceding
+								 and 1 preceding),
+					0),
+				coalesce(
+					max(ceiling) over (
+						order by zoo asc
+						rows between 1 following
+								 and 1 following),
+					0),
+				#point
+		from Ceiling
+	)
+select lev, zoo, left, right, #point
+from Adjacent;
+

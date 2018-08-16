@@ -1,0 +1,47 @@
+
+begin atomic
+
+declare dim_      smallint default  2;
+declare maxDepth_ smallint default 31;
+
+insert into Pyramid (lev, zoo, base, left, right, #point)
+with
+	-- group the raw data (Point) for "base" of pyramid
+	Base (zoo, #point) as (
+		select zoo, count(*)
+		from Point
+		group by zoo
+	),
+	-- left  : at which level does this tile and the one left of it touch?
+	-- right : at which level does this tile and the one right of it touch?
+	Neighbour(zoo, left, right, #point) as (
+		select  zoo, 
+				adjAtLevel(dim_, maxDepth_, zoo,
+					max(zoo) over (
+						order by zoo asc
+						rows between 1 preceding
+								 and 1 preceding)
+					),
+				adjAtLevel(dim_, maxDepth_, zoo,
+					max(zoo) over (
+						order by zoo asc
+						rows between 1 following
+								 and 1 following)
+					),
+				#point
+		from Base
+	),
+	-- ceiling : the level at which this tile touches a neighbour
+	Ceiling(zoo, ceiling, left, right, #point) as (
+		select zoo,
+			case
+				when left > right then left
+				else                   right
+			end as ceiling,
+			left, right, #point
+		from Neighbour
+	)
+select ceiling, zoo, maxDepth_, left, right, #point
+from Ceiling;
+
+end!

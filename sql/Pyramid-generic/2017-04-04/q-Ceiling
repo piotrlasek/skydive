@@ -1,0 +1,28 @@
+
+with
+	Neighbour(row#, before, after) as (
+		select row#, 
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 preceding and 1 preceding),
+						0) ),
+				adjAtLevel(2, 31, zoo,
+					coalesce(
+						max(zoo) over (
+							order by zoo asc
+							rows between 1 following and 1 following),
+						0) )
+		from Point
+	)
+
+select row#,
+	case
+		when before > after then before
+		else                     after
+	end as ceiling
+from Neighbour
+where row# < 100
+order by row#;
+

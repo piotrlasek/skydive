@@ -1,0 +1,25 @@
+-- ===========================================================================
+-- test-Neighbour : small toy harness to test function adjAtLevel
+-- 
+-- parke godfrey
+-- 2017-04-03
+-- ===========================================================================
+
+select  zoo, 
+        adjAtLevel(1, 8, zoo,
+            max(zoo) over (
+                order by zoo asc
+                rows between 1 preceding and 1 preceding
+            ) ) as left,
+        adjAtLevel(1, 8, zoo,
+            max(zoo) over (
+                order by zoo asc
+                rows between 1 following and 1 following
+            ) ) as right
+from (
+        values  (221), -- 11011101
+                (235), -- 11101011
+                (237)  -- 11101101
+    ) as Z (zoo)
+order by zoo asc;
+

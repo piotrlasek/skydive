@@ -1,0 +1,57 @@
+
+create table Pyramid (
+	lev    smallint not null,
+	zoo    bigint not null,
+	#point int,
+	constraint pyramidPK
+		primary key (lev, zoo)
+);
+
+insert into Pyramid (lev, zoo, #point)
+with
+	-- generate a million random points
+	Point (row#, zoo) as (
+		select row#, zoo
+		from (values (0, rand() * power(2, 62)))
+				as Start (row#, zoo)
+		union all
+		select row# + 1, rand() * power(2, 62)
+		from Point
+		where row# < 10000000 - 1
+	),
+	-- group them for base of pyramid at lev == 31
+	Base (lev, zoo, #point) as (
+		select 31, zoo, count(*)
+		from Point
+		group by zoo
+	),
+	-- find the zoo one level _up_
+	BaseUp (lev, zoo, up, #point) as (
+		select  lev, zoo,
+				max(zoo / 4) over (
+					order by zoo asc
+					rows between unbounded preceding and current row),
+				#point
+		from Base
+	),
+	-- build the strata
+	-- NO: cannot collapse partition groups w/i recursion
+	Strata (lev, zoo, up, #quad, #point) as (
+		select  lev, zoo, up,
+				count(*) over (partition by up),
+				#point
+		from BaseUp
+		union all
+		select  lev - 1, up, 
+				max(up / 4) over (
+					order by up asc
+					rows between unbounded preceding and current row),
+				count(*) over (partition by up / 4),
+				#point
+		from Strata
+		where lev > 0
+	)
+select lev, zoo, #point
+from Strata
+where lev = 0 or #quad > 1;
+

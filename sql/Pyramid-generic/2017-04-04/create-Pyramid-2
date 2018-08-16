@@ -1,0 +1,9 @@
+
+create table Pyramid (
+	lev    smallint not null,
+	zoo    bigint not null,
+	#point int,
+	constraint pyramidPK
+		primary key (lev, zoo)
+);
+
