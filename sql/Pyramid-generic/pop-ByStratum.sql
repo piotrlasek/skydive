@@ -21,9 +21,9 @@ declare
     stratum_  smallint;
 begin
     stratum_ = (select max(lev) from Pyramid);
-    RAISE NOTICE 'Level %.', stratum_;
 
     while stratum_ > 0 loop
+        RAISE NOTICE 'Level %.', stratum_;
         insert into Pyramid(lev, zoo, base, lft, rght, pointCnt)
         with
             -- Select out all cells at level stratum_,
