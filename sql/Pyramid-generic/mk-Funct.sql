@@ -5,7 +5,8 @@
 -- created: 2017-03-31 [v0] ["mk-Funct"]
 -- version: 2017-04-03 [v1]
 -- authors: parke godfrey (PG), piotr lasek (PL)
---    last: 2017-05-03 [v3] ; ported to PostgreSQL (PL)
+-- version: 2017-05-03 [v2] ; ported to PostgreSQL (PL)
+--    last: 2017-08-16 [v3] ; redone for bit-strings, added functs
 -- ===========================================================================
 
 -- ===========================================================================
@@ -33,6 +34,93 @@ begin
             ),
             ''
         ) :: bit varying;
+end;
+$$ language plpgsql;
+
+-- ===========================================================================
+-- interlaceBitStrings
+--     bitstrs bit varying [] -- array of bit-strings
+-- ---------------------------------------------------------------------------
+
+drop function if exists
+interlaceBitStrings(
+    bitstrs bit varying []
+)
+cascade;
+
+create function
+interlaceBitStrings(
+    bitstrs bit varying []
+)
+returns bit varying as $$
+declare
+    laced  bit varying default B'';
+    head   bit(1);
+    alen   integer;
+    blen   integer;
+    a      integer     default 1;
+    b      integer     default 1;
+begin
+    alen := array_length(bitstrs, 1);
+    blen := length(bitstrs[1]);
+    while b <= blen loop
+        a := 1;
+        while a <= alen loop
+            head       := bitstrs[a]::bit(1); -- pulls off first bit
+            bitstrs[a] := bitstrs[a] << 1;    -- shift bit off
+            laced      := laced || head;      -- appends at end
+            a          := a + 1;              -- advance array counter
+        end loop;
+        b := b + 1; -- advance bit counter
+    end loop;
+    return laced;
+end;
+$$ language plpgsql;
+
+-- ===========================================================================
+-- unlaceBitString
+--     dim    integer
+--     bitstr bit varying
+-- ---------------------------------------------------------------------------
+
+drop function if exists
+unlaceBitString(
+    dim    integer,
+    bitstr bit varying
+)
+cascade;
+
+create function
+unlaceBitString(
+    dim    integer,
+    bitstr bit varying
+)
+returns bit varying [] as $$
+declare
+    unlaced bit varying [];
+    head    bit(1);
+    blen    integer;
+    a       integer  default 1;
+    b       integer  default 1;
+begin
+    while a <= dim loop
+        unlaced := unlaced || B''::bit varying;
+        a := a + 1;
+    end loop;
+
+    blen := length(bitstr) / dim;
+    while b <= blen loop
+        a := 1;
+        while a <= dim loop
+            head       := bitstr::bit(1);     -- pulls off first bit
+            bitstr     := bitstr << 1;        -- shift bit off
+            unlaced[a] := unlaced[a] || head; -- append bit
+            a := a + 1;
+        end loop;
+        b := b + 1;
+    end loop;
+
+    return unlaced;
 end;
 $$ language plpgsql;
 
