@@ -1,0 +1,19 @@
+# This is for compiling and linking on Parke's mac, Axiom.
+# Tailor as needed.
+
+# source this
+
+gcc -fpic \
+    -c    \
+    -I/opt/local/include/postgresql96/server \
+    zoo-functions.c
+gcc -bundle \
+    -bundle_loader /opt/local/lib/postgresql96/bin/postgres \
+    -o zoo-functions.so \
+    zoo-functions.o
+
+# After this, you want to "create" the functions in Postgres, 
+# IF you changed any function's signature or added new ones in the C.
+# Otherwise, leave any PSQL shell you were in, and go back in to force
+# relinking the "SO".
+
