@@ -49,8 +49,7 @@ adjAtLevel(int, bit varying, bit varying)
 returns int
     as '/Users/godfrey/Research/Project/DataTexture/GIT/skydive/sql/Pyramid-generic/funct-C/zoo-functions',
     'adjAtLevel'
-    language c
-    strict;
+    language c;
 
 -- ===========================================================================
 -- zooAtLevel
@@ -69,8 +68,8 @@ zooAtLevel(
 cascade;
 
 create function
-zooAtLevel(int, bit varying, bit varying)
-returns int
+zooAtLevel(int, int, bit varying)
+returns bit varying
     as '/Users/godfrey/Research/Project/DataTexture/GIT/skydive/sql/Pyramid-generic/funct-C/zoo-functions',
     'zooAtLevel'
     language c

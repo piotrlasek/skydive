@@ -75,7 +75,8 @@ begin
     end loop;
     return laced;
 end;
-$$ language plpgsql;
+$$ language plpgsql
+immutable;
 
 -- ===========================================================================
 -- unlaceBitString
@@ -122,7 +123,8 @@ begin
 
     return unlaced;
 end;
-$$ language plpgsql;
+$$ language plpgsql
+immutable;
 
 -- ===========================================================================
 -- adjAtLevel
@@ -160,7 +162,8 @@ begin
         return floor((onePos - 1) / dim) + 1;
     end if;
 end;
-$$ language plpgsql;
+$$ language plpgsql
+immutable;
 
 -- ===========================================================================
 -- zooAtLevel
@@ -190,5 +193,6 @@ begin
     mask := (zoo | ~zoo) >> (dim * lev);
     return zoo & ~mask;
 end;
-$$ language plpgsql;
+$$ language plpgsql
+immutable;
 

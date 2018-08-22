@@ -211,11 +211,13 @@ Datum zooAtLevel(PG_FUNCTION_ARGS) {
 		--byteLen;
 		++i;
 	}
+	/* Not needed because of the palloc0!
 	while (byteLen > 0) {
 		VARBITS(up)[i] = 0x00;
 		--byteLen;
 		++i;
 	}
+	*/
 
 	PG_RETURN_VARBIT_P(up);
 }
