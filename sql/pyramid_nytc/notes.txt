@@ -1,8 +1,24 @@
-2017-08-22 13:27
+27 August, 2018    Downloading trips to a usb hd connected to a server inside my home network
 
-1. Select a point - top left corner of a window of interest at a given
-   layer.
-2. Remember zoo.
-3. Determine zoo at the higher level stratum.
-4. ...
-5. ...
+ubuntu (193.109.239.39)
+-----------------------
+l: p-r
+p: x-1
+P: 2244
+
+indigo
+------
+
+screen -S down-1bln  create a new screen
+// screen -ls           list screens
+// Ctrl + a, d          detach from the current screen
+// screen -r            reattach
+ssh sparq
+
+sparq
+-----
+
+// data -> /local/data1/plasek
+// scp -P 2244 hello.txt piotr@193.109.239.39:~/
+
+scp -P 2244 data/data_1bln.pg piotr@193.109.239.39:/media/usbhd
