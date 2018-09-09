@@ -2,14 +2,21 @@
 -- Author      : Piotr Lasek
 -- Description : 
 
+-- UBUNTU
+-- ----------------------------------------------------
+
+-- check your version of postgresql 
+dpkg --get-selections | grep postgres
+
+-- then install a proper dev package
 
 sudo apt-get install postgresql-server-dev-9.3
+sudo apt-get install postgresql-server-dev-10
 
+-- check where header files are located and use below
 pg_config --includedir-server
 
--- UWAGA 9.5 czasami należy zmienić na 9.3!!!
-
-cc -fpic -c -I/usr/include/postgresql/9.5/server funcs.c
+cc -fpic -c -I/usr/include/postgresql/10/server funcs.c
 cc -shared -o funcs.so funcs.o
 
 alter table point add column zoo bigint;
@@ -21,5 +28,19 @@ create function morton_enc(integer,integer) returns bigint as '/home/piotr/Share
 create function morton_dec_x(bigint) returns int as '/funcs', 'morton_dec_x' language c strict;
 create function morton_dec_y(bigint) returns int as '/funcs', 'morton_dec_y' language c strict;
 
-
 update point set zoo = morton2d(x,y);
+
+-- WINDOWS
+-------------------------------------------------------------------------------
+Based on: https://www.ics.uci.edu/~jacobson/cs122b/Project/06-CFunctions.html
+
+1. Get Microsoft Visual Studio
+2. Open VS Prompt / x64 Native Tools Command Prompt for VS 2017
+3. Compile the code
+
+cl /I "D:\Apps\PostgreSQL\pg96\include\postgresql\server" /I "D:\Apps\PostgreSQL\pg96\include\postgresql\server\port\win32" /c "D:\skydive\sql\pyramid_nytc\funct-win.c"
+
+4. Link the resulting objet
+
+--> Does not work so easily.
+

@@ -1,3 +1,97 @@
+9 Sept., 2018 Switching to bash on windows
+
+1. Installing postgresql
+
+sudo apt-get install postgresql postgresql-contrib
+
+2. Starting db server
+
+sudo service postgresql start
+
+-- notes on how to get data from sparq to my local laptop
+
+3. changing data storage location
+    // based on: http://climber2002.github.io/blog/2015/02/07/install-and-configure-postgresql-on-ubuntu-14-dot-04/
+
+    sudo service postgresql stop
+
+    create a folder /mnt/d/ubuntu/postgres
+    sudo chown -R postgres:postgres /mnt/d/ubuntu/postgres
+    
+    // in case of issues with folders ownership use this
+    sudo umount /mnt/d
+    sudo mount -t drvfs D: /mnt/d -o metadata
+
+    // make changes in a config file
+    sudo vim /etc/postgresql/10/main/postgresql.conf
+    data_directory = '/mnt/ubuntu/postgres'
+
+    // initialize folder as a data folder
+    sodo -u postgres
+    /usr/lib/postgresql/9.3/bin/initdb -D /database
+
+    // exit from postres's bash
+    sudo service postgresql start
+
+    // connecting from outside of the bash
+    psql -h localhost -U postgres -W postgres
+
+
+
+
+SPARQ
+
+Exporting data from a virtual box machine on sparq to a text file.
+
+1. ssh indigo
+2. ssh sparq
+3. See notes in virtual-machine-on-sparq.txt
+4. Run ubuntu
+   vboxheadless -startvm ubuntu --vrdp on & 
+
+5. ssh ubuntu
+   ssh -p 2222 piotr@127.0.0.1
+
+6. export full dataset 
+   sudo -u postgres pg_dump -d nytcfull --table=data_1bln > data_1bln.pg
+
+7. copy file from the virtual machine to indigo
+
+   piotr@ubuntu:~$ scp data_1bln.pg plasek@indigo.cse.yorku.ca:/tmp
+
+8. copy the file to the localmachine from indigo
+
+   piotr@marax MINGW64 ~ $ scp plasek@indigo.cse.yorku.ca:/tmp/testdump.pg /d/data_1bln.pg
+
+9. restore db on a local postgresql, login to postgres and run
+
+   postgres=# \i 'E:/data_1bln.pg'
+
+
+PostgreSQL on Windows
+
+Starting a service
+"D:\Program Files\PostgreSQL\9.5\bin\pg_ctl.exe" runservice -N "postgresql-x64-9.5" -D "D:\Program Files\PostgreSQL\9.5\data" -w
+
+run psql on Windows
+1. Open PowerShell or CommandLIne
+2. Goto PostgreSQL installation folder
+   cd D:\Program Files\PostgreSQL\9.5\bin>
+3. Run
+   D:\Program Files\PostgreSQL\9.5\bin> .\psql.exe -h localhost -U postgres -d postgres
+   password: postgres
+
+
+restore a table
+
+
+
+
+8 Sept., 2018
+
+- calculate_xyuv function created
+
+
 27 August, 2018    Downloading trips to a usb hd connected to a server inside my home network
 
 ubuntu (193.109.239.39)
