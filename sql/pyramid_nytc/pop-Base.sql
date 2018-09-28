@@ -8,24 +8,21 @@
 --     Note that no aggregating of boxes is done here, except for preparing
 --     the "base".
 -- 
--- Author:      parke godfrey
--- Create date: 2017-04-02
--- History:   
---    2017-05-19 (Piotr Lasek) Porting to Postgresql, popbase takes 116 secs.
---                             on MBP.
----------------------------------------------------------------------------
--- To run this from the command line for DB2:
--- % db2 -td! -f pop-Base
+--  author: parke godfrey
+-- created: 2017-04-02 [v0]
+-- authors: parke godfrey (PG), piotr lasek (PL)
+-- version: 2017-05-19 [v1] ; ported to PostgreSQL (PL)
+--    last: 2018-08-14 [v2] ; switched zoo to use bit()
 -- ===========================================================================
 
 drop function if exists popbase();
 
 create function popbase() returns int as $$
     declare dim_      smallint default  2;
-    declare maxDepth_ smallint default 31;
+    declare maxDepth_ smallint default 32;
 
     begin
-        insert into Pyramid (lev, zoo, base, lft, rght, point)
+        insert into Pyramid (lev, zoo, base, lft, rght, pointCnt)
         with
             -- group the raw data (Point) for "base" of pyramid
             Base (zoo, point) as (
@@ -33,21 +30,30 @@ create function popbase() returns int as $$
                 from Point
                 group by zoo
             ),
-            -- left : at which level does this tile and the one left of it touch?
-            -- right: at which level does this tile and the one right of it touch?
+            -- left : at which level does this tile and
+            --        the one left of it touch?
+            -- right: at which level does this tile and
+            --        the one right of it touch?
             Neighbour (zoo, lft, rght, point) as (
-                select  zoo, adjAtLevel(dim_, maxDepth_, zoo,
-                            max(zoo) over (
+                select  zoo,
+                        adjAtLevel(
+                            dim_,
+                            zoo::bit varying,
+                            (max(zoo::text) over (
                                 order by zoo asc
                                 rows between 1 preceding
-                                         and 1 preceding)
-                            ),
-                        adjAtLevel(dim_, maxDepth_, zoo,
-                            max(zoo) over (
+                                         and 1 preceding) 
+                                         )::bit varying
+                        ),
+                        adjAtLevel(
+                            dim_,
+                            zoo::bit varying,
+                            (max(zoo::text) over (
                                 order by zoo asc
                                 rows between 1 following
                                          and 1 following)
-                            ),
+                                         )::bit varying
+                        ),
                         point
                 from Base
             ),
@@ -61,9 +67,10 @@ create function popbase() returns int as $$
                     lft, rght, point
                 from Neighbour
             )
-        select ceiling, zoo, maxDepth_, lft, rght, point
+        select ceiling, zoo::bit(64), maxDepth_, lft, rght, point
         from Ceiling;
 
         return 0;
     end;
 $$ language plpgsql;
+

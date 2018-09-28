@@ -27,16 +27,13 @@ sudo service postgresql start
     data_directory = '/mnt/ubuntu/postgres'
 
     // initialize folder as a data folder
-    sodo -u postgres
-    /usr/lib/postgresql/9.3/bin/initdb -D /database
+    sodo -u postgres /usr/lib/postgresql/10/bin/initdb -D /mnt/e/ubuntu/postgres
 
     // exit from postres's bash
     sudo service postgresql start
 
     // connecting from outside of the bash
     psql -h localhost -U postgres -W postgres
-
-
 
 
 SPARQ
@@ -83,8 +80,6 @@ run psql on Windows
 
 
 restore a table
-
-
 
 
 8 Sept., 2018

@@ -34,7 +34,6 @@ select
 from bits
 where z2 is not null;
 
-
 --with recursive sample(n, a, b) as (
 --      values(1, cast(random() * (2^32 - 1) as bigint), cast(random() * (2^32 - 1) as bigint))
 --      union all

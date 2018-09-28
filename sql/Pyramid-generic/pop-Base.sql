@@ -38,19 +38,21 @@ create function popbase() returns int as $$
                 select  zoo,
                         adjAtLevel(
                             dim_,
-                            zoo,
+                            zoo::bit varying,
                             (max(zoo::text) over (
                                 order by zoo asc
                                 rows between 1 preceding
-                                         and 1 preceding) )::bit varying
+                                         and 1 preceding) 
+                                         )::bit varying
                         ),
                         adjAtLevel(
                             dim_,
-                            zoo,
+                            zoo::bit varying,
                             (max(zoo::text) over (
                                 order by zoo asc
                                 rows between 1 following
-                                         and 1 following) )::bit varying
+                                         and 1 following)
+                                         )::bit varying
                         ),
                         point
                 from Base
@@ -65,7 +67,7 @@ create function popbase() returns int as $$
                     lft, rght, point
                 from Neighbour
             )
-        select ceiling, zoo, maxDepth_, lft, rght, point
+        select ceiling, zoo::bit(64), maxDepth_, lft, rght, point
         from Ceiling;
 
         return 0;

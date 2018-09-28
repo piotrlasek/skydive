@@ -30,6 +30,8 @@ create function morton_dec_y(bigint) returns int as '/funcs', 'morton_dec_y' lan
 
 update point set zoo = morton2d(x,y);
 
+create function morton_enc(bigint, bigint) returns bigint as '/mnt/d/skydive/sql/pyramid_nytc/funcs', 'morton_enc' language c strict;
+
 -- WINDOWS
 -------------------------------------------------------------------------------
 Based on: https://www.ics.uci.edu/~jacobson/cs122b/Project/06-CFunctions.html
